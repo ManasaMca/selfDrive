@@ -1,0 +1,29 @@
+export const BASE_URL = 'http://api.inatrip.in/api/';
+export const bookRideEndPoint = 'bookride.php';
+export const offerRideEndPoint = 'rideoffer.php';
+export const getCarsEndPoint = 'getcars.php';
+export const getAvailableRidesEndPoint = 'available-cars.php';
+export const profileOtpEndPoint = 'profile-otp.php';
+export const profileEndPoint = 'add-profile.php';
+export const updateEndPoint = 'update-profile.php';
+
+export const driverProfileEndPoint = 'add-driver.php';
+export const addCarEndPoint = 'add-car.php';
+export const getDriverEndPoint = 'getdrivers.php'
+export const listRidesEndPoint = 'list-rides.php'
+export const ratingsEndPoint = 'custrating.php'
+export const startRideEndPoint = 'start-ride.php'
+export const endRideEndPoint = 'end-ride.php'
+export const updateScratchEndPoint = 'update-scratch.php'
+export const confirmRideEndPoint = 'confirm-ride-otp.php'
+export const requestRideEndPoint = 'request-ride.php'
+export const rewardsEndPoint = 'scratch-details.php'
+export const registerDevice = 'register-device.php';
+export const getProfileEndPoint = 'get-profile.php';
+export const cancelBookride = "cancel-book-ride.php";
+export const cancelOfferride = "cancel-offer-ride.php";
+export const custRating = "custrating.php";
+export const updateDriver = "update-driver.php";
+export const updateCar = "update-car.php";
+export const API_KEY = 'AIzaSyDFrl_WzEA9GKKtFCk52ealyMPoS9akd4U';
+
