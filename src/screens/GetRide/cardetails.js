@@ -3,6 +3,7 @@ import { View, Picker, StyleSheet, Text, TextInput, TouchableOpacity, Image, Scr
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { AppConstants } from '../../constants/appconstants';
 import colors from "../../stylesheet/colors";
+import styles from './cardetailsStyles'
 
 const Cardetails = () => {
     return (
@@ -12,7 +13,7 @@ const Cardetails = () => {
             <View style={styles.container}>
                 <View style={{ top: 20 }}>
 
-                    <View style={{ marginTop: 20 }}>
+                    <View style={styles.text1}>
                         <Text style={{ fontSize: 30, fontWeight: 'bold', color: colors.white, textAlign: 'center' }}>
                             Car Details
                         </Text>
@@ -91,15 +92,5 @@ export default Cardetails;
 
 
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        height: 150,
-        paddingBottom: 80,
-        alignItems: "center",
-        backgroundColor: colors.themeColor,
-    },
-
-});
 
 

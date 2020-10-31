@@ -51,12 +51,12 @@ const Passangers = () => {
 
             </View>
 
-            <View style={{ flexDirection: 'row', justifyContent: 'space-around', top: 50 }}>
-              <View style={{ height: 50, width: 120, backgroundColor: 'grey', borderRadius: 10 }}>
-                <Text style={{ color: 'white', marginTop: 15, alignSelf: 'center', fontSize: 15, fontWeight: 'bold' }}> Upto 4 Seat</Text>
+            <View style={styles.view_1}>
+            <View style={styles.seats1}>
+                <Text style={styles.text4}> Upto 4 Seat</Text>
               </View>
-              <View style={{ height: 50, width: 120, backgroundColor: 'grey', borderRadius: 10 }}>
-                <Text style={{ color: 'white', marginTop: 15, alignSelf: 'center', fontSize: 15, fontWeight: 'bold' }}> Above 4 Seat</Text>
+              <View style={styles.seats1}>
+                <Text style={[styles.text4]}> Above 4 Seat</Text>
               </View>
 
 
