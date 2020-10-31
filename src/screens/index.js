@@ -9,24 +9,22 @@ import colors from '../stylesheet/colors';
 import Login from './GetRide/login';
 import { AppConstants } from '../constants/appconstants';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp, widthPercentageToDP } from 'react-native-responsive-screen';
-import { RFValue } from 'react-native-responsive-fontsize';
+
 import Passangers from './OfferRide/Passangers';
 import OfferRide from './OfferRide/OfferRide';
-import RegisteredCars from './OfferRide/RegisteredCars';
+// import RegisteredCars from './OfferRide/RegisteredCars';
 import OTPVerification from './GetRide/OTPVerification';
-import splashscreen from './GetRide/splashScreen';
+// import splashscreen from './GetRide/splashScreen';
 import Home from './GetRide/Home';
 import UserSignUp from "./GetRide/UserSignUp";
 import Registercar from "./GetRide/RegisterCar";
 import UserProfile from "./GetRide/UserProfile";
 import Cardetails from "./GetRide/cardetails";
 import AvailableCars from "./OfferRide/availablecars";
-import { Easing, Animated } from 'react-native';
 import { heightPercentageToDP, responsiveHorizontalSize, responsiveVerticalSize, } from '../stylesheet/responsiveSize';
 
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-const { width, height } = Dimensions.get("screen");
+
 const MainTab = createBottomTabNavigator();
 
 const MainStack = createStackNavigator();

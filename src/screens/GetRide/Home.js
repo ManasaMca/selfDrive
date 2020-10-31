@@ -3,26 +3,8 @@ import { SafeAreaView, StyleSheet, StatusBar, View, Text,Dimensions, Image,BackH
 import colors from '../../stylesheet/colors';
 import { AppConstants } from '../../constants/appconstants';
 import styles from './HomeStyles';
-// import { connect, useDispatch } from 'react-redux';
-// import { doGetProfileRequest } from '../../state/actions';
-// import { getMobileNumber } from '../../utils/AsyncStorageHelper';
-
 const { width, height } = Dimensions.get("screen");
 const Home = ({ navigation }) => {
- //const dispatch = useDispatch();
-
- // const fetchUserData = async() => {
-   // const mobile = await getMobileNumber();
-   // console.log("mobile :- ", mobile);
-   // const data = {
-    //  mobile: mobile,
-    //};
-   // dispatch(doGetProfileRequest(data));
-  //}
-
- // useEffect(() => {
- //   fetchUserData();
-//  }, []) 
 
   return (
     <>
@@ -32,26 +14,17 @@ const Home = ({ navigation }) => {
         <View style={{marginBottom:75}}>
         <View style={[styles.flex_row]} >
          <View style={[styles.pv1]}>
-            <TouchableOpacity
-             // onPress={() =>  BackHandler.exitApp()}
-             >
+            <TouchableOpacity >
               <Image source={AppConstants.BackArrow} alt="" />
             </TouchableOpacity>
           </View>
          <View style={ [styles.logoView] }>
-                        {/* <Image source={ AppConstants.LogoMedium } alt="" /> */}
+                      
                         <Text>
                             Logo
                         </Text>
                     </View>
-        {/*  <View style={[styles.logoutView]}>
-            <TouchableOpacity onPress={() => BackHandler.exitApp()}
-            >
-              <Text style={[styles.logoutBtnText]}>
-               Exit
-              </Text>
-            </TouchableOpacity>
-        </View> */}
+       
         </View>
         <View style={[styles.lineView]} />
       

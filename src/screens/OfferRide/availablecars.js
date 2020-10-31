@@ -9,7 +9,6 @@ import { useRoute, useNavigation } from '@react-navigation/native';
 
 const AvailableCars = () => {
     const navigation = useNavigation();
-    const [isSelected, setSelection] = useState(false);
     return (
         <>
         <StatusBar barStyle="light-content" backgroundColor={colors.themeColor} />
