@@ -27,15 +27,10 @@ const OfferRide = (props) => {
             <Text style={[styles.text1, { flex: 1 }]}>Find Car</Text>
 
           </View>
-
-
-
         </View>
-        <View style={{ width: '100%', height: heightPercentageToDP('100%') - 60 }}>
-        
+        <View style={{ width: '100%', height: heightPercentageToDP('100%') -30,justifyContent:'center' }}>
+        <Text style={{fontSize:20,fontWeight:'bold',textAlign:'center'}}>Map View</Text>
         </View>
-
-
         <View style={{ flexDirection: 'row', justifyContent: 'space-around', bottom: 50 }}>
           <View style={{ width: 100, height: 70, backgroundColor: 'white', bottom: 100, borderRadius: 10 }}>
             <Text style={{ margin: 5, fontWeight: 'bold' }}>Rahul Sharma</Text>

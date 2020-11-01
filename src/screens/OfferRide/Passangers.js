@@ -27,14 +27,14 @@ const Passangers = () => {
               <View style={[styles.logoView]}>
                 <Text>
                   Logo
-             </Text>
+                </Text>
               </View>
             </View>
             <View>
 
               <Text style={[styles.text2]}>
                 When are you going?
-          </Text>
+              </Text>
             </View>
             <View>
 
@@ -44,7 +44,7 @@ const Passangers = () => {
               <Text
                 style={[styles.text3]}>
                 What date do you want car?
-          </Text>
+              </Text>
             </View>
 
             <View>
@@ -62,9 +62,7 @@ const Passangers = () => {
 
               <View style={[styles.nextView]}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('OfferRide')}
-
-                >
+                  onPress={() => navigation.navigate('OfferRide')} >
                   <Image source={AppConstants.Next} alt="" />
                 </TouchableOpacity>
               </View>

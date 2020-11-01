@@ -72,26 +72,6 @@ const UserSignUp = ({ navigation }) => {
                             />
                         </View>
                     </View>
-                  
-                    <View style={[styles.mobileView]}>
-                    <View style={{ width: '80%' ,borderBottomColor:colors.black,borderBottomWidth:1,marginTop:10}}>
-                        <TextInput 
-                        
-                             placeholder="City"
-                             placeholderTextColor="black"
-                                keyboardType="default" 
-                            />
-                        </View>
-                    </View>
-                    <View style={[styles.mobileView]}>
-                        <View style={{ width: '80%' ,borderBottomColor:colors.black,borderBottomWidth:1,marginTop:10}}>
-                        <TextInput 
-                             placeholder="Pincode"
-                                keyboardType="default"
-                                placeholderTextColor="black"
-                            />
-                        </View>
-                    </View>
                     
                     <View style={[styles.condnView]}>
                         <View style={{ width: '80%',  }}>
