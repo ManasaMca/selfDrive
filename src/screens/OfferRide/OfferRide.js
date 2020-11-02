@@ -23,34 +23,40 @@ const OfferRide = (props) => {
             top: 10,
             zIndex: 5,
           }]}>
-          <View style={{ flex: 1, flexDirection: 'row', }}>
+          <View style={styles.v3}>
             <Text style={[styles.text1, { flex: 1 }]}>Find Car</Text>
 
           </View>
+
         </View>
-        <View style={{ width: '100%', height: heightPercentageToDP('100%') -30,justifyContent:'center' }}>
-        <Text style={{fontSize:20,fontWeight:'bold',textAlign:'center'}}>Map View</Text>
+        <View style={styles.mm}>
+
         </View>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-around', bottom: 50 }}>
-          <View style={{ width: 100, height: 70, backgroundColor: 'white', bottom: 100, borderRadius: 10 }}>
-            <Text style={{ margin: 5, fontWeight: 'bold' }}>Rahul Sharma</Text>
-            <View style={{ flexDirection: 'row' }}>
-              <Image source={require('../../assets/image8.png')} style={{ height: 30, width: 60 }} />
-              <Image source={require('../../assets/Vector.png')} style={{ height: 20, width: 20, top: 10 }} />
+
+
+        <View style={ styles.carview}>
+
+          <View style={styles.carview2}>
+            <Text style={styles.t1}>Rahul Sharma</Text>
+            <View style={styles.v2}>
+              <Image source={require('../../assets/image8.png')} style={styles.image1} />
+              <Image source={require('../../assets/Vector.png')} style={styles.image2} />
             </View>
           </View>
-          <View style={{ width: 100, height: 70, backgroundColor: 'white', bottom: 100, borderRadius: 10 }}>
-            <Text style={{ margin: 5, fontWeight: 'bold' }}>Rapid tech</Text>
-            <View style={{ flexDirection: 'row' }}>
-              <Image source={require('../../assets/image8.png')} style={{ height: 30, width: 60 }} />
-              <Image source={require('../../assets/Vector.png')} style={{ height: 20, width: 20, top: 10 }} />
+
+          <View style={styles.carview2}>
+            <Text style={styles.t1}>Rapid tech</Text>
+            <View style={styles.v2}>
+              <Image source={require('../../assets/image8.png')} style={styles.image1}  />
+              <Image source={require('../../assets/Vector.png')} style={styles.image2} />
             </View>
           </View>
-          <View style={{ width: 100, height: 70, backgroundColor: 'white', bottom: 100, borderRadius: 10 }}>
-            <Text style={{ margin: 5, fontWeight: 'bold' }}>Mahesh</Text>
-            <View style={{ flexDirection: 'row' }}>
-              <Image source={require('../../assets/image8.png')} style={{ height: 30, width: 60 }} />
-              <Image source={require('../../assets/Vector.png')} style={{ height: 20, width: 20, top: 10 }} />
+
+          <View style={styles.carview2}>
+          <Text style={styles.t1}>Mahesh</Text>
+          <View style={styles.v2}>
+              <Image source={require('../../assets/image8.png')} style={styles.image1}  />
+              <Image source={require('../../assets/Vector.png')} style={styles.image2} />
             </View>
           </View>
 

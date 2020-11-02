@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { View, Picker, StyleSheet, Text, TextInput, TouchableOpacity, Image, ScrollView , StatusBar} from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { AppConstants } from '../../constants/appconstants';
 import colors from "../../stylesheet/colors";
+import styles from './cardetailsStyles'
 
 const Cardetails = () => {
     return (
@@ -12,8 +13,8 @@ const Cardetails = () => {
             <View style={styles.container}>
                 <View style={{ top: 20 }}>
 
-                    <View style={{ marginTop: 20 }}>
-                        <Text style={{ fontSize: 30, fontWeight: 'bold', color: colors.white, textAlign: 'center' }}>
+                    <View style={styles.text1}>
+                        <Text style={ styles.heatdtext}>
                             Car Details
                         </Text>
                     </View>
@@ -21,65 +22,72 @@ const Cardetails = () => {
                 </View>
             </View>
 
-            <View style={{ backgroundColor: 'white', top: -40, height: 1000, borderTopRightRadius: 50, borderTopLeftRadius: 50 }}>
+            <View style={styles.view1}>
 
 
-                <View style={{ margin: 20 }}><Text style={{ fontWeight: 'bold', fontSize: 25, color: 'black' }}>AR Travels</Text></View>
+                <View style={styles.view2}><Text style={styles.text3}>AR Travels</Text></View>
 
-                <View style={{ alignSelf:'center',flexDirection: 'row', justifyContent: 'center', alignItems:'center', backgroundColor: 'white', height: 80, width: '90%', borderRadius: 10, elevation: 15 }}>
-                   <View style={{justifyContent:'center' ,width:'40%'}}>
+                <View style={styles.view3}>
+                   <View style={styles.view4}>
                     <Image   source={AppConstants.RedCar}
-                        style={{ height: 50, width: 100,  }} />
+                        style={styles.image1} />
                         </View>
-                        <View style={{justifyContent:'center' ,width:'50%',flexDirection:'row'}}>
-                    <Text style={{  fontSize: 20, fontWeight: 'bold' }}>Car</Text>
-                    <Text style={{  fontSize: 20, fontWeight: 'bold' }}>AP 01 ED 1234</Text>
+                        <View style={ styles.view5}>
+                    <Text style={styles.text4}>Car</Text>
+                    <Text style={styles.text4}>AP 01 ED 1234</Text>
                 </View>
                 </View>
-                <View style={{ margin: 20, borderBottomWidth: 1 }}>
-                    <Text style={{ fontWeight: 'bold', color: 'black', fontSize: 20 }}>Travels Name</Text>
-                    <Text style={{ fontWeight: 'bold', fontSize: 15, marginTop: 15, paddingBottom: 10 }}>ABC Travels</Text>
-                </View>
-
-                <View style={{ margin: 20, borderBottomWidth: 1 }}>
-                    <Text style={{ fontWeight: 'bold', color: 'black', fontSize: 20 }}>Name</Text>
-                    <Text style={{ fontWeight: 'bold', fontSize: 15, marginTop: 15, paddingBottom: 10 }}>Mahesh</Text>
+                <View style={styles.view6}>
+                    <Text style={styles.text5}>Travels Name</Text>
+                    <Text style={styles.text6}>ABC Travels</Text>
                 </View>
 
-                <View style={{ margin: 20, borderBottomWidth: 1 }}>
-                    <Text style={{ fontWeight: 'bold', color: 'black', fontSize: 20 }}>Office Number</Text>
+                <View style={styles.view6}>
+                    <Text style={styles.text5}>Name</Text>
+                    <Text style={styles.text6 }>Mahesh</Text>
+                </View>
+
+                <View style={styles.view6}>
+                    <Text style={styles.text5}>Office Number</Text>
                     <View style={{ flexDirection: 'row' }}>
                         <View>
-                            <Text style={{ fontWeight: 'bold', fontSize: 15, marginTop: 15, paddingBottom: 10 }}>040-2255887711</Text></View>
-                        <View style={{ marginLeft: 200, top: 10 }}>
+                            <Text style={styles.text6}>040-2255887711</Text></View>
+                        <View style={styles.view7}>
                             <TouchableOpacity>
-                                <Icon name="phone" size={30} color="blue" />
+                                <Icon  
+                                 name={'phone'}
+                                 size={30} 
+                                 color={colors.danger} />
                             </TouchableOpacity>
                         </View>
                     </View>
                 </View>
 
-                <View style={{ margin: 20, borderBottomWidth: 1 }}><Text style={{ fontWeight: 'bold', color: 'black', fontSize: 20 }}>Mobile</Text>
+                <View style={styles.view6}><Text style={styles.text5}>Mobile</Text>
                     <View style={{ flexDirection: 'row' }}>
-                        <View><Text style={{ fontWeight: 'bold', fontSize: 15, marginTop: 15, paddingBottom: 10 }}>+91-0000112233</Text></View>
-                        <View style={{ marginLeft: 200, top: 10 }}>
+                        <View><Text style={styles.text6}>+91-0000112233</Text></View>
+                        <View style={styles.view7}>
                             <TouchableOpacity>
-                                <Icon name="phone" size={30} color="blue" />
+                            <Icon
+                                   name={'phone'}
+                                   size={30}
+                                   color={colors.blue}
+                                            />
                             </TouchableOpacity>
                         </View>
                     </View>
                 </View>
 
-                <View style={{ margin: 20, borderBottomWidth: 1 }}><Text style={{ fontWeight: 'bold', color: 'black', fontSize: 20 }}>Street Address</Text>
-                    <Text style={{ fontWeight: 'bold', fontSize: 15, marginTop: 15, paddingBottom: 10 }}>Secunderabad</Text>
+                <View style={styles.view6}><Text style={styles.text5}>Street Address</Text>
+                    <Text style={styles.text6}>Secunderabad</Text>
                 </View>
 
-                <View style={{ margin: 20, borderBottomWidth: 1 }}><Text style={{ fontWeight: 'bold', color: 'black', fontSize: 20 }}>City</Text>
-                    <Text style={{ fontWeight: 'bold', fontSize: 15, marginTop: 15, paddingBottom: 10 }}>Hyd</Text>
+                <View style={styles.view6}><Text style={styles.text5}>City</Text>
+                    <Text style={styles.text6}>Hyd</Text>
                 </View>
 
-                <View style={{ margin: 20, borderBottomWidth: 1 }}><Text style={{ color: 'black', fontWeight: 'bold', fontSize: 20 }}>State/Region</Text>
-                    <Text style={{ fontWeight: 'bold', fontSize: 15, marginTop: 15, paddingBottom: 10 }}>Telangana/Hindhu</Text>
+                <View style={styles.view6}><Text style={styles.text5}>State/Region</Text>
+                    <Text style={styles.text6}>Telangana/Hindhu</Text>
                 </View>
 
             </View>
@@ -91,15 +99,5 @@ export default Cardetails;
 
 
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        height: 150,
-        paddingBottom: 80,
-        alignItems: "center",
-        backgroundColor: colors.themeColor,
-    },
-
-});
 
 

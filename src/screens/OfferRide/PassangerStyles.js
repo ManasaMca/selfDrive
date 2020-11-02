@@ -31,6 +31,18 @@ const styles = StyleSheet.create({
     fontSize: responsiveFontSize(20),
     color: colors.black,
   },
+  seats1:{
+    height: 50,
+     width: 120,
+      backgroundColor: 'grey', 
+      borderRadius: 10 
+  },
+  view_1:{
+    flexDirection: 'row',
+     justifyContent: 'space-around',
+      top: 50 
+  },
+
   countContainer: {
     flexDirection: 'row',
     paddingLeft: responsiveHorizontalSize(4),
@@ -59,10 +71,10 @@ const styles = StyleSheet.create({
     fontSize: responsiveFontSize(20),
     fontWeight: 'bold',
     paddingTop: 0,
-   
+
   },
   lineView: {
-    borderBottomColor:colors.suvaGrey,
+    borderBottomColor: colors.suvaGrey,
     borderBottomWidth: 0.5,
     padding: 5
   },
@@ -83,11 +95,18 @@ const styles = StyleSheet.create({
     fontSize: responsiveFontSize(20),
     color: colors.black,
   },
+  text4: {
+    color: 'white',
+    marginTop: 15,
+    alignSelf: 'center',
+    fontSize: 15,
+    fontWeight: 'bold'
+  },
   nextView: {
     paddingLeft: responsiveHorizontalSize(0),
     justifyContent: 'center',
     alignItems: 'center',
-   // alignSelf: 'flex-end',
+    // alignSelf: 'flex-end',
   }
 });
 export default styles;
