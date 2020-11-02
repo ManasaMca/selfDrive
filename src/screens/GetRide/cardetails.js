@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Picker, StyleSheet, Text, TextInput, TouchableOpacity, Image, ScrollView , StatusBar} from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { AppConstants } from '../../constants/appconstants';
 import colors from "../../stylesheet/colors";
 import styles from './cardetailsStyles'
@@ -54,7 +54,10 @@ const Cardetails = () => {
                             <Text style={styles.text6}>040-2255887711</Text></View>
                         <View style={styles.view7}>
                             <TouchableOpacity>
-                                <Icon name="phone" size={30} color="red" />
+                                <Icon  
+                                 name={'phone'}
+                                 size={30} 
+                                 color={colors.danger} />
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -65,7 +68,11 @@ const Cardetails = () => {
                         <View><Text style={styles.text6}>+91-0000112233</Text></View>
                         <View style={styles.view7}>
                             <TouchableOpacity>
-                                <Icon name="phone" size={30} color="blue" />
+                            <Icon
+                                   name={'phone'}
+                                   size={30}
+                                   color={colors.blue}
+                                            />
                             </TouchableOpacity>
                         </View>
                     </View>

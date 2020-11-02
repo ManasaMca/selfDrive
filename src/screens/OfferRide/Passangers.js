@@ -4,11 +4,12 @@ import colors from '../../stylesheet/colors';
 import { AppConstants } from '../../constants/appconstants';
 import Styles from '../../stylesheet/button';
 import styles from './PassangerStyles';
-//import DatePicker from 'react-native-date-picker';
+import DatePicker from 'react-native-date-picker';
 import { useNavigation } from '@react-navigation/native';
 
 const Passangers = () => {
   const navigation = useNavigation();
+  const [date, setDate] = useState(new Date())
 
 
   return (
@@ -27,15 +28,21 @@ const Passangers = () => {
               <View style={[styles.logoView]}>
                 <Text>
                   Logo
-             </Text>
+                </Text>
               </View>
             </View>
             <View>
 
               <Text style={[styles.text2]}>
                 When are you going?
-          </Text>
+              </Text>
             </View>
+            <DatePicker
+              androidVariant="nativeAndroid"
+              date={date}
+              onDateChange={setDate}
+              color={colors.themeColor}
+            />
             <View>
 
             </View>
@@ -44,15 +51,20 @@ const Passangers = () => {
               <Text
                 style={[styles.text3]}>
                 What date do you want car?
-          </Text>
+              </Text>
             </View>
 
             <View>
-
+              <DatePicker
+                androidVariant="nativeAndroid"
+                date={date}
+                onDateChange={setDate}
+                color={colors.themeColor}
+              />
             </View>
 
             <View style={styles.view_1}>
-            <View style={styles.seats1}>
+              <View style={styles.seats1}>
                 <Text style={styles.text4}> Upto 4 Seat</Text>
               </View>
               <View style={styles.seats1}>
@@ -62,9 +74,7 @@ const Passangers = () => {
 
               <View style={[styles.nextView]}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('OfferRide')}
-
-                >
+                  onPress={() => navigation.navigate('OfferRide')} >
                   <Image source={AppConstants.Next} alt="" />
                 </TouchableOpacity>
               </View>
