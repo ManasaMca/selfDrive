@@ -4,10 +4,41 @@ import OTPInputView from '@twotalltotems/react-native-otp-input';
 import colors from '../../stylesheet/colors';
 import { AppConstants } from "../../constants/appconstants";
 import styles from './OTPStyles';
+import AsyncStorage from '@react-native-community/async-storage';
 
 
 const OTPVerification = ({ navigation }) => {
+    const [otp, setotp] = useState('');
+    console.log("input",otp)
+
+    const submit = async() =>{
+        console.log("input",otp)
+        let userToken = await AsyncStorage.getItem('userToken');
+        const userToken1 =JSON.parse(userToken);
+         console.log("userToken",userToken1)
+         
+        if(userToken1.otp==otp && userToken1.isRegistered==false){
+            console.log("userToken",userToken1.otp)
+            navigation.navigate('UserSignUp');
+        }
+        else if(userToken1.otp==otp && userToken1.isRegistered==true){
+            console.log("userToken",userToken1.otp)
+            navigation.navigate('OfferRideTab', {
+                                    
+                screen: 'SignUp'
+            });
+        }
+        else{
+            alert("Entered Otp is wrong")
+        }
+
+
+
+    }
    
+
+
+
     return (
         <>
             <StatusBar barStyle="dark-content" backgroundColor={ colors.white } />
@@ -41,10 +72,10 @@ const OTPVerification = ({ navigation }) => {
                 </View>
                 <View >
                     <OTPInputView
-                     
+                        code={otp}
+                        onCodeChanged={(value) => setotp(value)}
                         style={ [styles.otp_container] }
-                        pinCount={ 4 }
-                  
+                        pinCount={ 4 }                
                         autoFocusOnLoad
                         codeInputFieldStyle={ [styles.otp_input] }
                         codeInputHighlightStyle={ [styles.otp_active] }
@@ -68,7 +99,8 @@ const OTPVerification = ({ navigation }) => {
                     </View>
                     <View style={ [styles.nextView] }>
                         <TouchableOpacity
-                         onPress={() => navigation.navigate('UserSignUp')}
+                        onPress={() => submit()}
+                        // onPress={() => navigation.navigate('UserSignUp')}
                         >
                             <Image source={ AppConstants.Next } alt="" />
                         </TouchableOpacity>

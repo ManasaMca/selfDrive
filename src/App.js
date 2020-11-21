@@ -1,6 +1,7 @@
 import React from 'react';
-import RootStack from './screens';
+import RootStack from './screens/index';
 import { View, Text} from 'react-native';
+
 
 
 export default class App extends React.Component {

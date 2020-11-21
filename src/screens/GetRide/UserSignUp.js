@@ -5,7 +5,51 @@ import { AppConstants } from "../../constants/appconstants";
 import styles from './UserSignUpStyles';
 
 const UserSignUp = ({ navigation }) => {
+    const [fname, setfname] = useState('');
+    const [lname, setlname] = useState('');
+    const [email, setemail] = useState('');
+    const [mobile, setmobile] = useState('');
 
+
+
+    const submit = () =>{
+        if(fname=='' || lname==''|| email==''|| mobile==''){
+            alert("Enter All Values")
+        }
+        else{
+
+        fetch('http://udrive.b2bmart.org.in/api/add-profile.php',{
+			method:'post',
+			header:{
+				'Accept': 'application/json',
+				'Content-type': 'application/json'
+			},
+			body:JSON.stringify({
+                fname:fname,
+                lname:lname,
+                email:email,
+                mobile: mobile,
+                profilepic:''
+			})
+			
+        })
+        .then((response) => response.json())
+		 .then(async (response)=>{
+            const dataJSON = JSON.stringify(response)
+            // console.log('response', dataJSON);
+            // await AsyncStorage.setItem('userToken',dataJSON);
+			navigation.navigate('OfferRideTab', {
+                                    
+                screen: 'SignUp'
+            });
+		 })
+		 .catch((error)=>{
+		 console.error(error);
+         });
+
+        }
+
+    }
 
     return (
         <>
@@ -38,14 +82,18 @@ const UserSignUp = ({ navigation }) => {
                     <View style={{ flexDirection: 'row',marginTop:10 }}>
 
                     <View style={{ width: '40%' ,marginLeft:10,borderBottomColor:colors.black,borderBottomWidth:1}}>
-                            <TextInput 
+                            <TextInput
+                                value={fname}
+                                onChangeText={(value) => setfname(value)} 
                                 placeholder="First Name"
                                 placeholderTextColor="black"
                                
                             />
                         </View>          
                         <View style={{ width: '40%' ,marginLeft:10, borderBottomColor:colors.black,borderBottomWidth:1}}>
-                        <TextInput 
+                        <TextInput
+                                value={lname}
+                                onChangeText={(value) => setlname(value)} 
                                 placeholder="Last Name"
                                 placeholderTextColor="black"
                             
@@ -56,6 +104,8 @@ const UserSignUp = ({ navigation }) => {
                     <View style={[styles.mobileView]}>
                     <View style={{ width: '80%' ,borderBottomColor:colors.black,borderBottomWidth:1,marginTop:10}}>
                         <TextInput 
+                                value={email}
+                                onChangeText={(value) => setemail(value)}
                                 keyboardType="email-address"
                                 placeholder="Your Email Address"
                                 placeholderTextColor="black"
@@ -66,6 +116,8 @@ const UserSignUp = ({ navigation }) => {
                     <View style={[styles.mobileView]}>
                     <View style={{ width: '80%' ,borderBottomColor:colors.black,borderBottomWidth:1,marginTop:10}}>
                         <TextInput 
+                                value={mobile}
+                                onChangeText={(value) => setmobile(value)}
                               placeholder="Mobile"
                                 keyboardType="number-pad"
                                 placeholderTextColor="black"
@@ -97,12 +149,13 @@ const UserSignUp = ({ navigation }) => {
 
                         <View style={[styles.nextView]}>
                             <TouchableOpacity 
-                            onPress={ () => handleButtonPress() }
-                              onPress={() => {
-                                 navigation.navigate('OfferRideTab', {
+                            // onPress={ () => handleButtonPress() }
+                            //   onPress={() => {
+                            //      navigation.navigate('OfferRideTab', {
                                     
-                                    screen: 'SignUp'
-                                })}}
+                            //         screen: 'SignUp'
+                            //     })}}
+                            onPress={() => submit()}
                             >
                                 <Image source={AppConstants.Next} alt="" />
                             </TouchableOpacity>
