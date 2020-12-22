@@ -52,7 +52,7 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>  
         <View style={[styles.lineView2]} />
         <TouchableOpacity  style={[styles.btn]}
-              onPress={() => navigation.navigate('Registercar')}
+              onPress={() => navigation.navigate('PostCar')}
             >
         <View style={{paddingTop:20}}>
           <Image source={require('../../assets/Bookaride.jpeg')} style={{width:120,height:120,}} />

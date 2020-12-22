@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         paddingBottom: responsiveVerticalSize(2),
         paddingLeft:responsiveHorizontalSize(3),
         paddingRight:responsiveHorizontalSize(3),
-        width: '50%'
+        width: '60%'
     },
     fieldText: {
         fontSize: 18,
@@ -66,7 +66,24 @@ const styles = StyleSheet.create({
         paddingTop: responsiveVerticalSize(5),
         paddingLeft: responsiveHorizontalSize(2),
         paddingBottom: responsiveVerticalSize(5),
-}
+},
+locContainer:{
+margin:10,
+width:'90%',
+borderColor:colors.dimGrey,
+borderRadius:10,
+borderWidth:1,
+height:60
+},
+
+locContainer2:{
+    margin:10,
+    width:'85%',
+    borderColor:colors.dimGrey,
+    borderRadius:10,
+    borderWidth:1,
+    height:60
+    }
 });
 
 export default styles;

@@ -59,8 +59,7 @@ const UserSignUp = ({ navigation }) => {
                     <View style={[styles.flex_row]} >
                         <View style={[styles.pv1]}>
                             <TouchableOpacity
-                                onPress={() => navigation.navigate('OTPVerification')}
-                            >
+                                onPress={() => navigation.navigate('OTPVerification')} >
                                 <Image source={AppConstants.BackArrow} alt="" />
                             </TouchableOpacity>
                         </View>
@@ -79,52 +78,78 @@ const UserSignUp = ({ navigation }) => {
                             Confirm Your Infromation
                         </Text>
                     </View>
-                    <View style={{ flexDirection: 'row',marginTop:10 }}>
+                    <View style={{ flexDirection: 'row',margin:10 }}>
 
-                    <View style={{ width: '40%' ,marginLeft:10,borderBottomColor:colors.black,borderBottomWidth:1}}>
-                            <TextInput
-                                value={fname}
-                                onChangeText={(value) => setfname(value)} 
-                                placeholder="First Name"
-                                placeholderTextColor="black"
-                               
-                            />
+                        <View style={{ width: '47%' ,marginLeft:10,borderBottomColor:colors.black,borderBottomWidth:1}}>
+                                <TextInput
+                                    value={fname}
+                                    onChangeText={(value) => setfname(value)} 
+                                    placeholder="First Name"
+                                    placeholderTextColor="black"
+                                
+                                />
                         </View>          
-                        <View style={{ width: '40%' ,marginLeft:10, borderBottomColor:colors.black,borderBottomWidth:1}}>
-                        <TextInput
-                                value={lname}
-                                onChangeText={(value) => setlname(value)} 
-                                placeholder="Last Name"
-                                placeholderTextColor="black"
-                            
+                        <View style={{ width: '47%' ,marginLeft:10, borderBottomColor:colors.black,borderBottomWidth:1}}>
+                            <TextInput
+                                    value={lname}
+                                    onChangeText={(value) => setlname(value)} 
+                                    placeholder="Last Name"
+                                    placeholderTextColor="black"
+                                
                             />
 
                         </View>
                     </View>
                     <View style={[styles.mobileView]}>
-                    <View style={{ width: '80%' ,borderBottomColor:colors.black,borderBottomWidth:1,marginTop:10}}>
-                        <TextInput 
-                                value={email}
-                                onChangeText={(value) => setemail(value)}
-                                keyboardType="email-address"
-                                placeholder="Your Email Address"
-                                placeholderTextColor="black"
-                              
-                            />
+                        <View style={{ width: '100%' ,borderBottomColor:colors.black,borderBottomWidth:1,marginTop:10}}>
+                            <TextInput 
+                                    value={email}
+                                    onChangeText={(value) => setemail(value)}
+                                    keyboardType="email-address"
+                                    placeholder="Your Email Address"
+                                    placeholderTextColor="black"
+                                
+                                />
                         </View>
                     </View>
                     <View style={[styles.mobileView]}>
-                    <View style={{ width: '80%' ,borderBottomColor:colors.black,borderBottomWidth:1,marginTop:10}}>
-                        <TextInput 
-                                value={mobile}
-                                onChangeText={(value) => setmobile(value)}
-                              placeholder="Mobile"
-                                keyboardType="number-pad"
-                                placeholderTextColor="black"
-                            />
+                        <View style={{ width: '100%' ,borderBottomColor:colors.black,borderBottomWidth:1,marginTop:10}}>
+                            <TextInput 
+                                    value={mobile}
+                                    onChangeText={(value) => setmobile(value)}
+                                placeholder="Mobile"
+                                    keyboardType="number-pad"
+                                    placeholderTextColor="black"
+                                />
                         </View>
                     </View>
-                    
+                    <View style={[styles.mobileView]}>
+                        
+                        <Text style={{fontSize:18,color:colors.dimGrey}}>Location</Text>
+                    </View>
+                    <View style={[styles.locContainer]}>
+
+                    </View>
+                    <View style={{flexDirection:'row', margin:10}}>
+                        <View style={{width:'50%'}}>
+                            <View style={[styles.mobileView]}>
+                            
+                                <Text style={{fontSize:18,color:colors.dimGrey}}>City</Text>
+                            </View>
+                            <View style={[styles.locContainer2]}>
+
+                            </View>
+                        </View>
+                        <View style={{width:'50%'}}>
+                            <View style={[styles.mobileView]}>
+                                
+                                <Text style={{fontSize:18,color:colors.dimGrey}}>State</Text>
+                            </View>
+                            <View style={[styles.locContainer2]}>
+
+                            </View>
+                        </View>
+                    </View>
                     <View style={[styles.condnView]}>
                         <View style={{ width: '80%',  }}>
                             <Text style={{ fontSize: 15, color: colors.dimGrey }}>
@@ -144,7 +169,7 @@ const UserSignUp = ({ navigation }) => {
                                          Privacy Policy .
                                     </Text>
                                 </TouchableOpacity>
-                                </Text>
+                            </Text>
                         </View>
 
                         <View style={[styles.nextView]}>

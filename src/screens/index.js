@@ -12,6 +12,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp, widthPercentageT
 
 import Passangers from './OfferRide/Passangers';
 import OfferRide from './OfferRide/OfferRide';
+import PostCar from './OfferRide/postCar'
 // import RegisteredCars from './OfferRide/RegisteredCars';
 import OTPVerification from './GetRide/OTPVerification';
 // import splashscreen from './GetRide/splashScreen';
@@ -108,7 +109,7 @@ function CustomTabBar({ state, descriptors, navigation }) {
             iconName={iconName}
             onPress={onPress}
             onLongPress={onLongPress}
-            numberOfTabs={state.routes.length - 3}
+            numberOfTabs={state.routes.length - 4}
           >
           </BottomCenterView>)
         })}
@@ -169,7 +170,10 @@ export const TabsContainer = (props) => {
       name={'Passangers'}
       component={Passangers}
     />
-
+<MainTab.Screen
+      name={'PostCar'}
+      component={PostCar}
+    />
     
     <MainTab.Screen
       name={"OfferRide"}
