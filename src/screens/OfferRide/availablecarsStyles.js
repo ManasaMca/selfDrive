@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'lightgray', height: 800
     },
     view1: {
-        height: '25%',
+       // height: '25%',
         width: '85%',
         backgroundColor: 'white',
         alignSelf: 'center',
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     },
     button2: {
         height: 40,
-        marginTop: 25,
+        marginVertical: 20,
         width: 140,
         backgroundColor: colors.themeColor,
         borderRadius: 5

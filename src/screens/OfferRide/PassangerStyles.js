@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
   },
   view_1:{
     flexDirection: 'row',
-     justifyContent: 'space-around',
-      top: 50 
+    //  justifyContent: 'space-around',
+    //   top: 50 
   },
 
   countContainer: {
@@ -103,10 +103,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   nextView: {
-    paddingLeft: responsiveHorizontalSize(0),
-    justifyContent: 'center',
-    alignItems: 'center',
-    // alignSelf: 'flex-end',
+    paddingLeft: responsiveHorizontalSize(10),
+   justifyContent: 'center',
+   alignItems: 'center',
+    // alignSelf: 'flex-start',
   }
 });
 export default styles;

@@ -108,6 +108,7 @@ const UserSignUp = ({ navigation }) => {
                                     keyboardType="email-address"
                                     placeholder="Your Email Address"
                                     placeholderTextColor="black"
+                                    //editable={true}
                                 
                                 />
                         </View>
@@ -155,16 +156,17 @@ const UserSignUp = ({ navigation }) => {
                             <Text style={{ fontSize: 15, color: colors.dimGrey }}>
                                 By continuing, I confirm that I have read and agree to the
                                
-                                <TouchableOpacity>
+                                <TouchableOpacity   onPress={() => navigation.navigate('TermsConditions')} 
+                                style={{flexDirection:'row'}}>
                                     <Text style={{ color: colors.themeColor , }}>
                                         Terms & Conditions   
                                     </Text>
-                                </TouchableOpacity>
+                                
                               
                                 <Text style={{ fontSize: 15, color: colors.dimGrey }}>
                                And
                                 </Text>
-                                <TouchableOpacity>
+                               
                                     <Text style={{ color: colors.themeColor , }}>
                                          Privacy Policy .
                                     </Text>

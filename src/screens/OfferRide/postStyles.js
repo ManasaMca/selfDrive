@@ -31,16 +31,16 @@ const styles = StyleSheet.create({
     fontSize: responsiveFontSize(20),
     color: colors.black,
   },
-  seats1:{
+  seats1: {
     height: 50,
-     width: 120,
-      backgroundColor: 'grey', 
-      borderRadius: 10 
+    width: 120,
+    backgroundColor: 'grey',
+    borderRadius: 10
   },
-  view_1:{
+  view_1: {
     flexDirection: 'row',
-     justifyContent: 'space-around',
-      top: 50 
+    justifyContent: 'space-around',
+    top: 50
   },
 
   priceView: {
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.suvaGrey,
     borderBottomWidth: 0.5,
     padding: 5,
-    marginBottom:10
+    marginBottom: 10
 
   },
   text2: {
@@ -100,14 +100,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     // alignSelf: 'flex-end',
   },
-  container:{
-    marginHorizontal:10,
-    width:'55%',
-    borderColor:colors.dimGrey,
-    borderRadius:10,
-    borderWidth:1,
-    height:60
-    }
-  
+  container: {
+    marginHorizontal: 10,
+    width: '55%',
+    borderColor: colors.dimGrey,
+    borderRadius: 10,
+    borderWidth: 1,
+    height: 60
+  }
+
 });
 export default styles;

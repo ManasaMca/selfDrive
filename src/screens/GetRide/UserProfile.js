@@ -38,7 +38,7 @@ const UserProfile = ({ navigation }) => {
                                     />
                                 </View>
                                 <View style={[styles.inputContainer]}>
-                                    <Text style={{ color: colors.dimGrey }}>{'Email'}</Text>
+                                   
                                     <TextInput style={[styles.textinput]}
                                       
                                         keyboardType="email-address"
@@ -48,10 +48,38 @@ const UserProfile = ({ navigation }) => {
                                     />
                                 </View>
                                 <View style={[styles.inputContainer]}>
-                                    <Text style={{ color: colors.dimGrey }}>{'Mobile'}</Text>
+                                   
                                     <TextInput style={[styles.textinput]}
                                         keyboardType="number-pad"
-                                        placeholder={'1234567890'}
+                                        placeholder={'Mobile Number'}
+                                        placeholderTextColor={colors.black}
+                                       
+                                    />
+                                </View>
+                                <View style={[styles.inputContainer]}>
+                                   
+                                    <TextInput style={[styles.textinput]}
+                                      
+                                        keyboardType="default"
+                                        placeholder={'Location'}
+                                        placeholderTextColor={colors.black}
+                                   
+                                    />
+                                </View>
+                                <View style={[styles.inputContainer]}>
+                                  
+                                    <TextInput style={[styles.textinput]}
+                                        keyboardType="default"
+                                        placeholder={'City'}
+                                        placeholderTextColor={colors.black}
+                                       
+                                    />
+                                </View>
+                                <View style={[styles.inputContainer]}>
+                                
+                                    <TextInput style={[styles.textinput]}
+                                        keyboardType="default"
+                                        placeholder={'State'}
                                         placeholderTextColor={colors.black}
                                        
                                     />

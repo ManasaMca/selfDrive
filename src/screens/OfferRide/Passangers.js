@@ -15,9 +15,9 @@ const Passangers = () => {
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor={colors.themeColor} />
-      <SafeAreaView>
-        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-          <View style={{ flex: 1, marginBottom: 100 }}>
+      <SafeAreaView style={{alignContent:'center'}}>
+        <ScrollView >
+         
             <View
               style={[styles.header]}>
               <View style={[styles.backbtn]}>
@@ -40,6 +40,7 @@ const Passangers = () => {
             <DatePicker
               androidVariant="nativeAndroid"
               date={date}
+              mode="date"
               onDateChange={setDate}
               color={colors.themeColor}
             />
@@ -58,29 +59,43 @@ const Passangers = () => {
               <DatePicker
                 androidVariant="nativeAndroid"
                 date={date}
+                mode="date"
                 onDateChange={setDate}
                 color={colors.themeColor}
               />
             </View>
-
-            <View style={styles.view_1}>
-              <View style={styles.seats1}>
-                <Text style={styles.text4}> Upto 4 Seat</Text>
+            <View style={[styles.lineView]} />
+            <View style={{ flexDirection: 'row' ,marginBottom:100}}>
+              <View>
+                <View style={styles.view_1}>
+                <View  style={{margin:10}}>
+                    <TouchableOpacity style={styles.seats1}> 
+                    <Text style={styles.text4}>  4 Seat</Text>
+                    </TouchableOpacity>
+                  </View>
+                  <View  style={{margin:10}}>
+                    <TouchableOpacity style={styles.seats1}> 
+                    <Text style={styles.text4}>  7 Seat</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+               
+                <View  style={{margin:10}}>
+                    <TouchableOpacity style={styles.seats1}> 
+                    <Text style={styles.text4}>  Above 7 Seat</Text>
+                    </TouchableOpacity>
+                  </View>
               </View>
-              <View style={styles.seats1}>
-                <Text style={[styles.text4]}> Above 4 Seat</Text>
-              </View>
-
-
-              <View style={[styles.nextView]}>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate('OfferRide')} >
-                  <Image source={AppConstants.Next} alt="" />
-                </TouchableOpacity>
-              </View>
+          
+            <View style={[styles.nextView]}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('OfferRide')} >
+                <Image source={AppConstants.Next} alt="" />
+              </TouchableOpacity>
+            </View>
             </View>
 
-          </View>
+        
         </ScrollView>
       </SafeAreaView>
     </>
