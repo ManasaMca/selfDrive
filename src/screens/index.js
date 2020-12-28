@@ -17,6 +17,7 @@ import PostCar from './OfferRide/postCar'
 import OTPVerification from './GetRide/OTPVerification';
 // import splashscreen from './GetRide/splashScreen';
 import Home from './GetRide/Home';
+import TermsConditions from './GetRide/Terms'
 import UserSignUp from "./GetRide/UserSignUp";
 import Registercar from "./GetRide/RegisterCar";
 import UserProfile from "./GetRide/UserProfile";
@@ -84,8 +85,6 @@ function CustomTabBar({ state, descriptors, navigation }) {
                 : route.name;
           const iconName = tabBarIcons[index];
           const isFocused = state.index === index;
-
-
 
           const onPress = async () => {
             const event = navigation.emit({
@@ -156,7 +155,7 @@ export const TabsContainer = (props) => {
       name={'Home'}
       component={Home}
     />
-   
+
     <MainTab.Screen
       name={'UserProfile'}
       component={UserProfile}
@@ -170,11 +169,11 @@ export const TabsContainer = (props) => {
       name={'Passangers'}
       component={Passangers}
     />
-<MainTab.Screen
+    <MainTab.Screen
       name={'PostCar'}
       component={PostCar}
     />
-    
+
     <MainTab.Screen
       name={"OfferRide"}
       component={OfferRide}
@@ -184,12 +183,10 @@ export const TabsContainer = (props) => {
       name={"AvailableCars"}
       component={AvailableCars}
     />
-   
+
   </MainTab.Navigator>
 
 }
-
-
 
 
 export default function RootStack() {
@@ -201,19 +198,22 @@ export default function RootStack() {
       }}>
       {/* <MainStack.Screen name={'splashscreen'}
         component={splashscreen} /> */}
-      <MainStack.Screen name={'Login'}
+      {/* <MainStack.Screen name={'Login'}
         component={Login} />
       <MainStack.Screen name={'OTPVerification'}
-        component={OTPVerification} />
+        component={OTPVerification} /> */}
+
+
+      <MainStack.Screen name={'OfferRideTab'}
+        component={TabsContainer} />
       <MainStack.Screen name={'Registercar'}
         component={Registercar} />
-         <MainStack.Screen name={'Cardetails'}
+      <MainStack.Screen name={'Cardetails'}
         component={Cardetails} />
       <MainStack.Screen name={'UserSignUp'}
         component={UserSignUp} />
-      <MainStack.Screen name={'OfferRideTab'}
-        component={TabsContainer} />
-     
+      <MainStack.Screen name={'TermsConditions'}
+        component={TermsConditions} />
     </MainStack.Navigator>
   </NavigationContainer>
 

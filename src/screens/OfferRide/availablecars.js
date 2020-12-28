@@ -4,10 +4,12 @@ import { View, Picker, StyleSheet, Text, TextInput, StatusBar, CheckBox, Touchab
 import colors from '../../stylesheet/colors';
 import { AppConstants } from '../../constants/appconstants';
 import { useRoute, useNavigation } from '@react-navigation/native';
-import styles from './availablecarsStyles'
-
+import styles from './availablecarsStyles';
+import Slider from '@react-native-community/slider';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const AvailableCars = () => {
+
     const navigation = useNavigation();
     return (
         <>
@@ -15,23 +17,29 @@ const AvailableCars = () => {
             <ScrollView style={{ flex: 1 }} >
                 <View style={styles.container}>
                     <View style={{ top: 30 }}>
-
                         <View style={{ flexDirection: 'row', marginLeft: 10 }}>
                             <TouchableOpacity>
                                 <Image
                                     source={require('../../assets/BackWhite.png')}
                                     style={{ top: 15 }} />
                             </TouchableOpacity>
-
                             <Text style={styles.heading2}>
                                 Available Cars
-                        </Text>
+                            </Text>
                         </View>
                     </View>
                 </View>
-
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                    <Slider
+                        style={{ width: 300, height: 60 }}
+                        minimumValue={5}
+                        maximumValue={15}
+                        step={1}
+                        minimumTrackTintColor="#FFFFFF"
+                        maximumTrackTintColor="#000000"
+                    />
+                </View>
                 <View style={styles.background_view}>
-
                     <View style={styles.view1}>
                         <View style={styles.view2}>
                             <View>
@@ -43,18 +51,19 @@ const AvailableCars = () => {
                             </View>
                             <View>
                                 <Text style={styles.headtext2}>Rs: 2000/Day</Text>
-                                <View style={styles.vieww}><Text style={styles.txt}>Driver Provision</Text>
+                                <View style={styles.vieww}>
+                                    <Text style={styles.txt}>Driver Provision</Text>
                                     <Text style={styles.txt}>Maruthi Swift Dzire</Text>
                                     <Text style={styles.txt}>Hyderabad</Text>
                                     <Text style={styles.txt}>28 July | 06:00 AM</Text>
                                     <Text style={styles.txt}>Negotiable</Text></View>
+
                                 <TouchableOpacity style={styles.button2}
                                     onPress={() => navigation.navigate('Cardetails')}
                                 >
                                     <Text style={styles.button}>View Details</Text></TouchableOpacity>
                             </View>
                         </View>
-
                     </View>
 
                     <View style={styles.view1}>
@@ -68,18 +77,19 @@ const AvailableCars = () => {
                             </View>
                             <View>
                                 <Text style={styles.headtext2}>Rs: 2000/Day</Text>
-                                <View style={styles.vieww}><Text style={styles.txt}>Driver Provision</Text>
+                                <View style={styles.vieww}>
+                                    <Text style={styles.txt}>Driver Provision</Text>
                                     <Text style={styles.txt}>Maruthi Swift Dzire</Text>
                                     <Text style={styles.txt}>Hyderabad</Text>
                                     <Text style={styles.txt}>28 July | 06:00 AM</Text>
                                     <Text style={styles.txt}>Negotiable</Text></View>
+
                                 <TouchableOpacity style={styles.button2}
                                     onPress={() => navigation.navigate('Cardetails')}
                                 >
                                     <Text style={styles.button}>View Details</Text></TouchableOpacity>
                             </View>
                         </View>
-
                     </View>
 
                     <View style={styles.view1}>

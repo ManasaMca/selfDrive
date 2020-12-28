@@ -90,18 +90,16 @@ const Login = ({ navigation }) => {
                             </Text>
                         </TouchableOpacity>
                     </View>
-                    <TouchableOpacity style={[styles.btn]}
+                    {/* <TouchableOpacity style={[styles.btn]}
                           // onPress={() => navigation.navigate('OTPVerification')}
                           onPress={() => openSearchModal()}
                         >
                             <Text style={[styles.btnText]}>
                                Pick a Place
                             </Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                
-                    <View style={{ padding: 8 }}>
-                        
-                    </View>
+                   
                 </ScrollView>
             </SafeAreaView>
         </>
