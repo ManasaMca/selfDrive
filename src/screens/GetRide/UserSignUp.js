@@ -76,7 +76,7 @@ const UserSignUp = ({ navigation }) => {
            
              setFromValue(item.label)
              setFromLocation(item.label)
-             ++++++++++++( 37.78825)
+             setFromLat 37.78825)
              setFromLong(77.138945)
              setFromCity(item.address.city)
              setToggleFromWhereList(-1)
