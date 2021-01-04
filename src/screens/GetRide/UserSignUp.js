@@ -76,7 +76,7 @@ const UserSignUp = ({ navigation }) => {
            
              setFromValue(item.label)
              setFromLocation(item.label)
-             setFromLat( 37.78825)
+             ++++++++++++( 37.78825)
              setFromLong(77.138945)
              setFromCity(item.address.city)
              setToggleFromWhereList(-1)
@@ -92,10 +92,8 @@ const UserSignUp = ({ navigation }) => {
         if(result != null){
           if(type == 'from'){
             setFromSuggestionList(result['suggestions'])
-            // console.log(autoSugesstionList)
           } else if(type == 'where'){
             setWhereSuggestionList(result['suggestions'])
-            // console.log(autoSugesstionList)
           }
           
         }
