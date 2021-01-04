@@ -6,8 +6,11 @@ import CustomInput from '../../CustomInput/CustomInput';
 import AsyncStorage from '@react-native-community/async-storage';
 import styles from './loginStyles';
 import colors from '../../stylesheet/colors';
+import {users_fetch_action} from '../../Redux/action/useraction';
+import {useSelector, useDispatch} from 'react-redux';
 
 const Login = ({ navigation }) => {
+    const dispatch = useDispatch();
     const [mobile, setmobile] = useState('');
 
     const submit = () =>{
@@ -24,18 +27,15 @@ const Login = ({ navigation }) => {
         })
         .then((response) => response.json())
 		 .then(async (response)=>{
-            const dataJSON = JSON.stringify(response)
+            const dataJSON = JSON.stringify(response)          
             console.log('response', dataJSON);
+           
             await AsyncStorage.setItem('userToken',dataJSON);
 			navigation.navigate('OTPVerification')
 		 })
 		 .catch((error)=>{
 		 console.error(error);
          });
-
-
-
-
     },
      openSearchModal=()=>{
         RNGooglePlaces.getCurrentPlace(['placeID', 'location', 'name', 'address'])
@@ -90,14 +90,14 @@ const Login = ({ navigation }) => {
                             </Text>
                         </TouchableOpacity>
                     </View>
-                    <TouchableOpacity style={[styles.btn]}
+                    {/* <TouchableOpacity style={[styles.btn]}
                           // onPress={() => navigation.navigate('OTPVerification')}
                           onPress={() => openSearchModal()}
                         >
                             <Text style={[styles.btnText]}>
                                Pick a Place
                             </Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                
                     <View style={{ padding: 8 }}>
                         

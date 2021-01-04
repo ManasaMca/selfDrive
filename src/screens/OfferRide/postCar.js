@@ -6,10 +6,14 @@ import Styles from '../../stylesheet/button';
 import styles from './postStyles';
 import DatePicker from 'react-native-date-picker';
 import { useNavigation } from '@react-navigation/native';
-
+import {carlist} from '../../Redux/selector/carselector';
+import {useSelector, useDispatch} from 'react-redux';
+import {Input, Picker} from 'native-base';
 const PostCar = () => {
   const navigation = useNavigation();
+  const cars_list = useSelector(carlist);
   const [date, setDate] = useState(new Date())
+  const [car, setCar] = useState();
 
   const [isSelected, setSelection] = useState(false);
 
@@ -54,7 +58,22 @@ const PostCar = () => {
                 Select a Car 
               </Text>
               <View style={[styles.container]}>
+              <Picker
+                                    mode="dropdown"
+                                    style={{ width: 200 }}
+                                    selectedValue={car}
+                                    onValueChange={value => setCar(value)}
+                                >
+                                    <Picker.Item label="Select Car" value="City" />
+                                    {cars_list.map((car, index) => (
+                                      <>
+                                                  <Image key={index + car.carregno} source={require('../../assets/Getaride.jpeg')} style={{width:30,height:30,}}/>
 
+                                        <Picker.Item key={index + car.carregno} label={car.carregno} value={car.carregno} />
+                                        </>
+                                    ))}
+
+                                </Picker>
               </View>
 </View>
 <View>
@@ -63,17 +82,17 @@ const PostCar = () => {
               Driver Facility
               </Text>
               <View style={{ flexDirection: 'row', marginLeft: 20 }}>
-              <CheckBox
+              {/* <CheckBox
                     color={colors.themeColor}
                         value={isSelected}
                         onValueChange={setSelection}
-                    /><Text style={{ top: 5 }}>Negotiable</Text>
+                    /><Text style={{ top: 5 }}>Negotiable</Text> */}
                     </View>
 </View>
             <View style={styles.view_1}>
               <View style={[styles.nextView]}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('OfferRide')} >
+                  onPress={() => navigation.navigate('AvailableCars')} >
                   <Image source={AppConstants.Next} alt="" />
                 </TouchableOpacity>
               </View>
