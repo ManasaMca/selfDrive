@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'lightgray', height: 800
     },
     view1: {
-       // height: '25%',
+        // height: '25%',
         width: '85%',
         backgroundColor: 'white',
         alignSelf: 'center',

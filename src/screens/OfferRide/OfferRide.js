@@ -34,7 +34,7 @@ const OfferRide = (props) => {
         </View>
 
 
-        <View style={ styles.carview}>
+        <View style={styles.carview}>
 
           <View style={styles.carview2}>
             <Text style={styles.t1}>Rahul Sharma</Text>
@@ -47,15 +47,15 @@ const OfferRide = (props) => {
           <View style={styles.carview2}>
             <Text style={styles.t1}>Rapid tech</Text>
             <View style={styles.v2}>
-              <Image source={require('../../assets/image8.png')} style={styles.image1}  />
+              <Image source={require('../../assets/image8.png')} style={styles.image1} />
               <Image source={require('../../assets/Vector.png')} style={styles.image2} />
             </View>
           </View>
 
           <View style={styles.carview2}>
-          <Text style={styles.t1}>Mahesh</Text>
-          <View style={styles.v2}>
-              <Image source={require('../../assets/image8.png')} style={styles.image1}  />
+            <Text style={styles.t1}>Mahesh</Text>
+            <View style={styles.v2}>
+              <Image source={require('../../assets/image8.png')} style={styles.image1} />
               <Image source={require('../../assets/Vector.png')} style={styles.image2} />
             </View>
           </View>
