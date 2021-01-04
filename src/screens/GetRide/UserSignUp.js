@@ -1,14 +1,105 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import { SafeAreaView, StyleSheet, StatusBar, View, Text,TextInput, Image, TouchableOpacity, Button, ScrollView, Alert} from 'react-native';
 import colors from '../../stylesheet/colors';
 import { AppConstants } from "../../constants/appconstants";
 import styles from './UserSignUpStyles';
+import GetLocation from 'react-native-get-location';
+import { FlatList } from 'react-native-gesture-handler';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import { getAutoSuggestionAPI } from '../../state/api';
+import AsyncStorage from '@react-native-community/async-storage';
+import {users_fetch_action} from '../../Redux/action/useraction';
+import {useSelector, useDispatch} from 'react-redux'
+
 
 const UserSignUp = ({ navigation }) => {
+    const dispatch = useDispatch();
+  const [fromValue,setFromValue] = useState(null)
+  const [whereValue,setWhereValue] = useState(null)
+  const [fromSugesstionList, setFromSuggestionList] = useState([])
+  const [toggleFromWhereList , setToggleFromWhereList] = useState(-1)
+  const [whereSugesstionList, setWhereSuggestionList] = useState([])
+  const [fromLocation, setFromLocation] = useState('')
+  const [fromLat, setFromLat] = useState('')
+  const [fromLong, setFromLong] = useState('')
+
+  const [whereLat, setWhereLat] = useState('')
+  const [whereLong, setWhereLong] = useState('')
+  const [fromCity, setFromCity] = useState('')
+  const [whereCity, setWhereCity] = useState('')
+
     const [fname, setfname] = useState('');
     const [lname, setlname] = useState('');
     const [email, setemail] = useState('');
     const [mobile, setmobile] = useState('');
+    const [location, setlocation] = useState('');
+    const [city, setcity] = useState('');
+    const [state, setstate] = useState('');
+
+    const [initialRegion, setInitialRegion] = useState({
+        latitude: 37.78825,
+        longitude: -122.4324,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+      });
+
+
+      const getCurrentLocation = () => {
+        GetLocation.getCurrentPosition({
+          enableHighAccuracy: true,
+          timeout: 15000,
+        })
+          .then((location) => {
+            setInitialRegion({
+              latitude: location ? location.latitude : 28.5273342,
+              longitude: location ? location.longitude : 77.1389452,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            });
+          })
+          .catch((error) => {
+            const { code, message } = error;
+            console.warn(code, message);
+          });
+      };
+    
+      useEffect(() => {
+        getCurrentLocation();
+      }, []);
+      const renderFromSuggestionList  =({item}) =>{
+  
+        return(
+      
+    <Text 
+    style={[styles.text3]}
+    onPress={(value) =>{
+           
+             setFromValue(item.label)
+             setFromLocation(item.label)
+             setFromLat (37.78825)
+             setFromLong(77.138945)
+             setFromCity(item.address.city)
+             setToggleFromWhereList(-1)
+          }}> {item.label}</Text>
+         
+        )
+      }
+
+
+      const getAutoSugesstion = async (query, type) =>{
+        const result = await getAutoSuggestionAPI(query);
+        console.log(result)
+        if(result != null){
+          if(type == 'from'){
+            setFromSuggestionList(result['suggestions'])
+          } else if(type == 'where'){
+            setWhereSuggestionList(result['suggestions'])
+          }
+          
+        }
+       
+      }
+    
 
 
 
@@ -29,15 +120,28 @@ const UserSignUp = ({ navigation }) => {
                 lname:lname,
                 email:email,
                 mobile: mobile,
+                location:fromLocation,
+                city:city,
+                state:state,
+                longitude:fromLong,
+                latitude:fromLat,
                 profilepic:''
 			})
-			
+
         })
         .then((response) => response.json())
 		 .then(async (response)=>{
             const dataJSON = JSON.stringify(response)
-            // console.log('response', dataJSON);
+            console.log('response', dataJSON);
             // await AsyncStorage.setItem('userToken',dataJSON);
+            const userToken1 =JSON.parse(dataJSON);
+            const userdata = userToken1.data
+            console.log("....................................",userdata)
+            dispatch(
+                users_fetch_action({
+                    userdata
+                }),
+              );
 			navigation.navigate('OfferRideTab', {
                                     
                 screen: 'SignUp'
@@ -79,6 +183,10 @@ const UserSignUp = ({ navigation }) => {
                         </Text>
                     </View>
                     <View style={{ flexDirection: 'row',margin:10 }}>
+                    <View style={{backgroundColor:'white'}}>
+                   
+
+</View>
 
                         <View style={{ width: '47%' ,marginLeft:10,borderBottomColor:colors.black,borderBottomWidth:1}}>
                                 <TextInput
@@ -128,8 +236,35 @@ const UserSignUp = ({ navigation }) => {
                         
                         <Text style={{fontSize:18,color:colors.dimGrey}}>Location</Text>
                     </View>
-                    <View style={[styles.locContainer]}>
+                    <View style={{ width: '100%' ,borderBottomColor:colors.black,borderBottomWidth:1,marginTop:10}}>
+                    <TextInput
+            placeholder="From To?"
+            value={fromValue}
+           
+            onFocus={() =>{setToggleFromWhereList(0)}}
+            style={{ backgroundColor:'white' }}
+            onChangeText={text => {
+              setFromValue(text)
+             getAutoSugesstion(text,'from')
+            }}
+            >
+                 </TextInput>
+            { toggleFromWhereList == 0 ? ( 
+              <FlatList
+                data={fromSugesstionList}
+                renderItem={renderFromSuggestionList}
+                keyExtractor={(item ,index) => index}
+              />
+                ): null} 
 
+
+
+                    {/* <TextInput 
+                                    value={location}
+                                    onChangeText={(value) => setlocation(value)}
+                                placeholder="Location"
+                                    placeholderTextColor="black"
+                                /> */}
                     </View>
                     <View style={{flexDirection:'row', margin:10}}>
                         <View style={{width:'50%'}}>
@@ -138,7 +273,12 @@ const UserSignUp = ({ navigation }) => {
                                 <Text style={{fontSize:18,color:colors.dimGrey}}>City</Text>
                             </View>
                             <View style={[styles.locContainer2]}>
-
+                            <TextInput 
+                                    value={city}
+                                    onChangeText={(value) => setcity(value)}
+                                placeholder="city"
+                                    placeholderTextColor="black"
+                                />
                             </View>
                         </View>
                         <View style={{width:'50%'}}>
@@ -147,7 +287,12 @@ const UserSignUp = ({ navigation }) => {
                                 <Text style={{fontSize:18,color:colors.dimGrey}}>State</Text>
                             </View>
                             <View style={[styles.locContainer2]}>
-
+                            <TextInput 
+                                    value={state}
+                                    onChangeText={(value) => setstate(value)}
+                                placeholder="Location"
+                                    placeholderTextColor="black"
+                                />
                             </View>
                         </View>
                     </View>

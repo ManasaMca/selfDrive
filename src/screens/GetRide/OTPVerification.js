@@ -5,9 +5,14 @@ import colors from '../../stylesheet/colors';
 import { AppConstants } from "../../constants/appconstants";
 import styles from './OTPStyles';
 import AsyncStorage from '@react-native-community/async-storage';
+import {users_fetch_action} from '../../Redux/action/useraction';
+import {useSelector, useDispatch} from 'react-redux'
+
+
 
 
 const OTPVerification = ({ navigation }) => {
+    const dispatch = useDispatch();
     const [otp, setotp] = useState('');
     console.log("input",otp)
 
@@ -23,6 +28,17 @@ const OTPVerification = ({ navigation }) => {
         }
         else if(userToken1.otp==otp && userToken1.isRegistered==true){
             console.log("userToken",userToken1.otp)
+            const userdata = userToken1.data[0]
+            dispatch(
+                users_fetch_action({
+                    userdata
+                }),
+              );
+
+
+
+
+
             navigation.navigate('OfferRideTab', {
                                     
                 screen: 'SignUp'

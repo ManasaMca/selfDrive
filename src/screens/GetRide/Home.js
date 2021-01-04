@@ -4,7 +4,34 @@ import colors from '../../stylesheet/colors';
 import { AppConstants } from '../../constants/appconstants';
 import styles from './HomeStyles';
 const { width, height } = Dimensions.get("screen");
+import AsyncStorage from '@react-native-community/async-storage';
+import {users_fetch_action} from '../../Redux/action/useraction';
+import {car_fetch_action} from '../../Redux/action/caraction';
+import {useSelector, useDispatch} from 'react-redux';
+
+
 const Home = ({ navigation }) => {
+  const dispatch = useDispatch();
+
+  useEffect(async() => {
+    let userToken = await AsyncStorage.getItem('userToken');
+    const userToken1 =JSON.parse(userToken);
+    console.log(userToken1)
+    const userdata = userToken1.data[0]
+    const ppcode = userdata.pcode
+    // console.log("////////////////",userdata.pcode)
+    dispatch(
+        users_fetch_action({
+            userdata
+        }),
+      );
+      dispatch(
+        car_fetch_action({
+            ppcode
+        }),
+      );
+
+  })
 
   return (
     <>

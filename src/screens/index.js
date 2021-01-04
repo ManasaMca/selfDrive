@@ -198,12 +198,10 @@ export default function RootStack() {
       }}>
       {/* <MainStack.Screen name={'splashscreen'}
         component={splashscreen} /> */}
-      {/* <MainStack.Screen name={'Login'}
+      <MainStack.Screen name={'Login'}
         component={Login} />
       <MainStack.Screen name={'OTPVerification'}
-        component={OTPVerification} /> */}
-
-
+        component={OTPVerification} />
       <MainStack.Screen name={'OfferRideTab'}
         component={TabsContainer} />
       <MainStack.Screen name={'Registercar'}
