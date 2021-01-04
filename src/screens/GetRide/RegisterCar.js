@@ -2,11 +2,122 @@ import React, { useState } from "react";
 import { View, Picker, StyleSheet, Text, TextInput, CheckBox, TouchableOpacity, Image, ScrollView } from "react-native";
 import * as Progress from 'react-native-progress';
 import colors from '../../stylesheet/colors';
+import { useRoute, useNavigation } from '@react-navigation/native';
+import ImagePicker from 'react-native-image-picker';
+import Icon1 from 'react-native-vector-icons/FontAwesome'; //liecense
+import AvailableCars from "../OfferRide/availablecars";
+import {carlist} from '../../Redux/selector/carselector';
+import {useSelector, useDispatch} from 'react-redux';
 
 
 
-const Registercar = () => {
-    const [isSelected, setSelection] = useState(false);
+
+
+
+const Registercar = (props) => {
+    const route = useRoute();
+    const cars_list = useSelector(carlist);
+    const ppcode = route.params.ppcode
+    const p_mobile = route.params.p_mobile
+    const p_location = route.params.p_location
+    const p_city = route.params.p_city
+    const p_state = route.params.p_state
+    const [ac, setac] = useState(true);
+    const [non_ac, setnon_ac] = useState(false);
+    const [banner3, setbanner3] = useState('');
+    const [banner33, setbanner33] = useState('');
+
+
+    const [brand, setbrand] =useState();
+    const [color, setcolor] =useState();
+    const [year, setyear] =useState();
+    const [carno, setcarno] =useState();
+    const [seating, setseating] =useState();
+    console.log("..................",cars_list)
+
+    const submit=()=>{
+        console.log(ppcode,brand,color,year,carno,seating,ac,p_mobile,p_location,p_city,p_state)
+
+        if(brand=='' || color==''|| year==''|| carno==''){
+            alert("Enter All Values")
+        }
+        else{
+
+        fetch('http://udrive.b2bmart.org.in/api/add-car.php',{
+			method:'post',
+			header:{
+				'Accept': 'application/json',
+				'Content-type': 'application/json'
+			},
+			body:JSON.stringify({
+                pcode:ppcode,
+                carregno:carno,
+                carname:brand,
+                seating: seating,
+                ac:ac,
+                color:color,
+                making_year:year,
+                mobilenumber:p_mobile,
+                street:p_location,
+                city:p_city,
+                state:p_state,
+                carpic:banner33
+			})
+
+        })
+        .then((response) => response.json())
+		 .then(async (response)=>{
+            const dataJSON = JSON.stringify(response)
+            const userToken1 =JSON.parse(dataJSON);
+            console.log('response', userToken1);
+
+            alert(userToken1.Message)			
+		 })
+		 .catch((error)=>{
+		 console.error(error);
+         });
+
+        }
+
+    }
+const non_ac1=()=>{
+    setac(false)
+    setnon_ac(true)
+}
+const ac1=()=>{
+    setac(true)
+    setnon_ac(false) 
+}
+console.log("AC",ac,"NON-AC",non_ac)
+    const handleChoosePhoto3 = () => {
+        const options = {
+            title: 'Banner',
+            storageOptions: {
+                skipBackup: true,
+                path: 'images',
+            },
+        };
+
+        ImagePicker.showImagePicker(options, (response) => {
+            console.log('Response = ', response);
+
+            if (response.didCancel) {
+                console.log('User cancelled image picker');
+            } else if (response.error) {
+                console.log('ImagePicker Error: ', response.error);
+            } else if (response.customButton) {
+                console.log('User tapped custom button: ', response.customButton);
+            } else {
+                const source1111 = { uri: response.uri };
+                const source = {
+                    uri: 'data:' + response.fileName + ';base64,' + response.data,
+                };
+                setbanner3(source);
+                setbanner33(source.uri);
+            }
+        });
+    };
+
     return (
         <ScrollView
             style={{ flex: 1 }}
@@ -32,40 +143,65 @@ const Registercar = () => {
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
                     <View style={{ margin: 20, marginTop: 30, width: 150, borderBottomWidth: 1 }}>
                         <Text style={{ fontWeight: 'bold', fontSize: 15 }}>Brand&Model</Text>
-                        <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'black', marginTop: 15, paddingBottom: 10 }}>Maruthi Suzuki</Text>
+                        <TextInput style={{ fontWeight: 'bold', fontSize: 15, color: 'black', marginTop: 15, paddingBottom: 10 }} 
+                        value={brand}
+                        onChangeText={(value) => setbrand(value)}/>
                     </View>
                     <View style={{ margin: 20, marginTop: 30, width: 150, borderBottomWidth: 1 }}>
                         <Text style={{ fontWeight: 'bold', fontSize: 15 }}>Color</Text>
-                        <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'black', marginTop: 15, paddingBottom: 10 }}>Blue</Text>
+                        <TextInput style={{ fontWeight: 'bold', fontSize: 15, color: 'black', marginTop: 15, paddingBottom: 10 }} 
+                        value={color}
+                        onChangeText={(value) => setcolor(value)}/>
                     </View>
                 </View>
 
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
                     <View style={{ margin: 20, marginTop: 30, width: 150, borderBottomWidth: 1 }}>
                         <Text style={{ fontWeight: 'bold', fontSize: 15 }}>Making Year</Text>
-                        <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'black', marginTop: 15, paddingBottom: 10 }}>2019</Text>
+                        <TextInput style={{ fontWeight: 'bold', fontSize: 15, color: 'black', marginTop: 15, paddingBottom: 10 }} 
+                        keyboardType={'numeric'}
+                        value={year}
+                        onChangeText={(value) => setyear(value)}/>
                     </View>
                     <View style={{ margin: 20, marginTop: 30, width: 150, borderBottomWidth: 1 }}>
                         <Text style={{ fontWeight: 'bold', fontSize: 15 }}>Car Number</Text>
-                        <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'black', marginTop: 15, paddingBottom: 10 }}>Ts 02 EE 1233</Text>
+                        <TextInput style={{ fontWeight: 'bold', fontSize: 15, color: 'black', marginTop: 15, paddingBottom: 10 }} 
+                        value={carno}
+                        onChangeText={(value) => setcarno(value)}/>
                     </View>
+                </View>
+
+                <View style={{ flexDirection: 'row' }}>
+                    <View style={{ margin: 20, marginTop: 30, width: 150, borderBottomWidth: 1 }}>
+                        <Text style={{ fontWeight: 'bold', fontSize: 15 }}>Seating</Text>
+                        <TextInput style={{ fontWeight: 'bold', fontSize: 15, color: 'black', marginTop: 15, paddingBottom: 10 }} 
+                        keyboardType={'numeric'}
+                        value={seating}
+                        onChangeText={(value) => setseating(value)}/>
+                    </View>
+                    {/* <View style={{ margin: 20, marginTop: 30, width: 150, borderBottomWidth: 1 }}>
+                        <Text style={{ fontWeight: 'bold', fontSize: 15 }}>Car Number</Text>
+                        <TextInput style={{ fontWeight: 'bold', fontSize: 15, color: 'black', marginTop: 15, paddingBottom: 10 }}/>
+                    </View> */}
                 </View>
 
                 <View style={{ flexDirection: 'row', marginLeft: 20 }}>
                     <CheckBox
-                    color={colors.themeColor}
-                        value={isSelected}
-                        onValueChange={setSelection}
+                        color={colors.themeColor}
+                        value={ac}
+                        // onPress={() => ac1()}
+                        onValueChange={() => ac1()}
                     /><Text style={{ top: 5 }}>AC</Text>
 
                     <CheckBox
-                      color={colors.themeColor}
+                        color={colors.themeColor}
                         style={{ marginLeft: 50 }}
-                        value={isSelected}
-                        onValueChange={setSelection}
+                        value={non_ac}
+            
+                        onValueChange={() => non_ac1()}
                     /><Text style={{ top: 5 }}>Non-AC</Text>
                 </View>
-
+                {/* 
                 <View style={{ margin: 20 }}>
                     <Text style={{ fontSize: 20, color: 'black', fontWeight: 'bold' }}>Upload Documents</Text>
                     <Text style={{ fontSize: 15 }}>Upload your Fitness, Insurance, and Pollution card of Driver</Text>
@@ -73,53 +209,55 @@ const Registercar = () => {
 
                 <View style={{ height: 50, borderWidth: 1, borderColor: 'lightgray', width: 280, borderRadius: 10, alignSelf: 'center' }}>
                     <TouchableOpacity><Text style={{ color: 'green', alignSelf: 'center', top: 10, fontWeight: 'bold', fontSize: 15 }}>Upload your documents here</Text></TouchableOpacity>
-                </View>
+                </View> */}
 
-                <View style={{ margin: 20, borderBottomWidth: 1, flexDirection: 'row' }}>
-                    <Image 
-                    source={require('../../assets/rcdoc.png')} style={{ height: 30, width: 40, top: 10 }} />
-                    <Text style={{ marginLeft: 20, fontWeight: 'bold', fontSize: 15, marginTop: 15, paddingBottom: 15 }}>ABC Travels</Text>
-                    <Progress.Bar progress={0.5} style={{ height: 8, top: 22, left: 20, width: 130, borderColor:'lightgray', }} />
-                    <Image 
-                   // source={require('../images/wrong.png')} 
-                    style={{ height: 20, marginLeft: 40, width: 20, top: 15 }} />
-                    {/* <Image source={require('../images/wrong.png')} style={{ height: 30, width: 40, top: 10 }} /> */}
-                </View>
+                        <View style={[styles.docView]}>
+                        <View style={[styles.docContainer]}>
+                                <Icon1 name={'drivers-license-o'} color={colors.themeColor} size={30} />
+                            </View>
+                            <View style={{ flex: 5, paddingLeft: 10 }}>
+                            <Text style={[styles.text3]}> Car Photo</Text>
+                            </View>
+                            
+                        </View>
+                        <View style={{ marginTop: '1%' }}>
+                            {banner3 == '' ? (
+                                <View style={{ flexDirection: "row", alignItems: "center",marginLeft:50 }}>
+                                    <Icon1
+                                        name={'photo'} color={colors.themeColor}
+                                        size={90}
+                                        style={[styles.img]} />
+                                    <TouchableOpacity
+                                        style={styles.btnStyle}
+                                        onPress={() => handleChoosePhoto3()}
+                                    >
+                                        <Text style={styles.btnTextCamera}>Upload</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            ) : (
+                                    <View style={{ flexDirection: "row", alignItems: "center",marginLeft:50 }}>
+                                        <Image
+                                            source={banner3}
+                                            style={ [styles.img]} />
+                                            <TouchableOpacity
+                                        style={styles.btnStyle     }
+                                        onPress={() => handleChoosePhoto3()}
+                                    >
+                                        <Text style={styles.btnTextCamera}>Upload</Text>
+                                    </TouchableOpacity>
+                                    </View>
+                                )}
+                        </View>
 
-                <View style={{ margin: 20, borderBottomWidth: 1, flexDirection: 'row' }}>
-                    <Image  source={require('../../assets/rcdoc.png')} style={{ height: 30, width: 40, top: 10 }} />
-                    <Text style={{ marginLeft: 20, fontWeight: 'bold', fontSize: 15, marginTop: 15, paddingBottom: 15 }}>ABC Travels</Text>
-                    <Progress.Bar progress={0.5} style={{ height: 8, top: 22, left: 20, width: 130, borderColor:'lightgray', }} />
-                    <Image 
-                   // source={require('../images/wrong.png')} 
-                    style={{ height: 20, marginLeft: 40, width: 20, top: 15 }} />
-                </View>
-
-                <View style={{ margin: 20, borderBottomWidth: 1, flexDirection: 'row' }}>
-                    <Image  source={require('../../assets/rcdoc.png')} style={{ height: 30, width: 40, top: 10 }} />
-                    <Text style={{ marginLeft: 20, fontWeight: 'bold', fontSize: 15, marginTop: 15, paddingBottom: 15 }}>ABC Travels</Text>
-                    <Progress.Bar progress={0.5} style={{ height: 8, top: 22, left: 20, width: 130, borderColor:'lightgray', }} />
-                    <Image 
-                   // source={require('../images/wrong.png')} 
-                    style={{ height: 20, marginLeft: 40, width: 20, top: 15 }} />
-                </View>
-
-                <View style={{ margin: 20, borderBottomWidth: 1, flexDirection: 'row' }}>
-                    <Image source={require('../../assets/rcdoc.png')} style={{ height: 30, width: 40, top: 10 }} />
-                    <Text style={{ marginLeft: 20, fontWeight: 'bold', fontSize: 15, marginTop: 15, paddingBottom: 15 }}>ABC Travels</Text>
-                    <Progress.Bar progress={0.5} style={{ height: 8, top: 22, left: 20, width: 130, borderColor:'lightgray', }} />
-                    <Image 
-                   // source={require('../images/wrong.png')} 
-                    style={{ height: 20, marginLeft: 40, width: 20, top: 15 }} />
-                </View>
-
+                        <TouchableOpacity  onPress={() => submit()}>
                 <View style={{ height: 50, backgroundColor: colors.themeColor, width: 300, borderRadius: 10, alignSelf: 'center' }}>
-                    <TouchableOpacity>
+                   
                         <Text style={{ color: 'white', alignSelf: 'center', top: 15, fontWeight: 'bold', fontSize: 15 }}>
                             Save
                         </Text>
-                    </TouchableOpacity>
+                  
                 </View>
+                </TouchableOpacity>
 
             </View>
         </ScrollView>
@@ -136,6 +274,58 @@ const styles = StyleSheet.create({
         paddingBottom: 80,
         alignItems: "center",
         backgroundColor: colors.themeColor
+    },
+    btnStyle: {
+        backgroundColor: colors.themeColor,
+        //  padding: 10,
+        height: 50,
+        width: 130,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginHorizontal: 50,
+    },
+    btnStyle1: {
+        backgroundColor: colors.themeColor,
+        // padding:10,
+        height: 50,
+        width: 190,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    btnTextCamera: {
+        color: colors.white,
+        fontWeight: 'bold',
+        fontSize: 17,
+        fontFamily: 'Geomanist',
+
+    },
+    docView: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: "center",
+        paddingTop: 20,
+        flexWrap: 'wrap'
+    },
+    docContainer: {
+        paddingLeft: 10,
+        paddingTop: 10,
+        paddingBottom: 10,
+        alignItems: 'center',
+    },
+    text3: {
+        fontSize: 17,
+        fontWeight: '500',
+        fontFamily: 'Geomanist'
+    },
+    img: {
+        width: 100,
+        height: 100,
+        marginTop: 5,
+        marginRight: 10,
+        borderRadius: 20,
+        resizeMode: 'contain'
     },
 
 });
