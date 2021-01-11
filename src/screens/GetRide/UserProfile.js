@@ -4,9 +4,10 @@ import colors from '../../stylesheet/colors';
 import { AppConstants } from "../../constants/appconstants";
 import styles from './UserProfileStyles';
 import AsyncStorage from '@react-native-community/async-storage';
-import {useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-import {pcode,
+import {
+    pcode,
     fname,
     lname,
     mobile,
@@ -17,10 +18,10 @@ import {pcode,
     longitude,
     latitude,
     profilepic
-    
-  } from '../../Redux/selector/userselector';
-  import {carlist} from '../../Redux/selector/carselector';
-  import {car_fetch_action} from '../../Redux/action/caraction';
+
+} from '../../Redux/selector/userselector';
+import { carlist } from '../../Redux/selector/carselector';
+import { car_fetch_action } from '../../Redux/action/caraction';
 
 
 
@@ -48,18 +49,18 @@ const UserProfile = ({ navigation }) => {
     const [p_state, setstate] = useState(sstate);
 
     useEffect(() => {
-        console.log("dispatch",ppcode)
+        console.log("dispatch", ppcode)
         dispatch(
             car_fetch_action({
                 ppcode
             }),
-          );
+        );
 
     })
 
 
 
-   
+
 
     return (
         <>
@@ -76,35 +77,35 @@ const UserProfile = ({ navigation }) => {
                             <TouchableOpacity style={[styles.profileImg]}
                             // onPress={() => handelDocProfile()}
                             >
-                               
+
                             </TouchableOpacity>
                         </View>
                         <View style={[styles.viewContainer]}>
                             <View style={[styles.inputView]}>
-                            <View style={{ flexDirection: 'row',margin:10 }}>
-                            <View style={{ width: '47%' ,marginLeft:10,borderBottomColor:colors.black,borderBottomWidth:1}}>
+                                <View style={{ flexDirection: 'row', margin: 10 }}>
+                                    <View style={{ width: '47%', marginLeft: 10, borderBottomColor: colors.black, borderBottomWidth: 1 }}>
 
-                                    <Text style={{ color: colors.dimGrey }}>{'First Name'}</Text>
-                                    <TextInput style={[styles.textinput]}
-                                        keyboardType="default"
-                                        value={p_fname}
-                                        onChangeText={(value) => setfname(value)}
-                                        placeholderTextColor={colors.black}
-                                   
-                                    />
-                                </View>
-                                <View style={{ width: '47%' ,marginLeft:10, borderBottomColor:colors.black,borderBottomWidth:1}}>
+                                        <Text style={{ color: colors.dimGrey }}>{'First Name'}</Text>
+                                        <TextInput style={[styles.textinput]}
+                                            keyboardType="default"
+                                            value={p_fname}
+                                            onChangeText={(value) => setfname(value)}
+                                            placeholderTextColor={colors.black}
 
-                                    <Text style={{ color: colors.dimGrey }}>{'Last Name'}</Text>
-                                    <TextInput style={[styles.textinput]}
-                                        keyboardType="default"
-                                        value={p_lname}
-                                        onChangeText={(value) => setlname(value)}
-                                        
-                                        placeholderTextColor={colors.black}
-                                   
-                                    />
-                                </View>
+                                        />
+                                    </View>
+                                    <View style={{ width: '47%', marginLeft: 10, borderBottomColor: colors.black, borderBottomWidth: 1 }}>
+
+                                        <Text style={{ color: colors.dimGrey }}>{'Last Name'}</Text>
+                                        <TextInput style={[styles.textinput]}
+                                            keyboardType="default"
+                                            value={p_lname}
+                                            onChangeText={(value) => setlname(value)}
+
+                                            placeholderTextColor={colors.black}
+
+                                        />
+                                    </View>
                                 </View>
                                 <View style={[styles.inputContainer]}>
                                     <Text style={{ color: colors.dimGrey }}>{'Email'}</Text>
@@ -113,7 +114,7 @@ const UserProfile = ({ navigation }) => {
                                         onChangeText={(value) => setemail(value)}
                                         keyboardType="email-address"
                                         placeholderTextColor={colors.black}
-                                   
+
                                     />
                                 </View>
                                 <View style={[styles.inputContainer]}>
@@ -123,40 +124,40 @@ const UserProfile = ({ navigation }) => {
                                         value={p_mobile}
                                         onChangeText={(value) => setmobile(value)}
                                         placeholderTextColor={colors.black}
-                                       
-                                    />
-                                </View>
-                                <View style={{ flexDirection: 'row',margin:10 }}>
-                            <View style={{ width: '47%' ,marginLeft:10,borderBottomColor:colors.black,borderBottomWidth:1}}>
 
-                                    <Text style={{ color: colors.dimGrey }}>{'City'}</Text>
-                                    <TextInput style={[styles.textinput]}
-                                        keyboardType="default"
-                                        value={p_city}
-                                        onChangeText={(value) => setcity(value)}
-                                        placeholderTextColor={colors.black}
-                                   
                                     />
                                 </View>
-                                <View style={{ width: '47%' ,marginLeft:10, borderBottomColor:colors.black,borderBottomWidth:1}}>
+                                <View style={{ flexDirection: 'row', margin: 10 }}>
+                                    <View style={{ width: '47%', marginLeft: 10, borderBottomColor: colors.black, borderBottomWidth: 1 }}>
 
-                                    <Text style={{ color: colors.dimGrey }}>{'State'}</Text>
-                                    <TextInput style={[styles.textinput]}
-                                        keyboardType="default"
-                                        value={p_state}
-                                        onChangeText={(value) => setstate(value)}
-                                        placeholderTextColor={colors.black}
-                                   
-                                    />
-                                </View>
+                                        <Text style={{ color: colors.dimGrey }}>{'City'}</Text>
+                                        <TextInput style={[styles.textinput]}
+                                            keyboardType="default"
+                                            value={p_city}
+                                            onChangeText={(value) => setcity(value)}
+                                            placeholderTextColor={colors.black}
+
+                                        />
+                                    </View>
+                                    <View style={{ width: '47%', marginLeft: 10, borderBottomColor: colors.black, borderBottomWidth: 1 }}>
+
+                                        <Text style={{ color: colors.dimGrey }}>{'State'}</Text>
+                                        <TextInput style={[styles.textinput]}
+                                            keyboardType="default"
+                                            value={p_state}
+                                            onChangeText={(value) => setstate(value)}
+                                            placeholderTextColor={colors.black}
+
+                                        />
+                                    </View>
                                 </View>
                                 <View style={[styles.inputContainer]}>
                                     <Text style={{ color: colors.dimGrey }}>{'Location'}</Text>
                                     <TextInput style={[styles.textinput]}
-                                    value={p_location}
-                                    onChangeText={(value) => setlocation(value)}
+                                        value={p_location}
+                                        onChangeText={(value) => setlocation(value)}
                                         placeholderTextColor={colors.black}
-                                       
+
                                     />
                                 </View>
                                 <View>
@@ -181,13 +182,13 @@ const UserProfile = ({ navigation }) => {
 
                                 </View>
                                 <View>
-                                    <TouchableOpacity style={{ padding: 10, }} onPress={() => navigation.navigate('Registercar',{ppcode,p_mobile,p_location,p_city,p_state})}>
+                                    <TouchableOpacity style={{ padding: 10, }} onPress={() => navigation.navigate('Registercar', { ppcode, p_mobile, p_location, p_city, p_state })}>
                                         <Text style={[styles.addCarText]}>  Add New Car +</Text>
                                     </TouchableOpacity>
                                 </View>
                                 <View>
                                     <TouchableOpacity
-                                      
+
                                         style={[styles.btnStyle]} >
 
                                         <Text style={[styles.btnText]}>
