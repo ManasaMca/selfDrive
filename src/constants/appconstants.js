@@ -23,7 +23,7 @@ import EditDisabled from "../assets/EditWhite.png";
 import upload from "../assets/upload2.png";
 import RcDoc from "../assets/rcdoc.png";
 import CancelTheme from "../assets/cancelThemeColor.png";
-import splashLogo from "../assets/logo.png";
+import splashLogo from "../assets/Ryder.png";
 import googleBtn from '../assets/google.png';
 import Home from '../assets/home.png';
 import Exit from '../assets/exit.png';

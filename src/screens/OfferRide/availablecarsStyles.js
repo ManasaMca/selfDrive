@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.themeColor
     },
     background_view: {
-        backgroundColor: 'lightgray', height: 800
+        backgroundColor: 'lightgray', height: 230
     },
     view1: {
         // height: '25%',

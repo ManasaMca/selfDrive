@@ -5,6 +5,7 @@ import { AppConstants } from "../../constants/appconstants";
 import styles from './UserProfileStyles';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useSelector, useDispatch } from 'react-redux';
+import { getFCMToken, saveMobileNumber } from '../../utils/AsyncStorageHelper'
 
 import {
     pcode,
@@ -188,7 +189,15 @@ const UserProfile = ({ navigation }) => {
                                 </View>
                                 <View>
                                     <TouchableOpacity
-
+                                        onPress={() => {
+                                            saveMobileNumber('');
+                                            // navigation.reset({
+                                            //     index: 0,
+                                            //     routes: [{ name: 'Login' }]
+                                            // })
+                                            navigation.navigate('Login')
+                                   
+                                        }}
                                         style={[styles.btnStyle]} >
 
                                         <Text style={[styles.btnText]}>
