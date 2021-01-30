@@ -25,9 +25,9 @@ const splashscreen = (props) => {
     if(!isNullOrUndefined(mobile)){
       //dispatch(doGetProfileRequest(data));
 
-      const res = await getProfileAPI(data);
+      // const res = await getProfileAPI(data);
       //alert(JSON.stringify(res));
-      props.doGetProfileRequestSuccess(res)
+      // props.doGetProfileRequestSuccess(res)
       setTimeout(() => {
         navigation.replace('OfferRideTab', {
           params: {
@@ -85,19 +85,11 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state) => {
-  //console.log('State--', state.appReducer.userLoginResult.data);
-  //var test = state.appReducer.userLoginResult.data;
-  //console.log('1', test[0].mobileno)
-  console.log("state.appReducer : -",  state.appReducer);
-  return {
-    loginData: state.appReducer.userLoginResult
-  };
-};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     doGetProfileRequestSuccess: (data) => dispatch(doGetProfileRequestSuccess(data)),
   };
 };
 
-export default  connect(mapStateToProps, mapDispatchToProps)(splashscreen);
+export default  connect(mapDispatchToProps)(splashscreen);

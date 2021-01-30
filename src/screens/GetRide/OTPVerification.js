@@ -6,7 +6,8 @@ import { AppConstants } from "../../constants/appconstants";
 import styles from './OTPStyles';
 import AsyncStorage from '@react-native-community/async-storage';
 import {users_fetch_action} from '../../Redux/action/useraction';
-import {useSelector, useDispatch} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux';
+import { getFCMToken, saveMobileNumber } from '../../utils/AsyncStorageHelper'
 
 
 
@@ -27,8 +28,10 @@ const OTPVerification = ({ navigation }) => {
             navigation.navigate('UserSignUp');
         }
         else if(userToken1.otp==otp && userToken1.isRegistered==true){
-            console.log("userToken",userToken1.otp)
+           
             const userdata = userToken1.data[0]
+            console.log("userToken",userdata)
+            await saveMobileNumber(userdata.mobile)
             dispatch(
                 users_fetch_action({
                     userdata

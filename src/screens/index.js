@@ -15,7 +15,7 @@ import OfferRide from './OfferRide/OfferRide';
 import PostCar from './OfferRide/postCar'
 // import RegisteredCars from './OfferRide/RegisteredCars';
 import OTPVerification from './GetRide/OTPVerification';
-// import splashscreen from './GetRide/splashScreen';
+import splashscreen from './GetRide/splashScreen';
 import Home from './GetRide/Home';
 import TermsConditions from './GetRide/Terms'
 import UserSignUp from "./GetRide/UserSignUp";
@@ -196,8 +196,8 @@ export default function RootStack() {
         headerShown: false,
         keyboardHidesTabBar: true
       }}>
-      {/* <MainStack.Screen name={'splashscreen'}
-        component={splashscreen} /> */}
+      <MainStack.Screen name={'splashscreen'}
+        component={splashscreen} />
       <MainStack.Screen name={'Login'}
         component={Login} />
       <MainStack.Screen name={'OTPVerification'}

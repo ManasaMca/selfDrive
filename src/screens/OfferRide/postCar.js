@@ -6,17 +6,62 @@ import Styles from '../../stylesheet/button';
 import styles from './postStyles';
 import DatePicker from 'react-native-date-picker';
 import { useNavigation } from '@react-navigation/native';
+import {pcode} from '../../Redux/selector/userselector';
 import {carlist} from '../../Redux/selector/carselector';
 import {useSelector, useDispatch} from 'react-redux';
 import {Input, Picker} from 'native-base';
 const PostCar = () => {
   const navigation = useNavigation();
   const cars_list = useSelector(carlist);
+  const ppcode = useSelector(pcode);
   const [date, setDate] = useState(new Date())
-  const [car, setCar] = useState();
+  const [car, setCar] = useState('');
 
-  const [isSelected, setSelection] = useState(false);
+  const [Driver, setDriver] = useState(false);
 
+  const [Negotiable, setNegotiable] = useState(false);
+
+
+  const submit=()=>{
+
+    console.log("log",ppcode,date,car,Driver,Negotiable)
+    
+    if(date=='' || car==''){
+      alert("Enter All Values")
+  }
+  else{
+
+  fetch('http://udrive.b2bmart.org.in/api/add-ride.php',{
+method:'post',
+header:{
+  'Accept': 'application/json',
+  'Content-type': 'application/json'
+},
+body:JSON.stringify({
+          pcode:ppcode,
+          carid:car,
+          driver_fecility:Driver,
+          negotiable: Negotiable,
+          r_date:date
+})
+
+  })
+  .then((response) => response.json())
+.then(async (response)=>{
+      const dataJSON = JSON.stringify(response)
+      const userToken1 =JSON.parse(dataJSON);
+      console.log('response', userToken1);
+
+      alert(userToken1.Message)			
+})
+.catch((error)=>{
+console.error(error);
+   });
+   navigation.navigate('AvailableCars')
+
+  }
+
+  }
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor={colors.themeColor} />
@@ -65,36 +110,39 @@ const PostCar = () => {
                                 >
                                     <Picker.Item label="Select Car" value="City" />
                                     {cars_list.map((car, index) => (
-                                      <>
-                                                  <Image key={index + car.carregno} source={require('../../assets/Getaride.jpeg')} style={{width:30,height:30,}}/>
+                               
 
                                         <Picker.Item key={index + car.carregno} label={car.carregno} value={car.carregno} />
-                                        </>
+                                   
                                     ))}
 
                                 </Picker>
               </View>
             </View>
             <View>
-
-              <Text style={[styles.text2]}>
-                Driver Facility
-              </Text>
-              <View style={{ flexDirection: 'row', marginLeft: 20 }}>
-              {/* <CheckBox
+            <View style={{ flexDirection: 'row', marginLeft: 20 }}>
+              <CheckBox
                     color={colors.themeColor}
-                        value={isSelected}
-                        onValueChange={setSelection}
-                    /><Text style={{ top: 5 }}>Negotiable</Text> */}
+                        value={Driver}
+                        onValueChange={setDriver}
+                    /><Text style={{ top: 5 }}>Driver Facility</Text>
+                    </View>
+                    
+              <View style={{ flexDirection: 'row', marginLeft: 20 }}>
+              <CheckBox
+                    color={colors.themeColor}
+                        value={Negotiable}
+                        onValueChange={setNegotiable}
+                    /><Text style={{ top: 5 }}>Negotiable</Text>
                     </View>
 </View>
             <View style={styles.view_1}>
-              {/* <View style={[styles.nextView]}>
+              <View style={[styles.nextView]}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('AvailableCars')} >
+                  onPress={() =>submit()} >
                   <Image source={AppConstants.Next} alt="" />
                 </TouchableOpacity>
-              </View> */}
+              </View>
             </View>
 
           </View>
