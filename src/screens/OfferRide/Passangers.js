@@ -6,11 +6,24 @@ import Styles from '../../stylesheet/button';
 import styles from './PassangerStyles';
 import DatePicker from 'react-native-date-picker';
 import { useNavigation } from '@react-navigation/native';
+import DateHelper from '../../utils/DateHelper';
 
 const Passangers = () => {
   const navigation = useNavigation();
   const [date, setDate] = useState(new Date())
 
+  
+  const today = new Date();
+  const currentDate =
+    today.getFullYear() +
+    '-' +
+    (today.getMonth() < 10 ? '0' + today.getMonth() : today.getMonth()) +
+    '-' +
+    (today.getDate() < 10 ? '0' + today.getDate() : today.getDate());
+
+
+  const selectedDate = DateHelper.formatToYYYYMMDDHHMM(date.toISOString());
+   
 
   return (
     <>
@@ -41,6 +54,7 @@ const Passangers = () => {
               androidVariant="nativeAndroid"
               date={date}
               mode="date"
+              minimumDate={new Date()}
               onDateChange={setDate}
               color={colors.themeColor}
             />
@@ -60,6 +74,7 @@ const Passangers = () => {
                 androidVariant="nativeAndroid"
                 date={date}
                 mode="date"
+                minimumDate={new Date()}
                 onDateChange={setDate}
                 color={colors.themeColor}
               />

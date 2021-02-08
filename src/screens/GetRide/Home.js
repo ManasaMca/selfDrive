@@ -13,7 +13,7 @@ import {useSelector, useDispatch} from 'react-redux';
 const Home = ({ navigation }) => {
   const dispatch = useDispatch();
 
-  useEffect(async() => {
+  const fetchUserData = async () => {
     let userToken = await AsyncStorage.getItem('userToken');
     const userToken1 =JSON.parse(userToken);
     console.log(userToken1)
@@ -31,7 +31,11 @@ const Home = ({ navigation }) => {
         }),
       );
 
-  })
+  }
+
+  useEffect(() => {
+    fetchUserData();
+  }, [])
 
   return (
     <>

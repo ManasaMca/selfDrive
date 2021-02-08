@@ -13,7 +13,6 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp, widthPercentageT
 import Passangers from './OfferRide/Passangers';
 import OfferRide from './OfferRide/OfferRide';
 import PostCar from './OfferRide/postCar'
-// import RegisteredCars from './OfferRide/RegisteredCars';
 import OTPVerification from './GetRide/OTPVerification';
 import splashscreen from './GetRide/splashScreen';
 import Home from './GetRide/Home';

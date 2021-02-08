@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Geomanist',
     fontStyle: 'normal',
     fontWeight: 'bold',
-    fontSize: responsiveFontSize(20),
+    fontSize: responsiveFontSize(22),
     color: colors.black,
   },
   text3: {
@@ -95,10 +95,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   nextView: {
-    paddingLeft: responsiveHorizontalSize(50),
+    margin: 5,
     justifyContent: 'center',
-    alignItems: 'center',
-    // alignSelf: 'flex-end',
+    alignItems: 'center'
   },
   container: {
     marginHorizontal: 10,
@@ -107,7 +106,27 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     height: 60
+  },
+  addCarText: {
+    fontSize: 20,
+    fontWeight: '300',
+    fontFamily: 'Geomanist',
+    color: colors.themeColor
+  },
+  submit: {
+    height: 50,
+    width: 150,
+    backgroundColor: colors.themeColor,
+    borderRadius: 5,
+    margin: 10,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  submitText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+    margin: 5
   }
-
 });
 export default styles;

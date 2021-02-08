@@ -23,7 +23,7 @@ const AvailableCars = () => {
                 <View style={styles.container}>
                     <View style={{ top: 30 }}>
                         <View style={{ flexDirection: 'row', marginLeft: 10 }}>
-                            <TouchableOpacity>
+                            <TouchableOpacity   onPress={() => navigation.goBack()}>
                                 <Image
                                     source={require('../../assets/BackWhite.png')}
                                     style={{ top: 15 }} />
@@ -34,16 +34,7 @@ const AvailableCars = () => {
                         </View>
                     </View>
                 </View>
-                <View style={{ flex: 1, flexDirection: 'row' }}>
-                    <Slider
-                        style={{ width: 300, height: 60 }}
-                        minimumValue={5}
-                        maximumValue={15}
-                        step={1}
-                        minimumTrackTintColor="#FFFFFF"
-                        maximumTrackTintColor="#000000"
-                    />
-                </View>
+               
                 <FlatList
             data={cars_list}
             renderItem={({ item }) => (
