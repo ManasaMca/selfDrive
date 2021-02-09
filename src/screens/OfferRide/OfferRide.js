@@ -9,9 +9,14 @@ import GetLocation from 'react-native-get-location';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { API_KEY } from '../../constants/apiendpoints'
+import { getCityName } from '../../constants/utils';
+
 const OfferRide = (props) => {
   const navigation = useNavigation();
-
+  let fromLocation,
+      fromLat,
+      fromLong,
+      fromCity
   const [initialRegion, setInitialRegion] = useState(null);
 
   const getCurrentLocation = () => {
