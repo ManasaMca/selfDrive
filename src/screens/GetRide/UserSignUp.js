@@ -109,7 +109,7 @@ const UserSignUp = ({ navigation }) => {
         }
         else{
 
-        fetch('http://udrive.b2bmart.org.in/api/add-profile.php',{
+        fetch('http://api.ryder.org.in/add-profile.php',{
 			method:'post',
 			header:{
 				'Accept': 'application/json',

@@ -16,7 +16,7 @@ const Login = ({ navigation }) => {
     const [mobile, setmobile] = useState('');
 
     const submit = () => {
-        fetch('http://udrive.b2bmart.org.in/api/profile-otp.php', {
+        fetch('http://api.ryder.org.in/profile-otp.php', {
             method: 'post',
             header: {
                 'Accept': 'application/json',

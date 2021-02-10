@@ -2,7 +2,7 @@ export const apiconfig = (endpoint, body, service) => {
     // const [status, setstatus] = useState()
     const config = {
       method: service,
-      url: 'http://udrive.b2bmart.org.in/api/' + endpoint,
+      url: 'http://api.ryder.org.in/' + endpoint,
       data: body,
       // headers: { 'User-Agent': 'Console app' }
     };
@@ -13,7 +13,7 @@ export const apiconfig = (endpoint, body, service) => {
 
 
 
-export const BASE_URL = 'http://udrive.b2bmart.org.in/api/';
+export const BASE_URL = 'http://api.ryder.org.in/api/';
 export const bookRideEndPoint = 'bookride.php';
 export const offerRideEndPoint = 'rideoffer.php';
 export const getCarsEndPoint = 'getcars.php';
