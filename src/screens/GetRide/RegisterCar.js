@@ -170,14 +170,28 @@ const Registercar = (props) => {
                     </View>
                 </View>
 
-                <View style={{ flexDirection: 'row' }}>
-                    <View style={{ margin: 20, marginTop: 30, width: 150, borderBottomWidth: 1 }}>
+                <View style={{ flexDirection: 'row', marginVertical: 10 }}>
+                    <Text style={[styles.text2]}>
+                        Seating
+                    </Text>
+                    <View style={[styles.container1]}>
+                        <Picker
+                            mode="dropdown"
+                            style={{ width: 200 }}
+
+                        >
+                            <Picker.Item label="Select Seats" value="City" />
+
+
+                        </Picker>
+                    </View>
+                    {/* <View style={{ margin: 20, marginTop: 30, width: 150, borderBottomWidth: 1 }}>
                         <Text style={{ fontWeight: 'bold', fontSize: 15 }}>Seating</Text>
                         <TextInput style={{ fontWeight: 'bold', fontSize: 15, color: 'black', marginTop: 15, paddingBottom: 10 }}
                             keyboardType={'numeric'}
                             value={seating}
                             onChangeText={(value) => setseating(value)} />
-                    </View>
+                    </View> */}
                     {/* <View style={{ margin: 20, marginTop: 30, width: 150, borderBottomWidth: 1 }}>
                         <Text style={{ fontWeight: 'bold', fontSize: 15 }}>Car Number</Text>
                         <TextInput style={{ fontWeight: 'bold', fontSize: 15, color: 'black', marginTop: 15, paddingBottom: 10 }}/>
@@ -327,6 +341,23 @@ const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
 
+    text2: {
+        padding: 10,
+        fontFamily: 'Geomanist',
+        fontStyle: 'normal',
+        fontWeight: 'bold',
+        fontSize: 20,
+        color: colors.black,
+    },
+
+    container1: {
+        marginHorizontal: 10,
+        width: '55%',
+        borderColor: colors.dimGrey,
+        borderRadius: 10,
+        borderWidth: 1,
+        height: 60
+    },
 });
 
 

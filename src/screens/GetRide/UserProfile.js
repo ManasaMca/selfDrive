@@ -196,7 +196,7 @@ const UserProfile = ({ navigation }) => {
                                             //     routes: [{ name: 'Login' }]
                                             // })
                                             navigation.navigate('Login')
-                                   
+
                                         }}
                                         style={[styles.btnStyle]} >
 

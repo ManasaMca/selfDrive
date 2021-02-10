@@ -64,7 +64,7 @@ const Home = ({ navigation }) => {
             You're looking for...
           </Text>
           <TouchableOpacity  style={[styles.btn]}
-             onPress={() => navigation.navigate('Passangers')}
+             onPress={() => navigation.navigate('Selection')}
             >
           <View style={{paddingTop:20}}>
           <Image source={require('../../assets/Getaride.jpeg')} style={{width:130,height:130,}}/>

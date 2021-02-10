@@ -37,42 +37,42 @@ const PostCar = () => {
 
   const submit = () => {
 
-    console.log("log", ppcode, date, car, Driver, Negotiable)
+    // console.log("log", ppcode, date, car, Driver, Negotiable)
 
-    if (date == '' || car == '') {
-      alert("Enter All Values")
-    }
-    else {
+    // if (date == '' || car == '') {
+    //   alert("Enter All Values")
+    // }
+    // else {
 
-      fetch('http://udrive.b2bmart.org.in/api/add-ride.php', {
-        method: 'post',
-        header: {
-          'Accept': 'application/json',
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify({
-          pcode: ppcode,
-          carid: car,
-          driver_fecility: Driver,
-          negotiable: Negotiable,
-          r_date: date
-        })
+    //   fetch('http://udrive.b2bmart.org.in/api/add-ride.php', {
+    //     method: 'post',
+    //     header: {
+    //       'Accept': 'application/json',
+    //       'Content-type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       pcode: ppcode,
+    //       carid: car,
+    //       driver_fecility: Driver,
+    //       negotiable: Negotiable,
+    //       r_date: date
+    //     })
 
-      })
-        .then((response) => response.json())
-        .then(async (response) => {
-          const dataJSON = JSON.stringify(response)
-          const userToken1 = JSON.parse(dataJSON);
-          console.log('response', userToken1);
+    //   })
+    //     .then((response) => response.json())
+    //     .then(async (response) => {
+    //       const dataJSON = JSON.stringify(response)
+    //       const userToken1 = JSON.parse(dataJSON);
+    //       console.log('response', userToken1);
 
-          alert(userToken1.Message)
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-      navigation.navigate('Home')
+    //       alert(userToken1.Message)
+    //     })
+    //     .catch((error) => {
+    //       console.error(error);
+    //     });
+      navigation.navigate('PostCarFinal')
 
-    }
+    //}
 
   }
   return (
@@ -96,7 +96,7 @@ const PostCar = () => {
             <View>
 
               <Text style={[styles.text2]}>
-                Posting car on
+                Post Car On
               </Text>
             </View>
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
@@ -148,7 +148,7 @@ const PostCar = () => {
                   color={colors.themeColor}
                   value={Driver}
                   onValueChange={setDriver}
-                /><Text style={{ top: 5, fontSize: 20 }}>Driver Facility</Text>
+                /><Text style={{ fontSize: 20 }}>Driver Facility</Text>
               </View>
 
               <View style={{ flexDirection: 'row', marginLeft: 20 }}>
@@ -156,7 +156,7 @@ const PostCar = () => {
                   color={colors.themeColor}
                   value={Negotiable}
                   onValueChange={setNegotiable}
-                /><Text style={{ top: 5, fontSize: 20 }}>Negotiable</Text>
+                /><Text style={{  fontSize: 20 }}>Negotiable</Text>
               </View>
             </View>
 
@@ -166,7 +166,7 @@ const PostCar = () => {
                 style={[styles.submit]}
               >
                 <Text style={[styles.submitText]}>
-                  Post Car
+                 Next
                 </Text>
               </TouchableOpacity>
             </View>
