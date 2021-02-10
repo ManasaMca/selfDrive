@@ -44,17 +44,13 @@ const Home = ({ navigation }) => {
       <ScrollView>
         <View style={{marginBottom:75}}>
         <View style={[styles.flex_row]} >
-         <View style={[styles.pv1]}>
-            <TouchableOpacity >
-              <Image source={AppConstants.BackArrow} alt="" />
-            </TouchableOpacity>
-          </View>
+         
          <View style={ [styles.logoView] }>
                       
-                        <Text>
-                            Logo
-                        </Text>
-                    </View>
+                 <Text>
+                     Logo
+                  </Text>
+           </View>
        
         </View>
         <View style={[styles.lineView]} />
