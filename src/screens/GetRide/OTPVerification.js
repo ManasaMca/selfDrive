@@ -109,7 +109,7 @@ const OTPVerification = ({ navigation }) => {
 
                         <View style={[styles.textView]}>
                             <View style={{ alignItems: 'center', justifyContent: 'center' }} >
-                                <TouchableOpacity    >
+                                <TouchableOpacity onPress={() => navigation.navigate('Login')}  >
                                     <Text style={[styles.text4]}>
                                         Edit My Mobile Number
                                     </Text>
