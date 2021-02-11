@@ -14,6 +14,24 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp, widthPercentageT
 const Login = ({ navigation }) => {
     const dispatch = useDispatch();
     const [mobile, setmobile] = useState('');
+    
+    const numberValidation = value =>
+    value && !/^[0-9]{1,10}$/.test(value) ?  Alert.alert(
+        "Error",
+        "Please enter valid mobile number",
+        [
+
+            { text: "OK", onPress: () => {navigation.navigate('Login') , anotherFunc(mobile) }}
+            
+        ],
+        { cancelable: false }
+    ) : undefined;
+
+
+
+const anotherFunc = (val) =>{
+    setMobile('');
+}
 
     const submit = () => {
         fetch('http://api.ryder.org.in/profile-otp.php', {
@@ -70,6 +88,11 @@ const Login = ({ navigation }) => {
                                     placeholderTextColor={colors.dimGrey}
                                     keyboardType='number-pad'
                                     maxLength={10}
+                                    errorStatus={
+                                        numberValidation(mobile) 
+                                    }
+                                    errorMessage={numberValidation(mobile)}
+                                    
 
                                 />
                             </View>

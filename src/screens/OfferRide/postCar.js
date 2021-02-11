@@ -33,7 +33,7 @@ const PostCar = () => {
 
 
   const selectedDate = DateHelper.formatToYYYYMMDDHHMM(date.toISOString());
-   
+
 
   const submit = () => {
 
@@ -70,7 +70,7 @@ const PostCar = () => {
     //     .catch((error) => {
     //       console.error(error);
     //     });
-      navigation.navigate('PostCarFinal')
+    navigation.navigate('PostCarFinal')
 
     //}
 
@@ -137,10 +137,24 @@ const PostCar = () => {
                 </Picker>
               </View>
             </View>
-            <View>
-              <TouchableOpacity style={{ padding: 10, }} onPress={() => navigation.navigate('Registercar', {})}>
+            <View style={{alignSelf:'flex-end',paddingRight:40}}>
+              <TouchableOpacity  
+              onPress={() => navigation.navigate('Registercar', {})}>
                 <Text style={[styles.addCarText]}>  Add New Car +</Text>
               </TouchableOpacity>
+            </View>
+            <View style={[styles.priceView]}>
+              <Text style={[styles.priceText]}>
+                Rent Per Day :
+              </Text>
+              <View style={[styles.container1]}>
+                <TextInput
+                  style={[styles.priceInput]}
+                  keyboardType="number-pad"
+                  placeholder="000"
+                  placeholderTextColor="black"
+                />
+              </View>
             </View>
             <View>
               <View style={{ flexDirection: 'row', marginLeft: 20 }}>
@@ -156,17 +170,17 @@ const PostCar = () => {
                   color={colors.themeColor}
                   value={Negotiable}
                   onValueChange={setNegotiable}
-                /><Text style={{  fontSize: 20 }}>Negotiable</Text>
+                /><Text style={{ fontSize: 20 }}>Negotiable</Text>
               </View>
             </View>
-
+           
             <View style={[styles.nextView]}>
               <TouchableOpacity
                 onPress={() => submit()}
                 style={[styles.submit]}
               >
                 <Text style={[styles.submitText]}>
-                 Next
+                  Next
                 </Text>
               </TouchableOpacity>
             </View>
