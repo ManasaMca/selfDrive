@@ -30,7 +30,7 @@ const Login = ({ navigation }) => {
 
 
 const anotherFunc = (val) =>{
-    setMobile('');
+    setmobile('');
 }
 
     const submit = () => {
