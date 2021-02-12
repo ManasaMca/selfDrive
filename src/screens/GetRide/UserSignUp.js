@@ -10,6 +10,7 @@ import { getAutoSuggestionAPI } from '../../state/api';
 import AsyncStorage from '@react-native-community/async-storage';
 import {users_fetch_action} from '../../Redux/action/useraction';
 import {useSelector, useDispatch} from 'react-redux'
+import Toast from 'react-native-simple-toast'
 
 
 const UserSignUp = ({ navigation }) => {
@@ -31,7 +32,7 @@ const UserSignUp = ({ navigation }) => {
     const [fname, setfname] = useState('');
     const [lname, setlname] = useState('');
     const [email, setemail] = useState('');
-    const [mobile, setmobile] = useState('');
+    const [mobileEdit, setMobileEdit] = useState('');
     const [location, setlocation] = useState('');
     const [city, setcity] = useState('');
     const [state, setstate] = useState('');
@@ -104,8 +105,73 @@ const UserSignUp = ({ navigation }) => {
 
 
     const submit = () =>{
-        if(fname=='' || lname==''|| email==''|| mobile==''){
-            alert("Enter All Values")
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+       if (reg.test(email) === false) {
+           Alert.alert(
+               "Error",
+               "Email is incorrect",
+               [
+
+                   { text: "OK", onPress: () => navigation.navigate('UserSignUp') }
+               ],
+               { cancelable: false }
+           );
+           return;
+
+       }
+       else {
+           setemail(email)
+         //  console.log("Email is Correct");
+       }
+       const isFnameValid = /^[A-z]+$/.test(fname)
+       const isLnameValid = /^[A-z]+$/.test(lname)
+       if (isFnameValid !== true && isLnameValid ) {
+           Alert.alert(
+               "Error",
+               "Name is incorrect",
+               [
+
+                   { text: "OK", onPress: () => navigation.navigate('UserSignUp') }
+               ],
+               { cancelable: false }
+           );
+           return;
+
+       }
+       else {
+           setfname(fname)
+           setlname(lname)
+         //  console.log("Name is Correct");
+       }
+
+       if(fname == ''){
+            Toast.show('Please enter First Name', Toast.SHORT);
+            return;
+       }
+
+       if(mobileEdit == '' || mobileEdit.length < 10){
+        Toast.show('Please enter mobile number', Toast.SHORT);
+        return;
+        }
+        
+        if(mobileEdit.length < 10){
+            Toast.show('mobile number should be 10 Character', Toast.SHORT);
+            return;
+            
+        }
+
+       if(lname == ''){
+            Toast.show('Please enter Last Name', Toast.SHORT);
+            return;
+        }
+
+        if(email == ''){
+            Toast.show('Please enter Email', Toast.SHORT);
+            return;
+        }
+        if(city == ''){
+            Toast.show('Please enter City', Toast.SHORT);
+            return;
         }
         else{
 
@@ -119,7 +185,7 @@ const UserSignUp = ({ navigation }) => {
                 fname:fname,
                 lname:lname,
                 email:email,
-                mobile: mobile,
+                mobile: mobileEdit,
                 location:fromLocation,
                 city:city,
                 state:state,
@@ -224,8 +290,8 @@ const UserSignUp = ({ navigation }) => {
                     <View style={[styles.mobileView]}>
                         <View style={{ width: '100%' ,borderBottomColor:colors.black,borderBottomWidth:1,marginTop:10}}>
                             <TextInput 
-                                    value={mobile}
-                                    onChangeText={(value) => setmobile(value)}
+                                    value= {mobileEdit.replace(/[^0-9]/g, '')}
+                                    onChangeText={(value) => setMobileEdit(value)}
                                 placeholder="Mobile"
                                     keyboardType="number-pad"
                                     placeholderTextColor="black"
