@@ -30,8 +30,7 @@ const Login = ({ navigation }) => {
             const dataJSON = JSON.stringify(response)          
             console.log('response', dataJSON);
            
-            await AsyncStorage.setItem('userToken',dataJSON);
-			navigation.navigate('OTPVerification')
+			navigation.navigate('OTPVerification',{userToken:dataJSON})
 		 })
 		 .catch((error)=>{
 		 console.error(error);
@@ -44,15 +43,7 @@ const Login = ({ navigation }) => {
 
     }
 
-//    const openSearchModal() {
-//         RNGooglePlaces.openAutocompleteModal()
-//         .then((place) => {
-//             console.log(place);
-//             // place represents user's selection from the
-//             // suggestions and it is a simplified Google Place object.
-//         })
-//         .catch(error => console.log(error.message));  // error is a Javascript Error object
-//       }
+
     return (
         <>
             <StatusBar barStyle="light-content" backgroundColor={colors.black} />

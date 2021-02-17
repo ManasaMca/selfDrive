@@ -9,17 +9,14 @@ import {users_fetch_action} from '../../Redux/action/useraction';
 import {useSelector, useDispatch} from 'react-redux';
 import { getFCMToken, saveMobileNumber } from '../../utils/AsyncStorageHelper'
 
-
-
-
-const OTPVerification = ({ navigation }) => {
+const OTPVerification = ({ route, navigation }) => {
+    const { userToken } = route.params;
     const dispatch = useDispatch();
     const [otp, setotp] = useState('');
     console.log("input",otp)
 
     const submit = async() =>{
         console.log("input",otp)
-        let userToken = await AsyncStorage.getItem('userToken');
         const userToken1 =JSON.parse(userToken);
          console.log("userToken",userToken1)
          
