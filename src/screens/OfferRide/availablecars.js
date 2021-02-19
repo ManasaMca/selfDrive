@@ -13,7 +13,6 @@ import {useSelector, useDispatch} from 'react-redux';
 
 
 const AvailableCars = () => {
-
     const cars_list = useSelector(carlist);
     const navigation = useNavigation();
     return (

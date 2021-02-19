@@ -9,7 +9,6 @@ import {
 } from './actioncontants';
 
 export const car_fetch_action = ({ppcode}) => {
-    console.log("step1")
   return function (dispatch) {
     dispatch(onfetching());
     const body = {
@@ -18,7 +17,6 @@ export const car_fetch_action = ({ppcode}) => {
     const config = apiconfig('get_cars.php', body, 'POST');
     axios(config)
       .then((response) => {
-         console.log('response', response);
         return(dispatch(onsucess(response.data.result)))
  
       })
