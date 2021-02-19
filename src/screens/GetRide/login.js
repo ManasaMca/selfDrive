@@ -45,6 +45,16 @@ const anotherFunc = (val) =>{
             })
 
         })
+        .then((response) => response.json())
+		 .then(async (response)=>{
+            const dataJSON = JSON.stringify(response)          
+            console.log('response', dataJSON);
+           
+			navigation.navigate('OTPVerification',{userToken:dataJSON})
+		 })
+		 .catch((error)=>{
+		 console.error(error);
+         });
             .then((response) => response.json())
             .then(async (response) => {
                 const dataJSON = JSON.stringify(response)
@@ -63,6 +73,7 @@ const anotherFunc = (val) =>{
                 .catch((error) => console.log(error.message));
 
         }
+
 
     return (
         <>

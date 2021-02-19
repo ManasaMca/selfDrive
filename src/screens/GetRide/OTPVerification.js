@@ -10,13 +10,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getFCMToken, saveMobileNumber } from '../../utils/AsyncStorageHelper'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp, } from 'react-native-responsive-screen';
 
-
-
-
-const OTPVerification = ({ navigation }) => {
+const OTPVerification = ({ route, navigation }) => {
+    const { userToken } = route.params;
     const dispatch = useDispatch();
     const [otp, setotp] = useState('');
     console.log("input", otp)
+
+    const submit = async() =>{
+        console.log("input",otp)
+        const userToken1 =JSON.parse(userToken);
+         console.log("userToken",userToken1)
+         
+        if(userToken1.otp==otp && userToken1.isRegistered==false){
 
     const submit = async () => {
         console.log("input", otp)
@@ -26,6 +31,7 @@ const OTPVerification = ({ navigation }) => {
 
         if (userToken1.otp == otp && userToken1.isRegistered == false) {
             console.log("userToken", userToken1.otp)
+
             navigation.navigate('UserSignUp');
         }
         else if (userToken1.otp == otp && userToken1.isRegistered == true) {
