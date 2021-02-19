@@ -49,17 +49,17 @@ const styles = StyleSheet.create({
     color: '#5d5d5d',
     fontSize: 16,
   },
-  btn:{
-    width:'70%',
-    height:50,
-    justifyContent:'center',
-    alignItems:'center',
-    backgroundColor:colors.themeColor
+  btn: {
+    width: '70%',
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.themeColor
   },
-  btnText:{
-    color:colors.white,
-    fontSize:responsiveFontSize(18),
-    fontWeight:'bold'
+  btnText: {
+    color: colors.white,
+    fontSize: responsiveFontSize(18),
+    fontWeight: 'bold'
   }
 });
 export default styles;
