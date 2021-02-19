@@ -13,7 +13,7 @@ import {useSelector, useDispatch} from 'react-redux';
 const Home = ({ navigation }) => {
   const dispatch = useDispatch();
 
-  useEffect(async() => {
+  const fetchUserData = async () => {
     let userToken = await AsyncStorage.getItem('userToken');
     const userToken1 =JSON.parse(userToken);
     console.log(userToken1)
@@ -31,7 +31,11 @@ const Home = ({ navigation }) => {
         }),
       );
 
-  })
+  }
+
+  useEffect(() => {
+    fetchUserData();
+  }, [])
 
   return (
     <>
@@ -40,17 +44,13 @@ const Home = ({ navigation }) => {
       <ScrollView>
         <View style={{marginBottom:75}}>
         <View style={[styles.flex_row]} >
-         <View style={[styles.pv1]}>
-            <TouchableOpacity >
-              <Image source={AppConstants.BackArrow} alt="" />
-            </TouchableOpacity>
-          </View>
+         
          <View style={ [styles.logoView] }>
                       
-                        <Text>
-                            Logo
-                        </Text>
-                    </View>
+                 <Text>
+                     Logo
+                  </Text>
+           </View>
        
         </View>
         <View style={[styles.lineView]} />
@@ -60,7 +60,7 @@ const Home = ({ navigation }) => {
             You're looking for...
           </Text>
           <TouchableOpacity  style={[styles.btn]}
-             onPress={() => navigation.navigate('Passangers')}
+             onPress={() => navigation.navigate('Selection')}
             >
           <View style={{paddingTop:20}}>
           <Image source={require('../../assets/Getaride.jpeg')} style={{width:130,height:130,}}/>

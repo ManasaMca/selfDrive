@@ -31,12 +31,6 @@ const styles = StyleSheet.create({
     fontSize: responsiveFontSize(20),
     color: colors.black,
   },
-  seats1: {
-    height: 50,
-    width: 120,
-    backgroundColor: 'grey',
-    borderRadius: 10
-  },
   view_1: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -47,7 +41,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingLeft: responsiveHorizontalSize(2),
     paddingTop: responsiveVerticalSize(1),
-    paddingBottom: responsiveVerticalSize(1)
+    paddingBottom: responsiveVerticalSize(1),
   },
   priceText: {
     fontFamily: 'Geomanist',
@@ -55,13 +49,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: responsiveFontSize(20),
     color: colors.black,
+    top:5
   },
   priceInput: {
     width: '100%',
     fontSize: responsiveFontSize(20),
     fontWeight: 'bold',
-    paddingTop: 0,
-
+    },
+  container1: {
+    marginHorizontal: 10,
+    width: '58%',
+    borderColor: colors.dimGrey,
+    borderRadius: 10,
+    borderWidth: 1,
+    height: 45,
+    justifyContent:'center'
   },
   lineView: {
     borderBottomColor: colors.suvaGrey,
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Geomanist',
     fontStyle: 'normal',
     fontWeight: 'bold',
-    fontSize: responsiveFontSize(20),
+    fontSize: responsiveFontSize(22),
     color: colors.black,
   },
   text3: {
@@ -95,10 +97,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   nextView: {
-    paddingLeft: responsiveHorizontalSize(50),
+    margin: 5,
     justifyContent: 'center',
-    alignItems: 'center',
-    // alignSelf: 'flex-end',
+    alignItems: 'center'
   },
   container: {
     marginHorizontal: 10,
@@ -106,8 +107,28 @@ const styles = StyleSheet.create({
     borderColor: colors.dimGrey,
     borderRadius: 10,
     borderWidth: 1,
-    height: 60
+    height: 50
+  },
+  addCarText: {
+    fontSize: 20,
+    fontWeight: '300',
+    fontFamily: 'Geomanist',
+    color: colors.themeColor
+  },
+  submit: {
+    height: 50,
+    width: 150,
+    backgroundColor: colors.themeColor,
+    borderRadius: 5,
+    margin: 10,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  submitText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+    margin: 5
   }
-
 });
 export default styles;

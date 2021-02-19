@@ -11,7 +11,7 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { API_KEY } from '../../constants/apiendpoints'
 import { getCityName } from '../../constants/utils';
 
-const OfferRide = (props) => {
+const PostCarFinal = (props) => {
   const navigation = useNavigation();
   let fromLocation,
     fromLat,
@@ -50,7 +50,7 @@ const OfferRide = (props) => {
         <View
           style={[styles.titleView]}>
           <View style={{ flex: 1 }}>
-            <Text style={[styles.text1, { flex: 1 }]}>Get Your Car</Text>
+            <Text style={[styles.text1, { flex: 1 }]}>Post Your Car</Text>
 
           </View>
 
@@ -111,13 +111,12 @@ const OfferRide = (props) => {
           }]}>
         </View>
 
-
-        <View style={{ bottom: 90, alignItems: 'flex-end', margin: 10 }}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('AvailableCars')}
-          >
-            <Image source={AppConstants.Next} alt="" />
-          </TouchableOpacity>
+        <View style={{ bottom: 90,  margin: 10,alignItems:'center' }}>
+        <TouchableOpacity
+            style={[styles.btn]}
+              onPress={() => navigation.navigate('Home')} >
+             <Text style={[styles.btnText]}> Post Car</Text>
+            </TouchableOpacity>
         </View>
 
       </SafeAreaView>
@@ -125,4 +124,4 @@ const OfferRide = (props) => {
   );
 };
 
-export default memo(OfferRide);
+export default memo(PostCarFinal);

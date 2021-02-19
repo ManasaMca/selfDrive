@@ -41,7 +41,6 @@ const splashscreen = (props) => {
 
     }else {
       setTimeout(() => {
-      //  this.props.navigation.navigate('Rewards')
         navigation.replace('Login');
         //INP200820200832505
   

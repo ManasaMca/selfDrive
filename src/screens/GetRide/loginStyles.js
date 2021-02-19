@@ -10,6 +10,8 @@ const styles = StyleSheet.create({
 
     imgStyle: {
         width: '100%',
+        height:300,
+        resizeMode:'cover'
     },
     textView: {
         paddingTop: 10,
@@ -56,7 +58,8 @@ const styles = StyleSheet.create({
         margin:10,
         padding: 10,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        
     },
     btnText: {
         color: colors.white,

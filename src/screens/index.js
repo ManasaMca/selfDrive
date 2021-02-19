@@ -10,10 +10,9 @@ import Login from './GetRide/login';
 import { AppConstants } from '../constants/appconstants';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp, widthPercentageToDP } from 'react-native-responsive-screen';
 
-import Passangers from './OfferRide/Passangers';
+import Selection from './OfferRide/Selection';
 import OfferRide from './OfferRide/OfferRide';
 import PostCar from './OfferRide/postCar'
-// import RegisteredCars from './OfferRide/RegisteredCars';
 import OTPVerification from './GetRide/OTPVerification';
 import splashscreen from './GetRide/splashScreen';
 import Home from './GetRide/Home';
@@ -23,6 +22,7 @@ import Registercar from "./GetRide/RegisterCar";
 import UserProfile from "./GetRide/UserProfile";
 import Cardetails from "./GetRide/cardetails";
 import AvailableCars from "./OfferRide/availablecars";
+import PostCarFinal from './OfferRide/PostCarFinal';
 import { heightPercentageToDP, responsiveHorizontalSize, responsiveVerticalSize, } from '../stylesheet/responsiveSize';
 
 
@@ -108,7 +108,7 @@ function CustomTabBar({ state, descriptors, navigation }) {
             iconName={iconName}
             onPress={onPress}
             onLongPress={onLongPress}
-            numberOfTabs={state.routes.length - 4}
+            numberOfTabs={state.routes.length - 5}
           >
           </BottomCenterView>)
         })}
@@ -166,14 +166,18 @@ export const TabsContainer = (props) => {
     />
 
     <MainTab.Screen
-      name={'Passangers'}
-      component={Passangers}
+      name={'Selection'}
+      component={Selection}
     />
     <MainTab.Screen
       name={'PostCar'}
-      component={PostCar}
+      component={PostCar} 
     />
+    <MainTab.Screen
+      name={"PostCarFinal"}
+      component={PostCarFinal}
 
+    />
     <MainTab.Screen
       name={"OfferRide"}
       component={OfferRide}

@@ -2,7 +2,7 @@ export const apiconfig = (endpoint, body, service) => {
     // const [status, setstatus] = useState()
     const config = {
       method: service,
-      url: 'http://udrive.b2bmart.org.in/api/' + endpoint,
+      url: 'http://api.ryder.org.in/' + endpoint,
       data: body,
       // headers: { 'User-Agent': 'Console app' }
     };
@@ -13,7 +13,7 @@ export const apiconfig = (endpoint, body, service) => {
 
 
 
-export const BASE_URL = 'http://api.inatrip.in/api/';
+export const BASE_URL = 'http://api.ryder.org.in/api/';
 export const bookRideEndPoint = 'bookride.php';
 export const offerRideEndPoint = 'rideoffer.php';
 export const getCarsEndPoint = 'getcars.php';
@@ -45,6 +45,5 @@ export const socailLogin = "social-connect.php";
 export const getNotificationsEnd = "get-notifications.php";
 export const AUTO_SUGGESTION_API_KEY = 'Tj6wS42-DsQfgU988GUuvFG8rIRFcukBU4H_KoofoyA';
 export const API_KEY = 'AIzaSyDFrl_WzEA9GKKtFCk52ealyMPoS9akd4U';
-export const AUTO_COMPLETE_URL = "https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json?apiKey=Tj6wS42-DsQfgU988GUuvFG8rIRFcukBU4H_KoofoyA&query="
-export const appVersionInfoUrl = "http://api.inatrip.in/api/get_app_info.php"
+
 
