@@ -16,7 +16,6 @@ const carinitialState = {
             isfetchingbrand: true,
           };
         case 'CAR_FETCH_SUCESS':
-          console.log("cacacac",action.data)
             return {
             ...state,
             car:action.data,

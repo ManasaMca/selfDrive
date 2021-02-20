@@ -11,14 +11,18 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { API_KEY } from '../../constants/apiendpoints'
 import { getCityName } from '../../constants/utils';
 
-const OfferRide = (props) => {
+const OfferRide = ({route}) => {
+  const {date,seating}=route.params;
   const navigation = useNavigation();
   let fromLocation,
     fromLat,
     fromLong,
     fromCity
   const [initialRegion, setInitialRegion] = useState(null);
-
+  const [lati, setLati] = useState('');
+  const [longi, setLongi] = useState('');
+  const [city, setCity] = useState('');
+  const [location, setLocation] = useState('');
   const getCurrentLocation = () => {
     GetLocation.getCurrentPosition({
       enableHighAccuracy: true,
@@ -37,7 +41,14 @@ const OfferRide = (props) => {
         //  console.warn(code, message);
       });
   };
+ const onsubmit=()=>{
+   if(location==''){
+      alert("Enter Location")
+   }else{
+    navigation.navigate('AvailableCars',{date:date,seating:seating,lati:lati,longi:longi,city:city,location:location})
 
+   }
+ }
   useEffect(() => {
     getCurrentLocation();
   }, []);
@@ -86,6 +97,10 @@ const OfferRide = (props) => {
                 fromLat = details && details.geometry.location.lat;
                 fromLong = details && details.geometry.location.lng;
                 fromCity = getCityName(details);
+                setLati(details.geometry.location.lat)
+                setLongi(details.geometry.location.lng)
+                setCity(details.address_components[0].long_name)
+                setLocation(details.formatted_address)
 
               }}
             />
@@ -114,7 +129,7 @@ const OfferRide = (props) => {
 
         <View style={{ bottom: 90, alignItems: 'flex-end', margin: 10 }}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('AvailableCars')}
+            onPress={() =>onsubmit() }
           >
             <Image source={AppConstants.Next} alt="" />
           </TouchableOpacity>

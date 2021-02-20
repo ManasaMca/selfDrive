@@ -55,17 +55,7 @@ const anotherFunc = (val) =>{
 		 .catch((error)=>{
 		 console.error(error);
          });
-            .then((response) => response.json())
-            .then(async (response) => {
-                const dataJSON = JSON.stringify(response)
-                console.log('response', dataJSON);
-
-                await AsyncStorage.setItem('userToken', dataJSON);
-                navigation.navigate('OTPVerification')
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+           
     },
         openSearchModal = () => {
             RNGooglePlaces.getCurrentPlace(['placeID', 'location', 'name', 'address'])

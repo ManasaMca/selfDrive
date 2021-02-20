@@ -14,6 +14,7 @@ import { heightPercentageToDP, widthPercentageToDP } from '../../stylesheet/resp
 const Selection = () => {
   const navigation = useNavigation();
   const [date, setDate] = useState(new Date())
+  const [seating, setseating] = useState('');
 
 
   const today = new Date();
@@ -25,8 +26,14 @@ const Selection = () => {
     (today.getDate() < 10 ? '0' + today.getDate() : today.getDate());
 
 
-  const selectedDate = DateHelper.formatToYYYYMMDDHHMM(date.toISOString());
-
+ const onsubmit=()=>{
+  if (date == '' || seating == '') {
+    alert("Enter All Values")
+  }
+  else {
+  navigation.navigate('OfferRide',{seating:seating,date:date})
+  }
+ }
 
   return (
     <>
@@ -73,6 +80,8 @@ const Selection = () => {
               <Picker
                 mode="dropdown"
                 style={{ width: 200 }}
+                selectedValue={seating}
+                onValueChange={value => setseating(value)}
 
               >
                 <Picker.Item label="Select Seats" value="Seat" />
@@ -90,7 +99,7 @@ const Selection = () => {
           <View style={[styles.nextView]}>
             <TouchableOpacity
             style={[styles.btn]}
-              onPress={() => navigation.navigate('OfferRide')} >
+              onPress={() => onsubmit()} >
              <Text style={[styles.btnText]}> Next</Text>
             </TouchableOpacity>
           </View>

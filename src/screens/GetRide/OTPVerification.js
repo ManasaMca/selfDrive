@@ -16,12 +16,7 @@ const OTPVerification = ({ route, navigation }) => {
     const [otp, setotp] = useState('');
     console.log("input", otp)
 
-    const submit = async() =>{
-        console.log("input",otp)
-        const userToken1 =JSON.parse(userToken);
-         console.log("userToken",userToken1)
-         
-        if(userToken1.otp==otp && userToken1.isRegistered==false){
+    
 
     const submit = async () => {
         console.log("input", otp)

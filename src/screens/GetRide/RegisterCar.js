@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 
-const Registercar = (props) => {
+const Registercar = () => {
     const navigation = useNavigation();
     const route = useRoute();
     const cars_list = useSelector(carlist);
@@ -41,7 +41,7 @@ const Registercar = (props) => {
         }
         else {
 
-            fetch('http://udrive.b2bmart.org.in/api/add-car.php', {
+            fetch('http://api.ryder.org.in/add-car.php', {
                 method: 'post',
                 header: {
                     'Accept': 'application/json',
@@ -178,6 +178,8 @@ const Registercar = (props) => {
                         <Picker
                             mode="dropdown"
                             style={{ width: 200 }}
+                            selectedValue={seating}
+                            onValueChange={value => setseating(value)}
 
                         >
                             <Picker.Item label="Select Seats" value="Seat" />

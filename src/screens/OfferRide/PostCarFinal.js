@@ -11,14 +11,59 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { API_KEY } from '../../constants/apiendpoints'
 import { getCityName } from '../../constants/utils';
 
-const PostCarFinal = (props) => {
-  const navigation = useNavigation();
+const PostCarFinal = ({route,navigation}) => {
+  const {ppcode, date, car, rent, Driver, Negotiable}=route.params;
   let fromLocation,
     fromLat,
     fromLong,
     fromCity
   const [initialRegion, setInitialRegion] = useState(null);
+  const [lati, setLati] = useState('');
+  const [longi, setLongi] = useState('');
+  const [city, setCity] = useState('');
+  const [location, setLocation] = useState('');
+  console.log("concole:",ppcode, date, car, rent, Driver, Negotiable,lati,longi,city,location)
 
+const onsubmit =()=>{
+if (date == '' || car == '') {
+      alert("Enter All Values")
+    }
+    else {
+
+      fetch('http://api.ryder.org.in/car-offer.php', {
+        method: 'post',
+        header: {
+          'Accept': 'application/json',
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          pcode:ppcode,
+          carregno:car,
+          offercitylat:lati,
+          offercitylong:longi,
+          offercityloc:location,
+          offercity:city,
+          offereddatetime:date,
+          offerprice:rent,
+          driverfacility:Driver,
+          negotiation:Negotiable
+        })
+
+      })
+        .then((response) => response.json())
+        .then(async (response) => {
+          const dataJSON = JSON.stringify(response)
+          const userToken1 = JSON.parse(dataJSON);
+          console.log('response', userToken1);
+          navigation.navigate('Home')
+          alert(userToken1.Message)
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      }
+
+}
   const getCurrentLocation = () => {
     GetLocation.getCurrentPosition({
       enableHighAccuracy: true,
@@ -86,6 +131,10 @@ const PostCarFinal = (props) => {
                 fromLat = details && details.geometry.location.lat;
                 fromLong = details && details.geometry.location.lng;
                 fromCity = getCityName(details);
+                setLati(details.geometry.location.lat)
+                setLongi(details.geometry.location.lng)
+                setCity(details.address_components[0].long_name)
+                setLocation(details.formatted_address)
 
               }}
             />
@@ -114,7 +163,7 @@ const PostCarFinal = (props) => {
         <View style={{ bottom: 90,  margin: 10,alignItems:'center' }}>
         <TouchableOpacity
             style={[styles.btn]}
-              onPress={() => navigation.navigate('Home')} >
+              onPress={() =>onsubmit()} >
              <Text style={[styles.btnText]}> Post Car</Text>
             </TouchableOpacity>
         </View>

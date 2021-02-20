@@ -18,6 +18,7 @@ const PostCar = () => {
   const ppcode = useSelector(pcode);
   const [date, setDate] = useState(new Date())
   const [car, setCar] = useState('');
+  const [rent, setRent] = useState('');
 
   const [Driver, setDriver] = useState(false);
 
@@ -37,41 +38,14 @@ const PostCar = () => {
 
   const submit = () => {
 
-    // console.log("log", ppcode, date, car, Driver, Negotiable)
 
-    // if (date == '' || car == '') {
-    //   alert("Enter All Values")
-    // }
-    // else {
-
-    //   fetch('http://udrive.b2bmart.org.in/api/add-ride.php', {
-    //     method: 'post',
-    //     header: {
-    //       'Accept': 'application/json',
-    //       'Content-type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //       pcode: ppcode,
-    //       carid: car,
-    //       driver_fecility: Driver,
-    //       negotiable: Negotiable,
-    //       r_date: date
-    //     })
-
-    //   })
-    //     .then((response) => response.json())
-    //     .then(async (response) => {
-    //       const dataJSON = JSON.stringify(response)
-    //       const userToken1 = JSON.parse(dataJSON);
-    //       console.log('response', userToken1);
-
-    //       alert(userToken1.Message)
-    //     })
-    //     .catch((error) => {
-    //       console.error(error);
-    //     });
-    navigation.navigate('PostCarFinal')
-
+      console.log("log", ppcode, date, car, Driver, Negotiable)
+    if (date == '' || car == ''|| Driver =='' || Negotiable =='') {
+      alert("Enter All Values")
+    }
+    else {
+    navigation.navigate('PostCarFinal',{ppcode:ppcode,date:date,car:car,rent:rent,Driver:Driver,Negotiable:Negotiable})
+    }
     //}
 
   }
@@ -153,6 +127,8 @@ const PostCar = () => {
                   keyboardType="number-pad"
                   placeholder="000"
                   placeholderTextColor="black"
+                  value={rent}
+                  onChangeText={(value) => setRent(value)}
                 />
               </View>
             </View>
