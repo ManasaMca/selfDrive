@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Picker, StyleSheet, Text, TextInput, CheckBox, TouchableOpacity, Image, ScrollView } from "react-native";
+import { View, Picker, StyleSheet, Text, TextInput, CheckBox, TouchableOpacity, Image, ActivityIndicator, ScrollView } from "react-native";
 import * as Progress from 'react-native-progress';
 import colors from '../../stylesheet/colors';
 import { useRoute, useNavigation } from '@react-navigation/native';
@@ -8,8 +8,7 @@ import Icon1 from 'react-native-vector-icons/FontAwesome'; //liecense
 import AvailableCars from "../OfferRide/availablecars";
 import { carlist } from '../../Redux/selector/carselector';
 import { useSelector, useDispatch } from 'react-redux';
-
-
+import ProgressDialog from 'react-native-progress-dialog';
 
 const Registercar = () => {
     const navigation = useNavigation();
@@ -31,6 +30,7 @@ const Registercar = () => {
     const [year, setyear] = useState();
     const [carno, setcarno] = useState();
     const [seating, setseating] = useState();
+    const [showLoader, setLoader] = useState(false)
     console.log("..................", cars_list)
 
     const submit = () => {
@@ -40,7 +40,7 @@ const Registercar = () => {
             alert("Enter All Values")
         }
         else {
-
+            setLoader(true)
             fetch('http://api.ryder.org.in/add-car.php', {
                 method: 'post',
                 header: {
@@ -65,6 +65,7 @@ const Registercar = () => {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
+                    setLoader(false)
                     const dataJSON = JSON.stringify(response)
                     const userToken1 = JSON.parse(dataJSON);
                     console.log('response', userToken1);
@@ -72,6 +73,7 @@ const Registercar = () => {
                     alert(userToken1.Message)
                 })
                 .catch((error) => {
+                    setLoader(false)
                     console.error(error);
                 });
 
@@ -120,7 +122,10 @@ const Registercar = () => {
         <ScrollView
             style={{ flex: 1 }}
         >
+            <ProgressDialog visible={showLoader} />
+
             <View style={styles.container}>
+
                 <View style={{ top: 20 }}>
 
                     <View style={{ marginTop: 20, flexDirection: 'row' }}>
