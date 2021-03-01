@@ -61,15 +61,15 @@ const AvailableCars = ({ route }) => {
                                             <Image source={require('../../assets/DriverImg.png')} style={styles.image1} />
                                             <Text style={styles.heading}>AR Travels</Text>
                                         </View>
-                                        <Image source={{ uri: "http://udrive.b2bmart.org.in/api/" + item.capic }}
+                                        <Image source={{ uri: "http://api.ryder.org.in/" + item.carpic }}
                                             style={styles.car} />
                                     </View>
                                     <View>
-                                        <Text style={styles.headtext2}>Rs: 2000/Day</Text>
+                                        <Text stylep={styles.headtext2}>Rs: {item.offerprice}/Day</Text>
                                         <View style={styles.vieww}>
                                             <Text style={styles.txt}>Driver Provision</Text>
                                             <Text style={styles.txt}>{item.carname}</Text>
-                                            <Text style={styles.txt}>{item.city}</Text>
+                                            <Text style={styles.txt}>{item.location}</Text>
                                             <Text style={styles.txt}>{item.tdate}</Text>
 
 
