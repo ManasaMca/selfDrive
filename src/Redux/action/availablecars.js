@@ -23,8 +23,8 @@ export const avail_car_fetch_action = ({ date, seating, lati, longi }, pcode) =>
         axios(config)
             .then((response) => {
 
-                console.log(response.data)
-                return (dispatch(onsucess(response.data.result)))
+                console.log(response.data.cars)
+                return (dispatch(onsucess(response.data.cars)))
 
             })
             .catch((error) => {

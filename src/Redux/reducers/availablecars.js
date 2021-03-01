@@ -12,7 +12,8 @@ const carinitialState = {
 };
 
 const availCarReducer = (state = carinitialState, action) => {
-    switch (action.type) {
+    console.log(action)
+    switch ("availcar action",action.type) {
         case avail_car_fetch_status:
             return {
                 ...state,
