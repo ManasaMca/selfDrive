@@ -22,13 +22,13 @@ const AvailableCars = ({ route }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log('pin code in avail',p_code)
+        console.log('pin code in avail', p_code)
         dispatch(
             avail_car_fetch_action(route.params, p_code)
         );
     }, [])
     useEffect(() => {
-        console.log('cars available',cars_list)
+        console.log('cars available', cars_list)
 
     }, [cars_list])
     return (
