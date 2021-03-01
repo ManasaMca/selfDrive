@@ -61,7 +61,8 @@ const AvailableCars = ({ route }) => {
                                             <Image source={require('../../assets/DriverImg.png')} style={styles.image1} />
                                             <Text style={styles.heading}>AR Travels</Text>
                                         </View>
-                                        <Image source={{ uri: "http://api.ryder.org.in/" + item.carpic }}
+                                        <Image
+                                            source={item.carpic==null ?require('../../assets/image7.png'):{ uri: "http://api.ryder.org.in/" + item.carpic }}
                                             style={styles.car} />
                                     </View>
                                     <View>
@@ -76,7 +77,9 @@ const AvailableCars = ({ route }) => {
                                         </View>
 
                                         <TouchableOpacity style={styles.button2}
-                                            onPress={() => navigation.navigate('Cardetails')}
+                                            onPress={() => navigation.navigate('Cardetails',{
+                                               ...item
+                                            })}
                                         >
                                             <Text style={styles.button}>View Details</Text></TouchableOpacity>
                                     </View>

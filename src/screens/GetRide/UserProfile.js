@@ -6,6 +6,7 @@ import styles from './UserProfileStyles';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFCMToken, saveMobileNumber } from '../../utils/AsyncStorageHelper'
+import { Picker } from 'native-base';
 
 import {
     pcode,
@@ -48,6 +49,8 @@ const UserProfile = ({ navigation }) => {
     const [p_location, setlocation] = useState(llocation);
     const [p_city, setcity] = useState(ccity);
     const [p_state, setstate] = useState(sstate);
+    const [car, setCar] = useState('');
+
 
     useEffect(() => {
         console.log("dispatch", ppcode)
@@ -163,6 +166,24 @@ const UserProfile = ({ navigation }) => {
                                 </View>
                                 <View>
                                     <Text style={[styles.carText]}> My Cars </Text>
+                                    <View style={[styles.container]}>
+                                    <Picker
+                                        mode="dropdown"
+                                        style={{ width: 200 }}
+                                        selectedValue={car}
+                                        onValueChange={value => setCar(value)}
+                                    >
+                                        <Picker.Item label="Select Car" value="City" />
+                                        {cars_list.map((car, index) => (
+
+
+                                            <Picker.Item key={index + car.carregno} label={car.carregno} value={car.carregno} />
+
+                                        ))}
+
+                                    </Picker>
+                                    </View>
+                                    
                                 </View>
                                 <View style={[styles.carView]}>
 

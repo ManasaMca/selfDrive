@@ -66,6 +66,14 @@ const styles = StyleSheet.create({
         color: colors.black,
         fontWeight: 'bold'
     },
+    container: {
+        marginHorizontal: 10,
+        width: '55%',
+        borderColor: colors.dimGrey,
+        borderRadius: 10,
+        borderWidth: 1,
+        height: 50
+      },
     carView: {
         flexDirection: 'row',
         height: '12%',
