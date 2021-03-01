@@ -56,29 +56,28 @@ const AvailableCars = ({ route }) => {
                         <View style={styles.background_view}>
                             <View style={styles.view1}>
                                 <View style={styles.view2}>
-                                    <View>
-                                        <View style={styles.view3}>
+                                    <View style={{alignItems:'center',justifyContent:'center',margin:10}}>
+                                        {/* <View style={styles.view3}>
                                             <Image source={require('../../assets/DriverImg.png')} style={styles.image1} />
                                             <Text style={styles.heading}>AR Travels</Text>
-                                        </View>
+                                        </View> */}
                                         <Image
-                                            source={item.carpic==null ?require('../../assets/image7.png'):{ uri: "http://api.ryder.org.in/" + item.carpic }}
+                                            source={item.carpic == null ? require('../../assets/image7.png') : { uri: "http://api.ryder.org.in/" + item.carpic }}
                                             style={styles.car} />
                                     </View>
-                                    <View>
-                                        <Text stylep={styles.headtext2}>Rs: {item.offerprice}/Day</Text>
+                                    <View style={{margin:10}}>
+                                        <Text style={[styles.headtext2]}>Rs: {item.offerprice}/Day</Text>
                                         <View style={styles.vieww}>
                                             <Text style={styles.txt}>Driver Provision</Text>
                                             <Text style={styles.txt}>{item.carname}</Text>
                                             <Text style={styles.txt}>{item.location}</Text>
                                             <Text style={styles.txt}>{item.tdate}</Text>
 
-
                                         </View>
 
                                         <TouchableOpacity style={styles.button2}
-                                            onPress={() => navigation.navigate('Cardetails',{
-                                               ...item
+                                            onPress={() => navigation.navigate('Cardetails', {
+                                                ...item
                                             })}
                                         >
                                             <Text style={styles.button}>View Details</Text></TouchableOpacity>

@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     },
     container: {
         marginHorizontal: 10,
-        width: '55%',
+        width: '70%',
         borderColor: colors.dimGrey,
         borderRadius: 10,
         borderWidth: 1,
