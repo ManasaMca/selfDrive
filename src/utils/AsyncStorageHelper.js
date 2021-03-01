@@ -1,4 +1,4 @@
-import AsyncStorage  from '@react-native-community/async-storage'
+import AsyncStorage from '@react-native-community/async-storage'
 
 
 const STORAGE_FCM_TOKEN = "fcmToken";
@@ -12,4 +12,10 @@ export const saveMobileNumber = async (mobileNum) => {
 
 export const getMobileNumber = async () => {
     return await AsyncStorage.getItem(MOBILE_NUM);
+}
+
+export const getUser = async () => {
+    let user = await AsyncStorage.getItem('userToken');
+    
+    return JSON.parse(JSON.parse(user))
 }

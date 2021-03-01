@@ -8,18 +8,16 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {users_fetch_action} from '../../Redux/action/useraction';
 import {car_fetch_action} from '../../Redux/action/caraction';
 import {useSelector, useDispatch} from 'react-redux';
-
+import { getUser } from '../../utils/AsyncStorageHelper'
 
 const Home = ({ navigation }) => {
   const dispatch = useDispatch();
-
   const fetchUserData = async () => {
-    let userToken = await AsyncStorage.getItem('userToken');
-    const userToken1 =JSON.parse(userToken);
-    console.log(userToken1)
-    const userdata = userToken1.data[0]
+    let userToken = await getUser()
+    const userdata = userToken.data[0]
+    console.log(userdata)
     const ppcode = userdata.pcode
-    // console.log("////////////////",userdata.pcode)
+    console.log("////////////////",userdata.pcode)
     dispatch(
         users_fetch_action({
             userdata
