@@ -30,13 +30,13 @@ const styles = StyleSheet.create({
     },
     imgContainer: {
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     img: {
-        position: "absolute",
+        
         width: 100,
         height: 100,
-        top: -100,
+        
         borderRadius: 50,
     },
     fieldText: {
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     btnStyle: {
         backgroundColor: colors.themeColor,
         height: 50,
-        width:'30%',
+        width:'90%',
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
