@@ -250,24 +250,7 @@ const UserProfile = ({ navigation }) => {
                                     </View>
 
                                 </View>
-                                <View style={[styles.carView]}>
-
-                                    <View style={{ flex: 1, justifyContent: "center", paddingLeft: 10 }} >
-
-                                        <TouchableOpacity >
-
-                                            <View style={{ width: '90%' }}>
-                                            </View>
-                                        </TouchableOpacity>
-                                    </View>
-
-                                    {/* <View style={[styles.deleteView]}>
-                                        <TouchableOpacity >
-                                            <Image source={AppConstants.Edit} alt="" />
-                                        </TouchableOpacity>
-                                    </View> */}
-
-                                </View>
+                                
                                
                                 <View>
                                     <TouchableOpacity style={{ padding: 10, }} onPress={() => navigation.navigate('Registercar', { ppcode, p_mobile, p_location, p_city, p_state })}>
