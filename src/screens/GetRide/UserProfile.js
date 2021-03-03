@@ -6,6 +6,7 @@ import styles from './UserProfileStyles';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFCMToken, saveMobileNumber } from '../../utils/AsyncStorageHelper'
+import ImagePicker from 'react-native-image-picker';
 import { Picker } from 'native-base';
 
 import {
@@ -24,6 +25,7 @@ import {
 } from '../../Redux/selector/userselector';
 import { carlist } from '../../Redux/selector/carselector';
 import { car_fetch_action } from '../../Redux/action/caraction';
+import { users_update } from '../../Redux/action/useraction';
 
 
 
@@ -50,19 +52,70 @@ const UserProfile = ({ navigation }) => {
     const [p_city, setcity] = useState(ccity);
     const [p_state, setstate] = useState(sstate);
     const [car, setCar] = useState('');
-
+    const [editable, seteditable] = useState(false)
+    const [banner3, setbanner3] = useState('');
+    const [banner33, setbanner33] = useState('');
 
     useEffect(() => {
-        console.log("dispatch", ppcode)
+        console.log("dispatch", pprofilepic)
         dispatch(
             car_fetch_action({
                 ppcode
             }),
         );
 
-    })
+
+    }, [])
+
+    const updateProfile = () => {
+        dispatch(
+            users_update({
+                fname: p_fname,
+                lname: p_lname,
+                email: p_email,
+                pcode: ppcode,
+                mobile: p_mobile,
+                location: p_location,
+                city: p_city,
+                state: p_state,
+                profilepic: banner33
+            })
+        )
+    }
+
+    const handelDocProfile = () => {
+        const options = {
+            title: 'Banner',
+            storageOptions: {
+                skipBackup: true,
+                path: 'images',
+
+            },
+            includeBase64:false,
+            quality: 0.1
+        };
+
+        ImagePicker.showImagePicker(options, (response) => {
+            console.log('Response = ', response);
+
+            if (response.didCancel) {
+                console.log('User cancelled image picker');
+            } else if (response.error) {
+                console.log('ImagePicker Error: ', response.error);
+            } else if (response.customButton) {
+                console.log('User tapped custom button: ', response.customButton);
+            } else {
+                const source1111 = { uri: response.uri };
+                const source = {
+                    uri: 'data:' + response.fileName + ';base64,' + response.data,
+                };
+                setbanner3(source);
+                setbanner33(source.uri);
 
 
+            }
+        });
+    };
 
 
 
@@ -76,14 +129,26 @@ const UserProfile = ({ navigation }) => {
 
                     </View>
                     <View style={[styles.pv1]}>
-                        <View style={[styles.imgContainer]}>
-                            <Image style={[styles.img]} source={AppConstants.DriverImg} />
-                            <TouchableOpacity style={[styles.profileImg]}
-                            // onPress={() => handelDocProfile()}
-                            >
 
-                            </TouchableOpacity>
-                        </View>
+
+
+                        <TouchableOpacity onPress={() => handelDocProfile()} style={[styles.imgContainer]}>
+                            {
+                                banner3=='' ? <Image style={[styles.img]} source={pprofilepic == 'NA' ? AppConstants.DriverImg : { uri: "http://api.ryder.org.in/" + pprofilepic }} /> :
+                                <Image style={[styles.img]} source={banner3} />
+                            }
+
+                            {/* <Image style={[styles.img]} source={banner3==''?(pprofilepic == 'NA' ? AppConstants.DriverImg : { uri: "http://api.ryder.org.in/" + pprofilepic }):banner3} /> */}
+
+
+                        </TouchableOpacity>
+
+                        {/* <TouchableOpacity onPress={() => console.log('ashdasgjdh')} style={[styles.imgContainer]}>
+
+                            <Image style={[styles.img]} source={AppConstants.DriverImg} />
+
+                        </TouchableOpacity> */}
+
                         <View style={[styles.viewContainer]}>
                             <View style={[styles.inputView]}>
                                 <View style={{ flexDirection: 'row', margin: 10 }}>
@@ -95,7 +160,7 @@ const UserProfile = ({ navigation }) => {
                                             value={p_fname}
                                             onChangeText={(value) => setfname(value)}
                                             placeholderTextColor={colors.black}
-
+                                            editable={editable}
                                         />
                                     </View>
                                     <View style={{ width: '47%', marginLeft: 10, borderBottomColor: colors.black, borderBottomWidth: 1 }}>
@@ -118,7 +183,7 @@ const UserProfile = ({ navigation }) => {
                                         onChangeText={(value) => setemail(value)}
                                         keyboardType="email-address"
                                         placeholderTextColor={colors.black}
-
+                                        editable={editable}
                                     />
                                 </View>
                                 <View style={[styles.inputContainer]}>
@@ -128,7 +193,7 @@ const UserProfile = ({ navigation }) => {
                                         value={p_mobile}
                                         onChangeText={(value) => setmobile(value)}
                                         placeholderTextColor={colors.black}
-
+                                        editable={editable}
                                     />
                                 </View>
                                 <View style={{ flexDirection: 'row', margin: 10 }}>
@@ -140,7 +205,7 @@ const UserProfile = ({ navigation }) => {
                                             value={p_city}
                                             onChangeText={(value) => setcity(value)}
                                             placeholderTextColor={colors.black}
-
+                                            editable={editable}
                                         />
                                     </View>
                                     <View style={{ width: '47%', marginLeft: 10, borderBottomColor: colors.black, borderBottomWidth: 1 }}>
@@ -151,7 +216,7 @@ const UserProfile = ({ navigation }) => {
                                             value={p_state}
                                             onChangeText={(value) => setstate(value)}
                                             placeholderTextColor={colors.black}
-
+                                            editable={editable}
                                         />
                                     </View>
                                 </View>
@@ -161,29 +226,47 @@ const UserProfile = ({ navigation }) => {
                                         value={p_location}
                                         onChangeText={(value) => setlocation(value)}
                                         placeholderTextColor={colors.black}
-
+                                        editable={editable}
                                     />
                                 </View>
                                 <View>
                                     <Text style={[styles.carText]}> My Cars </Text>
                                     <View style={[styles.container]}>
-                                    <Picker
-                                        mode="dropdown"
-                                        style={{ width: 240 }}
-                                        selectedValue={car}
-                                        onValueChange={value => setCar(value)}
-                                    >
-                                        <Picker.Item label="Select Car" value="City" />
-                                        {cars_list.map((car, index) => (
+                                        <Picker
+                                            mode="dropdown"
+                                            style={{ width: 200 }}
+                                            selectedValue={car}
+                                            onValueChange={value => setCar(value)}
+                                        >
+                                            <Picker.Item label="Select Car" value="City" />
+                                            {cars_list.map((car, index) => (
 
 
-                                            <Picker.Item key={index + car.carregno} label={car.carregno} value={car.carregno} />
+                                                <Picker.Item key={index + car.carregno} label={car.carregno} value={car.carregno} />
 
-                                        ))}
+                                            ))}
 
-                                    </Picker>
+                                        </Picker>
                                     </View>
-                                     
+
+                                </View>
+                                <View style={[styles.carView]}>
+
+                                    <View style={{ flex: 1, justifyContent: "center", paddingLeft: 10 }} >
+
+                                        <TouchableOpacity >
+
+                                            <View style={{ width: '90%' }}>
+                                            </View>
+                                        </TouchableOpacity>
+                                    </View>
+
+                                    {/* <View style={[styles.deleteView]}>
+                                        <TouchableOpacity >
+                                            <Image source={AppConstants.Edit} alt="" />
+                                        </TouchableOpacity>
+                                    </View> */}
+
                                 </View>
                                
                                 <View>
@@ -207,6 +290,23 @@ const UserProfile = ({ navigation }) => {
                                         <Text style={[styles.btnText]}>
                                             LogOut
                                     </Text>
+                                    </TouchableOpacity>
+
+
+                                </View>
+                                <View>
+                                    <TouchableOpacity
+                                        onPress={() => {
+                                            if (editable)
+                                                updateProfile()
+                                            else
+                                                seteditable(true)
+                                        }}
+                                        style={[styles.btnStyle]} >
+
+                                        <Text style={[styles.btnText]}>
+                                            {editable ? 'Update' : 'Edit'}
+                                        </Text>
                                     </TouchableOpacity>
 
 

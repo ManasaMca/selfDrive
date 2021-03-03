@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { View, Picker, StyleSheet, Text, TextInput, TouchableOpacity, Image, ScrollView, StatusBar } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { AppConstants } from '../../constants/appconstants';
 import colors from "../../stylesheet/colors";
 import styles from './cardetailsStyles'
 import { Linking } from 'react-native'

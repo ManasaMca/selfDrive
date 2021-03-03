@@ -16,6 +16,6 @@ export const getMobileNumber = async () => {
 
 export const getUser = async () => {
     let user = await AsyncStorage.getItem('userToken');
-    
-    return JSON.parse(JSON.parse(user))
+    console.log(JSON.parse(user))
+    return JSON.parse(user)
 }

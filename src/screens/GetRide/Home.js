@@ -13,8 +13,8 @@ import { getUser } from '../../utils/AsyncStorageHelper'
 const Home = ({ navigation }) => {
   const dispatch = useDispatch();
   const fetchUserData = async () => {
-    let userToken = await getUser()
-    const userdata = userToken.data[0]
+    let userdata = await getUser()
+    
     console.log(userdata)
     const ppcode = userdata.pcode
     console.log("////////////////",userdata.pcode)
