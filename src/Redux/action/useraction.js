@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { users_fetch_sucess, users_update_sucess, users_update_failure, users_update_fetch } from "./actioncontants"
 import { apiconfig } from '../../constants/apiendpoints';
-
+import { setUser } from '../../utils/AsyncStorageHelper'
 export const users_fetch_action = ({ userdata }) => {
   return {
     type: users_fetch_sucess,
@@ -19,8 +19,11 @@ export const users_update = (body) => {
     axios(config)
       .then((response) => {
         console.log('response   update profile', response.data);
-        if (response.data.statusCode == 1)
+        if (response.data.statusCode == 1) {
+          setUser(JSON.stringify(response.data.data[0]))
           return (dispatch(onsucessign(response.data.data[0])))
+        }
+
         dispatch(onerrorsign(response.data.message))
 
       })
