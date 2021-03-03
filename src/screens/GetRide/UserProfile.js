@@ -149,8 +149,8 @@ const UserProfile = ({ navigation }) => {
 
                         </TouchableOpacity> */}
 
-                        <View style={[styles.viewContainer]}>
-                            <View style={[styles.inputView]}>
+                       
+                            <View style={{top:-50}} >
                                 <View style={{ flexDirection: 'row', margin: 10 }}>
                                     <View style={{ width: '47%', marginLeft: 10, borderBottomColor: colors.black, borderBottomWidth: 1 }}>
 
@@ -296,7 +296,7 @@ const UserProfile = ({ navigation }) => {
                                 </View>
                             </View>
                         </View>
-                    </View>
+                   
                 </ScrollView>
             </SafeAreaView>
         </>

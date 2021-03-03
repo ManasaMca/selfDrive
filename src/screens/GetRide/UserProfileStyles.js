@@ -30,13 +30,13 @@ const styles = StyleSheet.create({
     },
     imgContainer: {
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        top:-100,
     },
     img: {
         
         width: 100,
         height: 100,
-        
         borderRadius: 50,
     },
     fieldText: {
@@ -74,61 +74,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         height: 50
       },
-    carView: {
-        flexDirection: 'row',
-        height: '12%',
-        borderColor: colors.lightGrey,
-        borderWidth: 1,
-        borderRadius: 10,
-        width: '95%',
-        padding: 5,
-        alignSelf: 'center'
-    },
-    carImgView: {
-        paddingTop: 5,
-        paddingBottom: 5,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    carNameText: {
-        fontSize: 16,
-        fontFamily: 'Geomanist',
-        color: colors.black,
-        fontWeight: 'bold'
-    },
-    carNoText: {
-        fontSize: 16,
-        fontFamily: 'Geomanist',
-        paddingLeft: 5,
-        color: colors.black,
-        fontWeight: 'bold'
-    },
-    deleteView: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        width:'8%'
-
-    },
-    addCarText: {
-        fontSize: 18,
-        fontWeight: '300',
-        fontFamily: 'Geomanist',
-        color: colors.themeColor
-    },
-    driverName: {
-        fontSize: 18,
-        paddingLeft: 10,
-        fontFamily: 'Geomanist',
-        paddingRight: 10,
-        paddingBottom: 5,
-        color: colors.black,
-        fontWeight: '300'
-    },
-    driverImg: {
-        padding: 6,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
+    
     bt1: {
         alignItems: 'flex-end',
         justifyContent: 'center',
