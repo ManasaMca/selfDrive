@@ -91,7 +91,7 @@ const UserProfile = ({ navigation }) => {
                 path: 'images',
 
             },
-            includeBase64:false,
+            includeBase64:true,
             quality: 0.1
         };
 
