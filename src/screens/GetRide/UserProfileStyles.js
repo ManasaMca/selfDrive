@@ -30,13 +30,13 @@ const styles = StyleSheet.create({
     },
     imgContainer: {
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     img: {
-        position: "absolute",
+        
         width: 100,
         height: 100,
-        top: -100,
+        
         borderRadius: 50,
     },
     fieldText: {
@@ -66,6 +66,14 @@ const styles = StyleSheet.create({
         color: colors.black,
         fontWeight: 'bold'
     },
+    container: {
+        marginHorizontal: 10,
+        width: '70%',
+        borderColor: colors.dimGrey,
+        borderRadius: 10,
+        borderWidth: 1,
+        height: 50
+      },
     carView: {
         flexDirection: 'row',
         height: '12%',
@@ -144,7 +152,7 @@ const styles = StyleSheet.create({
     btnStyle: {
         backgroundColor: colors.themeColor,
         height: 50,
-        width:'30%',
+        width:'90%',
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',

@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import colors from '../../stylesheet/colors';
-import { heightPercentageToDP, responsiveFontSize } from '../../stylesheet/responsiveSize';
+import { heightPercentageToDP, responsiveFontSize, widthPercentageToDP } from '../../stylesheet/responsiveSize';
 
 const styles = StyleSheet.create({
     container: {
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     },
     view1: {
         // height: '25%',
-        width: '85%',
+        width: widthPercentageToDP(95),
         backgroundColor: 'white',
         alignSelf: 'center',
         borderRadius: 5,
@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     },
     view3: {
-        flexDirection: 'row', top: 10
+        flexDirection: 'row',
+        top: 10
     },
     image1: {
         height: 20,
@@ -39,24 +40,33 @@ const styles = StyleSheet.create({
         marginLeft: 10
     },
     car: {
-        height: 80, width: 150, top: 20
+        margin: 5,
+        height: 150,
+        width: 150,
     },
     headtext2: {
-        fontSize: 15,
-        fontWeight: 'bold',
+        fontSize: responsiveFontSize(15),
         color: 'black',
-        top: 10
+        top: 10,
+        fontWeight:'bold',
+        marginVertical:10,
     },
     vieww: {
-        top: 20
+        top: 10,
+        flexWrap:'wrap'
     },
     txt: {
-        fontSize: 15
+        fontSize: 15,
+        flexWrap:'wrap'
     },
     button: {
-        alignSelf: 'center', paddingTop: 10, color: 'white'
+        fontSize: 15,
+        fontWeight: '900',
+        color: 'white'
     },
     button2: {
+        justifyContent: 'center',
+        alignItems: 'center',
         height: 40,
         marginVertical: 20,
         width: 140,
