@@ -68,6 +68,7 @@ const UserProfile = ({ navigation }) => {
     }, [])
 
     const updateProfile = () => {
+        seteditable(false)
         dispatch(
             users_update({
                 fname: p_fname,
@@ -91,7 +92,7 @@ const UserProfile = ({ navigation }) => {
                 path: 'images',
 
             },
-            includeBase64:true,
+            includeBase64: true,
             quality: 0.1
         };
 
@@ -134,8 +135,8 @@ const UserProfile = ({ navigation }) => {
 
                         <TouchableOpacity onPress={() => handelDocProfile()} style={[styles.imgContainer]}>
                             {
-                                banner3=='' ? <Image style={[styles.img]} source={pprofilepic == 'NA' ? AppConstants.DriverImg : { uri: "http://api.ryder.org.in/" + pprofilepic }} /> :
-                                <Image style={[styles.img]} source={banner3} />
+                                banner3 == '' ? <Image style={[styles.img]} source={pprofilepic == 'NA' ? AppConstants.DriverImg : { uri: "http://api.ryder.org.in/" + pprofilepic }} /> :
+                                    <Image style={[styles.img]} source={banner3} />
                             }
 
                             {/* <Image style={[styles.img]} source={banner3==''?(pprofilepic == 'NA' ? AppConstants.DriverImg : { uri: "http://api.ryder.org.in/" + pprofilepic }):banner3} /> */}
