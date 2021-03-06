@@ -62,13 +62,13 @@ const AvailableCars = ({ route }) => {
                                             <Text style={styles.heading}>AR Travels</Text>
                                         </View>
                                         <Image
-                                            source={item.carpic==null ?require('../../assets/image7.png'):{ uri: "http://api.ryder.org.in/" + item.carpic }}
+                                            source={item.carpic == null ? require('../../assets/image7.png') : { uri: "http://api.ryder.org.in/" + item.carpic }}
                                             style={styles.car} />
                                     </View>
                                     <View>
                                         <Text stylep={styles.headtext2}>Rs: {item.offerprice}/Day</Text>
                                         <View style={styles.vieww}>
-                                            <Text style={styles.txt}>Driver Provision</Text>
+                                            <Text style={styles.txt}>Driver Provision-{item.driver_facility == 1 ? 'Yes' : 'No'}</Text>
                                             <Text style={styles.txt}>{item.carname}</Text>
                                             <Text style={styles.txt}>{item.location}</Text>
                                             <Text style={styles.txt}>{item.tdate}</Text>
@@ -77,8 +77,8 @@ const AvailableCars = ({ route }) => {
                                         </View>
 
                                         <TouchableOpacity style={styles.button2}
-                                            onPress={() => navigation.navigate('Cardetails',{
-                                               ...item
+                                            onPress={() => navigation.navigate('Cardetails', {
+                                                ...item
                                             })}
                                         >
                                             <Text style={styles.button}>View Details</Text></TouchableOpacity>
