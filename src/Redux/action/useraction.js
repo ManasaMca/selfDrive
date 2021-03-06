@@ -2,10 +2,10 @@ import axios from 'axios';
 import { users_fetch_sucess, users_update_sucess, users_update_failure, users_update_fetch } from "./actioncontants"
 import { apiconfig } from '../../constants/apiendpoints';
 import { setUser } from '../../utils/AsyncStorageHelper'
-export const users_fetch_action = ({ userdata }) => {
+export const users_fetch_action = ({ userDetails }) => {
   return {
     type: users_fetch_sucess,
-    userdata,
+    userDetails,
   }
 };
 
