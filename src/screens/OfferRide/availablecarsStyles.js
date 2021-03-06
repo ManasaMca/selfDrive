@@ -9,18 +9,13 @@ const styles = StyleSheet.create({
         paddingBottom: 80,
         backgroundColor: colors.themeColor
     },
-    background_view: {
-        backgroundColor: 'lightgray', height: 230
-    },
     view1: {
         // height: '25%',
         width: widthPercentageToDP(95),
         backgroundColor: 'white',
         alignSelf: 'center',
         borderRadius: 5,
-        marginTop: 20
-    },
-    view2: {
+        marginTop: 20,
         flexDirection: 'row',
         justifyContent: 'space-around'
     },
@@ -53,11 +48,9 @@ const styles = StyleSheet.create({
     },
     vieww: {
         top: 10,
-        flexWrap:'wrap'
     },
     txt: {
-        fontSize: 15,
-        flexWrap:'wrap'
+        fontSize: responsiveFontSize(15),
     },
     button: {
         fontSize: 15,

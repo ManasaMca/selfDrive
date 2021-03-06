@@ -42,7 +42,7 @@ const BottomCenterView = (props) => {
     style={[{
       //width:65,
       height: 70,
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
       borderWidth: 0,
       borderTopLeftRadius: 10,
       borderTopRightRadius: 10,
