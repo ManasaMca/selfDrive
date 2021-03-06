@@ -199,10 +199,11 @@ const UserSignUp = ({ navigation }) => {
 		 .then(async (response)=>{
             const dataJSON = JSON.stringify(response)
             console.log('response', dataJSON);
-            // await AsyncStorage.setItem('userToken',dataJSON);
+            
             const userToken1 =JSON.parse(dataJSON);
             const userdata = userToken1.data
             console.log("....................................",userdata)
+            await AsyncStorage.setItem('userToken',JSON.stringify(userdata));
             dispatch(
                 users_fetch_action({
                     userdata
