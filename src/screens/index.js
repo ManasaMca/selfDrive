@@ -171,7 +171,7 @@ export const TabsContainer = (props) => {
     />
     <MainTab.Screen
       name={'PostCar'}
-      component={PostCar} 
+      component={PostCar}
     />
     <MainTab.Screen
       name={"PostCarFinal"}
