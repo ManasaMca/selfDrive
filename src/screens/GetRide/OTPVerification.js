@@ -19,20 +19,20 @@ const OTPVerification = ({ route, navigation }) => {
 
 
     const submit = async () => {
-        const userJson=JSON.parse(userToken)
-        console.log("user Details", userJson)
-         await AsyncStorage.setItem('userToken',JSON.stringify(userJson.data[0]));
+        const userJson = JSON.parse(userToken)
+
         if (userJson.otp == otp && userJson.isRegistered == false) {
             navigation.navigate('UserSignUp');
         }
         else if (userJson.otp == otp && userJson.isRegistered == true) {
+            const userDetails = userJson.data[0]
 
-            const userdata = userJson.data[0]
-            console.log("userToken", userdata)
-            await saveMobileNumber(userdata.mobile)
+            await AsyncStorage.setItem('userToken', JSON.stringify(userDetails));
+
+            await saveMobileNumber(userDetails.mobile)
             dispatch(
                 users_fetch_action({
-                    userdata
+                    userDetails
                 }),
             );
 

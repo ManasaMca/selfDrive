@@ -22,20 +22,20 @@ const userReducer = (state = userinitialState, action) => {
 
     case 'USERS_FETCH_SUCESS':
 
-      console.log("redusers", action.userdata.pcode)
+      console.log("redusers", action.userDetails.pcode)
       return {
         ...state,
-        pcode: action.userdata.pcode,
-        fname: action.userdata.fname,
-        lname: action.userdata.lname,
-        mobile: action.userdata.mobile,
-        email: action.userdata.email,
-        location: action.userdata.location,
-        city: action.userdata.city,
-        state: action.userdata.state,
-        logitude: action.userdata.logitude,
-        latitude: action.userdata.latitude,
-        profilepic: action.userdata.profilepic,
+        pcode: action.userDetails.pcode,
+        fname: action.userDetails.fname,
+        lname: action.userDetails.lname,
+        mobile: action.userDetails.mobile,
+        email: action.userDetails.email,
+        location: action.userDetails.location,
+        city: action.userDetails.city,
+        state: action.userDetails.state,
+        logitude: action.userDetails.logitude,
+        latitude: action.userDetails.latitude,
+        profilepic: action.userDetails.profilepic,
         isfetching_login: true,
         sucess: true
       };

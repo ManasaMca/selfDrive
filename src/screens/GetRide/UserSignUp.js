@@ -199,13 +199,19 @@ const UserSignUp = ({ navigation }) => {
 		 .then(async (response)=>{
             const dataJSON = JSON.stringify(response)
             console.log('response', dataJSON);
-            // await AsyncStorage.setItem('userToken',dataJSON);
+            
             const userToken1 =JSON.parse(dataJSON);
-            const userdata = userToken1.data
-            console.log("....................................",userdata)
+            if(userToken1.statusCode==0)
+            {
+                alert(userToken1.message)
+                return
+            }
+            const userDetails = userToken1.data
+            console.log("....................................",userDetails)
+            await AsyncStorage.setItem('userToken',JSON.stringify(userDetails));
             dispatch(
                 users_fetch_action({
-                    userdata
+                    userDetails
                 }),
               );
 			navigation.navigate('OfferRideTab', {
@@ -293,6 +299,7 @@ const UserSignUp = ({ navigation }) => {
                                     value= {mobileEdit.replace(/[^0-9]/g, '')}
                                     onChangeText={(value) => setMobileEdit(value)}
                                 placeholder="Mobile"
+                                maxLength={10}
                                     keyboardType="number-pad"
                                     placeholderTextColor="black"
                                 />
