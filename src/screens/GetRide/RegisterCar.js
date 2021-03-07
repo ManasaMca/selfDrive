@@ -9,6 +9,8 @@ import AvailableCars from "../OfferRide/availablecars";
 import { carlist } from '../../Redux/selector/carselector';
 import { useSelector, useDispatch } from 'react-redux';
 import ProgressDialog from 'react-native-progress-dialog';
+import { car_fetch_action } from '../../Redux/action/caraction';
+
 
 const Registercar = () => {
     const navigation = useNavigation();
@@ -32,6 +34,8 @@ const Registercar = () => {
     const [seating, setseating] = useState();
     const [showLoader, setLoader] = useState(false)
     console.log("..................", cars_list)
+
+    const dispatch = useDispatch();
 
     const submit = () => {
         console.log(ppcode, brand, color, year, carno, seating, ac, p_mobile, p_location, p_city, p_state)
@@ -69,8 +73,12 @@ const Registercar = () => {
                     const dataJSON = JSON.stringify(response)
                     const userToken1 = JSON.parse(dataJSON);
                     console.log('response', userToken1);
-
                     alert(userToken1.Message)
+                    dispatch(
+                        car_fetch_action({
+                            ppcode
+                        }),
+                    );
                 })
                 .catch((error) => {
                     setLoader(false)
