@@ -13,6 +13,7 @@ import { pcode } from '../../Redux/selector/userselector';
 import { useSelector, useDispatch } from 'react-redux';
 import { avail_car_fetch_action } from '../../Redux/action/availablecars';
 import { widthPercentageToDP } from "../../stylesheet/responsiveSize";
+import AvailableCarRow from "./AvailableCarRow";
 
 
 const AvailableCars = ({ route }) => {
@@ -35,7 +36,7 @@ const AvailableCars = ({ route }) => {
     return (
         <>
             <StatusBar barStyle="light-content" backgroundColor={colors.themeColor} />
-            <ScrollView style={{ flex: 1 }} >
+            <ScrollView style={{ flex: 1 }}>
                 <View style={styles.container}>
                     <View style={{ top: 30 }}>
                         <View style={{ flexDirection: 'row', marginLeft: 10 }}>
@@ -51,45 +52,81 @@ const AvailableCars = ({ route }) => {
                     </View>
                 </View>
 
+
                 <FlatList
                     data={cars_list}
-                    renderItem={({ item }) => (
+                    renderItem={({ item }) => {
 
-                        <View style={styles.view1}>
+                        return <AvailableCarRow {...item} />
 
-                            <View style={{ width: widthPercentageToDP(42), alignItems: 'center', justifyContent: 'center', margin: 10, }}>
+                        // <View style={styles.background_view}>
+                        //     <View style={styles.view1}>
+                        //         <View style={styles.view2}>
+                        //             <View>
+                        //                 <View style={styles.view3}>
+                        //                     <Image source={require('../../assets/DriverImg.png')} style={styles.image1} />
+                        //                     <Text style={styles.heading}>AR Travels</Text>
+                        //                 </View>
+                        //                 <Image
+                        //                     source={item.carpic == null ? require('../../assets/image7.png') : { uri: "http://api.ryder.org.in/" + item.carpic }}
+                        //                     style={styles.car} />
+                        //             </View>
+                        //             <View>
+                        //                 <Text stylep={styles.headtext2}>Rs: {item.offerprice}/Day</Text>
+                        //                 <View style={styles.vieww}>
+                        //                     <Text style={styles.txt}>Driver Provision-{item.driver_facility == 1 ? 'Yes' : 'No'}</Text>
+                        //                     <Text style={styles.txt}>{item.carname}</Text>
+                        //                     <Text style={styles.txt}>{item.location}</Text>
+                        //                     <Text style={styles.txt}>{item.tdate}</Text>
 
-                                <Image
-                                    source={item.carpic == null ? require('../../assets/image7.png') : { uri: "http://api.ryder.org.in/" + item.carpic }}
-                                    style={styles.car} />
-                            </View>
-                            <View style={{ margin: 10, width: widthPercentageToDP(50), }}>
-                                <Text style={[styles.headtext2]}>Rs: {item.offerprice}/Day</Text>
-                                <View style={styles.vieww}>
-                                    <Text style={styles.txt}>Driver Provision</Text>
-                                    <Text style={styles.txt}>{item.carname}</Text>
-                                    <Text style={styles.txt}>{item.location}</Text>
-                                    <Text style={styles.txt}>{item.tdate}</Text>
 
-                                </View>
+                        //                     <View style={styles.view1}>
 
-                                <TouchableOpacity style={styles.button2}
-                                    onPress={() => navigation.navigate('Cardetails', {
-                                        ...item
-                                    })}
-                                >
-                                    <Text style={styles.button}>View Details</Text></TouchableOpacity>
-                            </View>
+                        //                         <View style={{ width: widthPercentageToDP(42), alignItems: 'center', justifyContent: 'center', margin: 10, }}>
 
-                        </View>
 
-                    )}
-                    //Setting the number of column
-                    numColumns={1}
-                //   keyExtractor={(item, index) => index.toString()}
-                />
-                <View style={{ height: 100 }} />
+                        //                             <TouchableOpacity style={styles.button2}
+                        //                                 onPress={() => navigation.navigate('Cardetails', {
+                        //                                     ...item
+                        //                                 })}
+                        //                             >
+                        //                                 <Text style={styles.button}>View Details</Text></TouchableOpacity>
+                        //                         </View>
+                        //                     </View>
+
+                        //                     <Image
+                        //                         source={item.carpic == null ? require('../../assets/image7.png') : { uri: "http://api.ryder.org.in/" + item.carpic }}
+                        //                         style={styles.car} />
+                        //                 </View>
+                        //                 <View style={{ margin: 10, width: widthPercentageToDP(50), }}>
+                        //                     <Text style={[styles.headtext2]}>Rs: {item.offerprice}/Day</Text>
+                        //                     <View style={styles.vieww}>
+                        //                         <Text style={styles.txt}>Driver Provision</Text>
+                        //                         <Text style={styles.txt}>{item.carname}</Text>
+                        //                         <Text style={styles.txt}>{item.location}</Text>
+                        //                         <Text style={styles.txt}>{item.tdate}</Text>
+
+                        //                     </View>
+
+                        //                     <TouchableOpacity style={styles.button2}
+                        //                         onPress={() => navigation.navigate('Cardetails', {
+                        //                             ...item
+                        //                         })}
+                        //                     >
+                        //                         <Text style={styles.button}>View Details</Text></TouchableOpacity>
+                        //                 </View>
+
+                        //             </View>
+                        //         </View>
+                        //     </View>
+                        // </View>
+                    }}
+                >
+
+                </FlatList>
+
             </ScrollView>
+
         </>
     );
 }

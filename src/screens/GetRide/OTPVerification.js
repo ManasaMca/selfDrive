@@ -16,7 +16,30 @@ const OTPVerification = ({ route, navigation }) => {
     const [otp, setotp] = useState('');
     console.log("input", otp)
 
+    const resendOTP = () => {
+        fetch('http://api.ryder.org.in/profile-otp.php', {
+            method: 'post',
+            header: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                mobile: JSON.parse(userToken).data[0].mobile
+            })
 
+        })
+        .then((response) => response.json())
+		 .then(async (response)=>{
+            const dataJSON = JSON.stringify(response)          
+            console.log('response', dataJSON);
+            navigation.navigate('OTPVerification',{userToken:dataJSON})
+			
+		 })
+		 .catch((error)=>{
+		 console.error(error);
+         });
+           
+    }
 
     const submit = async () => {
         const userJson = JSON.parse(userToken)
@@ -97,7 +120,7 @@ const OTPVerification = ({ route, navigation }) => {
                             />
                         </View>
                         <View>
-                            <TouchableOpacity  >
+                            <TouchableOpacity  onPress={()=>resendOTP()} >
                                 <Text style={[styles.text3]}>
                                     Resend Code
                             </Text>
@@ -128,4 +151,4 @@ const OTPVerification = ({ route, navigation }) => {
     )
 };
 
-export default memo(OTPVerification);
+export default OTPVerification
