@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
+import { RFValue } from 'react-native-responsive-fontsize';
 import colors from '../../stylesheet/colors';
 import { heightPercentageToDP, responsiveFontSize, widthPercentageToDP } from '../../stylesheet/responsiveSize';
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        height: 90,
-        paddingBottom: 80,
+      
+        height: heightPercentageToDP(10),
+      
         backgroundColor: colors.themeColor
     },
     view1: {
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         marginTop: 20,
         flexDirection: 'row',
-        justifyContent: 'space-around'
+        justifyContent: 'center'
     },
     view3: {
         flexDirection: 'row',
@@ -35,9 +36,10 @@ const styles = StyleSheet.create({
         marginLeft: 10
     },
     car: {
-        margin: 5,
-        height: 150,
-        width: 150,
+        resizeMode:'cover',
+        borderRadius:50,
+        height: 120,
+        width: 120,
     },
     headtext2: {
         fontSize: responsiveFontSize(15),

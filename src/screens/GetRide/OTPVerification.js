@@ -28,17 +28,17 @@ const OTPVerification = ({ route, navigation }) => {
             })
 
         })
-        .then((response) => response.json())
-		 .then(async (response)=>{
-            const dataJSON = JSON.stringify(response)          
-            console.log('response', dataJSON);
-            navigation.navigate('OTPVerification',{userToken:dataJSON})
-			
-		 })
-		 .catch((error)=>{
-		 console.error(error);
-         });
-           
+            .then((response) => response.json())
+            .then(async (response) => {
+                const dataJSON = JSON.stringify(response)
+                console.log('response', dataJSON);
+                navigation.navigate('OTPVerification', { userToken: dataJSON })
+
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+
     }
 
     const submit = async () => {
@@ -92,9 +92,10 @@ const OTPVerification = ({ route, navigation }) => {
                             </View>
                             <View style={[styles.logoView]}>
 
-                                <Text>
-                                    Logo
-                                </Text>
+                                <Image
+                                    source={require('../../assets/Ryder.png')}
+                                    style={{ width: 50, height: 50, borderRadius: 50 }}
+                                />
                             </View>
                         </View>
                         <View style={[styles.text1View]} />
@@ -120,7 +121,7 @@ const OTPVerification = ({ route, navigation }) => {
                             />
                         </View>
                         <View>
-                            <TouchableOpacity  onPress={()=>resendOTP()} >
+                            <TouchableOpacity onPress={() => resendOTP()} >
                                 <Text style={[styles.text3]}>
                                     Resend Code
                             </Text>

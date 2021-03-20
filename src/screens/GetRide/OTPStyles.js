@@ -11,19 +11,25 @@ import colors from '../../stylesheet/colors';
 const styles = StyleSheet.create({
     flex_row: {
         flexDirection: 'row',
-        paddingTop: 20,
+        width:'100%',
+        paddingTop: responsiveVerticalSize(3),
+        justifyContent:'center',
         alignItems: 'center'
     },
     pv1: {
+        justifyContent:'center',
         alignItems: 'center',
-        paddingLeft: 20
+      //  width:'10%',
+       // paddingLeft: responsiveHorizontalSize(4)
     },
     logoView: {
-        paddingLeft: 130,
-        justifyContent: "center"
+        width:'80%',
+      //  paddingLeft: responsiveHorizontalSize(15),
+        justifyContent: "center",
+        alignItems:'center'
     },
     text1View: {
-        paddingTop: 20,
+        paddingTop: 10,
         borderBottomColor: 'grey',
         borderBottomWidth: 1,
     },
