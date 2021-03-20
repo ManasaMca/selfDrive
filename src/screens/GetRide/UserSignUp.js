@@ -241,9 +241,10 @@ const UserSignUp = ({ navigation }) => {
                         </View>
                         <View style={ [styles.logoView] }>
                       
-                        <Text>
-                            Logo
-                        </Text>
+                        <Image
+                               source={require('../../assets/Ryder.png')}
+                               style={{width:50,height:50,borderRadius:50}}
+                        />
                     </View>
                     </View>
                     <View style={[styles.lineView]} />
@@ -258,7 +259,7 @@ const UserSignUp = ({ navigation }) => {
                     <View style={{backgroundColor:'white'}}>
                    
 
-</View>
+                    </View>
 
                         <View style={{ width: '47%' ,marginLeft:10,borderBottomColor:colors.black,borderBottomWidth:1}}>
                                 <TextInput
@@ -309,7 +310,7 @@ const UserSignUp = ({ navigation }) => {
                         
                         <Text style={{fontSize:18,color:colors.dimGrey}}>Location</Text>
                     </View>
-                    <View style={{ width: '100%' ,borderBottomColor:colors.black,borderBottomWidth:1,marginTop:10}}>
+                    <View style={{ width: '95%' ,borderBottomColor:colors.black,borderBottomWidth:1,marginTop:10,alignSelf:'center'}}>
                     <TextInput
             placeholder="From To?"
             value={fromValue}

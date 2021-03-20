@@ -11,27 +11,33 @@ import colors from '../../stylesheet/colors';
 const styles = StyleSheet.create({
     flex_row: {
         flexDirection: 'row',
-        paddingTop: 15,
+        width:'100%',
+        paddingTop: responsiveVerticalSize(3),
+        justifyContent:'center',
         alignItems: 'center'
     },
     pv1: {
+        justifyContent:'center',
         alignItems: 'center',
-        paddingLeft: 20
+      //  width:'10%',
+       // paddingLeft: responsiveHorizontalSize(4)
     },
     logoView: {
-        paddingLeft: 130,
-        justifyContent: "center"
+        width:'80%',
+      //  paddingLeft: responsiveHorizontalSize(15),
+        justifyContent: "center",
+        alignItems:'center'
     },
     lineView: {
-        paddingTop: 15,
+        paddingTop: 10,
         borderBottomColor: 'grey',
         borderBottomWidth: 1,
     },
     textView: {
         paddingTop: responsiveVerticalSize(2),
         paddingBottom: responsiveVerticalSize(2),
-        paddingLeft:responsiveHorizontalSize(3),
-        paddingRight:responsiveHorizontalSize(3),
+        paddingLeft: responsiveHorizontalSize(3),
+        paddingRight: responsiveHorizontalSize(3),
         width: '60%'
     },
     fieldText: {
@@ -50,39 +56,39 @@ const styles = StyleSheet.create({
     mobileView: {
         paddingTop: responsiveVerticalSize(1),
         paddingBottom: responsiveVerticalSize(1),
-        paddingLeft:responsiveHorizontalSize(3),
-        paddingRight:responsiveHorizontalSize(3),
-      flexDirection:'row'
+        paddingLeft: responsiveHorizontalSize(3),
+        paddingRight: responsiveHorizontalSize(3),
+        flexDirection: 'row'
     },
     nextView: {
         paddingTop: responsiveVerticalSize(1),
         paddingLeft: responsiveHorizontalSize(2),
         paddingBottom: responsiveVerticalSize(2),
         alignItems: 'center',
-        justifyContent:'center'
+        justifyContent: 'center'
     },
-    condnView: { 
-        flexDirection: 'row', 
+    condnView: {
+        flexDirection: 'row',
         paddingTop: responsiveVerticalSize(5),
         paddingLeft: responsiveHorizontalSize(2),
         paddingBottom: responsiveVerticalSize(5),
-},
-locContainer:{
-margin:10,
-width:'90%',
-borderColor:colors.dimGrey,
-borderRadius:10,
-borderWidth:1,
-height:60
-},
+    },
+    locContainer: {
+        margin: 10,
+        width: '90%',
+        borderColor: colors.dimGrey,
+        borderRadius: 10,
+        borderWidth: 1,
+        height: 60
+    },
 
-locContainer2:{
-    margin:10,
-    width:'85%',
-    borderColor:colors.dimGrey,
-    borderRadius:10,
-    borderWidth:1,
-    height:60
+    locContainer2: {
+        margin: 10,
+        width: '85%',
+        borderColor: colors.dimGrey,
+        borderRadius: 10,
+        borderWidth: 1,
+        height: 60
     }
 });
 

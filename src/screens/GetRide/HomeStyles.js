@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
     flex_row: {
         flexDirection: 'row',
         width:'100%',
-        paddingTop: responsiveVerticalSize(3),
         justifyContent:'center',
         alignItems: 'center'
     },
@@ -23,13 +22,13 @@ const styles = StyleSheet.create({
        // paddingLeft: responsiveHorizontalSize(4)
     },
     logoView: {
-        width:'80%',
+        width:'100%',
       //  paddingLeft: responsiveHorizontalSize(15),
         justifyContent: "center",
         alignItems:'center'
     },
     lineView: {
-        paddingTop: responsiveVerticalSize(2),
+        paddingTop: responsiveVerticalSize(1),
         borderBottomColor: 'grey',
         borderBottomWidth: 1,
     },

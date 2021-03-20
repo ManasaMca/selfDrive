@@ -50,9 +50,10 @@ const Selection = () => {
               </TouchableOpacity>
             </View>
             <View style={[styles.logoView]}>
-              <Text>
-                Logo
-                </Text>
+            <Image
+              source={require('../../assets/Ryder.png')}
+              style={{width:50,height:50,borderRadius:50}}
+           />
             </View>
           </View>
           <View>

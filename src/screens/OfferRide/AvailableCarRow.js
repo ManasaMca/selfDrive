@@ -27,6 +27,7 @@ export default function AvailableCarRow({ ac, carname, carpcode, carpic, city, d
                 <Text style={{ fontSize: 16, color: 'black', fontWeight: 'bold' }}>{carname}</Text>
                 <Text style={{ fontSize: 16, color: 'black', marginTop: 4 }}>₹ {offerprice}</Text>
                 <Text style={{ fontSize: 16, color: 'black', marginTop: 4 }}>{mobile}</Text>
+                <Text style={{ fontSize: 16, color: 'black', marginTop: 4 }}>{location}</Text>
             </View>
         </TouchableOpacity>
     )

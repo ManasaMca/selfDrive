@@ -41,16 +41,17 @@ const Home = ({ navigation }) => {
       <SafeAreaView backgroundColor={colors.white} >
       <ScrollView>
         <View style={{marginBottom:75}}>
-        <View style={[styles.flex_row]} >
+       
          
          <View style={ [styles.logoView] }>
                       
-                 <Text>
-                     Logo
-                  </Text>
+         <Image
+              source={require('../../assets/Ryder.png')}
+              style={{width:50,height:50,borderRadius:50}}
+           />
            </View>
        
-        </View>
+       
         <View style={[styles.lineView]} />
       
         <View style={[styles.titleView]}>
