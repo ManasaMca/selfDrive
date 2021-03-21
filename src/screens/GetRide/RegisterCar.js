@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import { View, Picker, StyleSheet, Text, TextInput, CheckBox, TouchableOpacity, Image, ActivityIndicator, ScrollView } from "react-native";
 import * as Progress from 'react-native-progress';
 import colors from '../../stylesheet/colors';
+import {
+    responsiveHorizontalSize,
+    responsiveVerticalSize,
+    responsiveFontSize,
+    widthPercentageToDP,
+    heightPercentageToDP,
+} from '../../stylesheet/responsiveSize';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import ImagePicker from 'react-native-image-picker';
 import Icon1 from 'react-native-vector-icons/FontAwesome'; //liecense
@@ -245,6 +252,39 @@ const Registercar = () => {
                     <TouchableOpacity><Text style={{ color: 'green', alignSelf: 'center', top: 10, fontWeight: 'bold', fontSize: 15 }}>Upload your documents here</Text></TouchableOpacity>
                 </View> */}
 
+                <View style={[styles.priceView]}>
+                    <Text style={[styles.priceText]}>
+                        Rent Per Day :
+              </Text>
+                    <View style={[styles.container2]}>
+                        <TextInput
+                            style={[styles.priceInput]}
+                            keyboardType="number-pad"
+                            placeholder="000"
+                            placeholderTextColor="black"
+                            // value={rent}
+                            // onChangeText={(value) => setRent(value)}
+                        />
+                    </View>
+                </View>
+                <View>
+                    <View style={{ flexDirection: 'row', marginLeft: 20 }}>
+                        <CheckBox
+                            color={colors.themeColor}
+                            // value={Driver}
+                            // onValueChange={setDriver}
+                        /><Text style={{ fontSize: 20 }}>Driver Facility</Text>
+                    </View>
+
+                    <View style={{ flexDirection: 'row', marginLeft: 20 }}>
+                        <CheckBox
+                            color={colors.themeColor}
+                            // value={Negotiable}
+                            // onValueChange={setNegotiable}
+                        /><Text style={{ fontSize: 20 }}>Negotiable</Text>
+                    </View>
+                </View>
+
                 <View style={[styles.docView]}>
                     <View style={[styles.docContainer]}>
                         <Icon1 name={'drivers-license-o'} color={colors.themeColor} size={30} />
@@ -269,18 +309,18 @@ const Registercar = () => {
                             </TouchableOpacity>
                         </View>
                     ) : (
-                            <View style={{ flexDirection: "row", alignItems: "center", marginLeft: 50 }}>
-                                <Image
-                                    source={banner3}
-                                    style={[styles.img]} />
-                                <TouchableOpacity
-                                    style={styles.btnStyle}
-                                    onPress={() => handleChoosePhoto3()}
-                                >
-                                    <Text style={styles.btnTextCamera}>Upload</Text>
-                                </TouchableOpacity>
-                            </View>
-                        )}
+                        <View style={{ flexDirection: "row", alignItems: "center", marginLeft: 50 }}>
+                            <Image
+                                source={banner3}
+                                style={[styles.img]} />
+                            <TouchableOpacity
+                                style={styles.btnStyle}
+                                onPress={() => handleChoosePhoto3()}
+                            >
+                                <Text style={styles.btnTextCamera}>Upload</Text>
+                            </TouchableOpacity>
+                        </View>
+                    )}
                 </View>
 
                 <TouchableOpacity onPress={() => submit()}>
@@ -379,6 +419,35 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         height: 60
     },
+    
+  priceView: {
+    flexDirection: 'row',
+    paddingLeft: responsiveHorizontalSize(2),
+    paddingTop: responsiveVerticalSize(1),
+    paddingBottom: responsiveVerticalSize(1),
+  },
+  priceText: {
+    fontFamily: 'Geomanist',
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    fontSize: responsiveFontSize(20),
+    color: colors.black,
+    top:5
+  },
+  priceInput: {
+    width: '100%',
+    fontSize: responsiveFontSize(20),
+    fontWeight: 'bold',
+    },
+  container2: {
+    marginHorizontal: 10,
+    width: '58%',
+    borderColor: colors.dimGrey,
+    borderRadius: 10,
+    borderWidth: 1,
+    height: 45,
+    justifyContent:'center'
+  },
 });
 
 
