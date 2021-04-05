@@ -119,3 +119,15 @@ export const getCityName = (details) => {
     return '';
   }
 };
+
+export const getStateName = (details) => {
+    const locality =
+      details &&
+      details.address_components.filter((obj) => obj.types.includes('administrative_area_level_1'));
+    if (locality && locality.length > 0) {
+      return locality[0].long_name;
+    } else {
+      return '';
+    }
+  };
+  

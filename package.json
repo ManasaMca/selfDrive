@@ -7,7 +7,11 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "ios:small": "react-native run-ios --simulator=\"iPhone SE (2nd generation)\"",
+    "ios:average": "react-native run-ios --simulator=\"iPhone 8 Plus\"",
+    "ios:medium": "react-native run-ios --simulator=\"iPhone 11\"",
+    "ios:large": "react-native run-ios --simulator=\"iPhone 11 Pro Max\""
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.9.0",

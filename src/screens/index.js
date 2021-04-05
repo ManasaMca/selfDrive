@@ -24,6 +24,7 @@ import Cardetails from "./GetRide/cardetails";
 import AvailableCars from "./OfferRide/availablecars";
 import PostCarFinal from './OfferRide/PostCarFinal';
 import { heightPercentageToDP, responsiveHorizontalSize, responsiveVerticalSize, } from '../stylesheet/responsiveSize';
+import LocationSearch from './GetRide/LocationSearch';
 
 
 
@@ -214,6 +215,8 @@ export default function RootStack() {
         component={Cardetails} />
       <MainStack.Screen name={'UserSignUp'}
         component={UserSignUp} />
+         <MainStack.Screen name={'LocationSearch'}
+        component={LocationSearch} />
       <MainStack.Screen name={'TermsConditions'}
         component={TermsConditions} />
     </MainStack.Navigator>

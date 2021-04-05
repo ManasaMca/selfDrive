@@ -11,6 +11,9 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {users_fetch_action} from '../../Redux/action/useraction';
 import {useSelector, useDispatch} from 'react-redux'
 import Toast from 'react-native-simple-toast'
+import { getCityName } from '../../constants/utils';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import { API_KEY } from '../../constants/apiendpoints';
 
 
 const UserSignUp = ({ navigation }) => {
@@ -231,7 +234,7 @@ const UserSignUp = ({ navigation }) => {
         <>
             <StatusBar barStyle="dark-content" backgroundColor={colors.white} />
             <SafeAreaView backgroundColor={colors.white}>
-                <ScrollView>
+                <View>
                     <View style={[styles.flex_row]} >
                         <View style={[styles.pv1]}>
                             <TouchableOpacity
@@ -310,19 +313,35 @@ const UserSignUp = ({ navigation }) => {
                         
                         <Text style={{fontSize:18,color:colors.dimGrey}}>Location</Text>
                     </View>
-                    <View style={{ width: '95%' ,borderBottomColor:colors.black,borderBottomWidth:1,marginTop:10,alignSelf:'center'}}>
+                    <TouchableOpacity 
+                        style={{ width: '95%' ,borderBottomColor:colors.black,borderBottomWidth:1,marginTop:10,alignSelf:'center'}}
+                        onPress={() => {
+                            navigation.navigate('LocationSearch', {
+                                onGetLocation: (fromLocation, fromLat, fromLong, fromCity, fromState) => {
+                                    //alert(fromLocation, fromLat, fromLong, fromCity);
+                                    setFromValue(fromLocation);
+                                    setFromLat(fromLat);
+                                    setFromLong(fromLong);
+                                    setcity(fromCity);
+                                    setstate(fromState);
+                                }
+                            })
+                        }}    
+                        >
                     <TextInput
-            placeholder="From To?"
-            value={fromValue}
-           
-            onFocus={() =>{setToggleFromWhereList(0)}}
-            style={{ backgroundColor:'white' }}
-            onChangeText={text => {
-              setFromValue(text)
-             getAutoSugesstion(text,'from')
-            }}
-            >
+                        placeholder="From To?"
+                        value={fromValue}
+                    
+                        onFocus={() =>{setToggleFromWhereList(0)}}
+                        style={{ backgroundColor:'white' }}
+                        editable={false}
+                        onChangeText={text => {
+                        setFromValue(text)
+                        getAutoSugesstion(text,'from')
+                        }}
+                        >
                  </TextInput>
+               
             { toggleFromWhereList == 0 ? ( 
               <FlatList
                 data={fromSugesstionList}
@@ -339,7 +358,7 @@ const UserSignUp = ({ navigation }) => {
                                 placeholder="Location"
                                     placeholderTextColor="black"
                                 /> */}
-                    </View>
+                    </TouchableOpacity>
                     <View style={{flexDirection:'row', margin:10}}>
                         <View style={{width:'50%'}}>
                             <View style={[styles.mobileView]}>
@@ -350,8 +369,9 @@ const UserSignUp = ({ navigation }) => {
                             <TextInput 
                                     value={city}
                                     onChangeText={(value) => setcity(value)}
-                                placeholder="city"
+                                    placeholder="city"
                                     placeholderTextColor="black"
+                                    editable={false}
                                 />
                             </View>
                         </View>
@@ -364,8 +384,9 @@ const UserSignUp = ({ navigation }) => {
                             <TextInput 
                                     value={state}
                                     onChangeText={(value) => setstate(value)}
-                                placeholder="Location"
+                                    placeholder="Location"
                                     placeholderTextColor="black"
+                                    editable={false}
                                 />
                             </View>
                         </View>
@@ -407,7 +428,7 @@ const UserSignUp = ({ navigation }) => {
                             </TouchableOpacity>
                         </View>
                     </View>
-                </ScrollView>
+                </View>
             </SafeAreaView>
         </>
     )
