@@ -12,7 +12,7 @@ import { API_KEY } from '../../constants/apiendpoints'
 import { getCityName } from '../../constants/utils';
 
 const OfferRide = ({route}) => {
-  const {date,seating}=route.params;
+  const pcode=route.params.pcode;
   const navigation = useNavigation();
   let fromLocation,
     fromLat,
@@ -45,7 +45,7 @@ const OfferRide = ({route}) => {
    if(location==''){
       alert("Enter Location")
    }else{
-    navigation.navigate('AvailableCars',{date:date,seating:seating,lati:lati,longi:longi,city:city,location:location})
+    navigation.navigate('AvailableCars',{pcode:pcode,lati:lati,longi:longi,city:city,location:location})
 
    }
  }

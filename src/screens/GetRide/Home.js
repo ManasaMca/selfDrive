@@ -9,14 +9,17 @@ import {users_fetch_action} from '../../Redux/action/useraction';
 import {car_fetch_action} from '../../Redux/action/caraction';
 import {useSelector, useDispatch} from 'react-redux';
 import { getUser } from '../../utils/AsyncStorageHelper'
+import { pcode } from '../../Redux/selector/userselector';
 
 const Home = ({ navigation }) => {
+  const [pcode,setpcode]=useState();
   const dispatch = useDispatch();
   const fetchUserData = async () => {
     let userDetails = await getUser()
     
     console.log(userDetails)
     const ppcode = userDetails.pcode
+    setpcode(ppcode);
     console.log("////////////////",userDetails.pcode)
     dispatch(
         users_fetch_action({
@@ -59,7 +62,7 @@ const Home = ({ navigation }) => {
             You're looking for...
           </Text>
           <TouchableOpacity  style={[styles.btn]}
-             onPress={() => navigation.navigate('Selection')}
+             onPress={() => navigation.navigate('OfferRide',{pcode:pcode})}
             >
           <View style={{paddingTop:20}}>
           <Image source={require('../../assets/Getaride.jpeg')} style={{width:130,height:130,}}/>
@@ -78,7 +81,7 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>  
         <View style={[styles.lineView2]} />
         <TouchableOpacity  style={[styles.btn]}
-              onPress={() => navigation.navigate('Registercar', {})}
+              onPress={() => navigation.navigate('Registercar', {ppcode:pcode})}
             >
         <View style={{paddingTop:20}}>
           <Image source={require('../../assets/Bookaride.jpeg')} style={{width:120,height:120,}} />
