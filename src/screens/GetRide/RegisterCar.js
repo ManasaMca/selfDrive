@@ -24,7 +24,7 @@ const Registercar = () => {
     const route = useRoute();
     const cars_list = useSelector(carlist);
     const ppcode = route.params.ppcode
-    const p_mobile = route.params.p_mobile
+   // const p_mobile = route.params.p_mobile
     const p_location = route.params.p_location
     const p_city = route.params.p_city
     const p_state = route.params.p_state
@@ -39,6 +39,9 @@ const Registercar = () => {
     const [year, setyear] = useState();
     const [carno, setcarno] = useState();
     const [seating, setseating] = useState();
+    const [rent,setRent]=useState();
+    const [driver,setdriver]=useState(false);
+    const [negotiation,setnegotiation]=useState(false);
     const [showLoader, setLoader] = useState(false)
     console.log("..................", cars_list)
 
@@ -66,10 +69,9 @@ const Registercar = () => {
                     ac: ac,
                     color: color,
                     making_year: year,
-                    mobilenumber: p_mobile,
-                    street: p_location,
-                    city: p_city,
-                    state: p_state,
+                    driver_facility:(driver==false)?0:1,
+                   negotiation:(negotiation==false)?0:1,
+                   rent:rent,
                     carpic: banner33
                 })
 
@@ -81,11 +83,13 @@ const Registercar = () => {
                     const userToken1 = JSON.parse(dataJSON);
                     console.log('response', userToken1);
                     alert(userToken1.Message)
+                    
                     dispatch(
                         car_fetch_action({
                             ppcode
                         }),
                     );
+                    navigation.goBack();
                 })
                 .catch((error) => {
                     setLoader(false)
@@ -102,6 +106,13 @@ const Registercar = () => {
     const ac1 = () => {
         setac(true)
         setnon_ac(false)
+    }
+    const driver1=()=>{
+        (driver==false)?setdriver(true):setdriver(false);
+    }
+
+    const negotiation1=()=>{
+        (negotiation==false)?setnegotiation(true):setnegotiation(false);
     }
     console.log("AC", ac, "NON-AC", non_ac)
     const handleChoosePhoto3 = () => {
@@ -262,8 +273,8 @@ const Registercar = () => {
                             keyboardType="number-pad"
                             placeholder="000"
                             placeholderTextColor="black"
-                            // value={rent}
-                            // onChangeText={(value) => setRent(value)}
+                            value={rent}
+                            onChangeText={(value) => setRent(value)}
                         />
                     </View>
                 </View>
@@ -271,16 +282,16 @@ const Registercar = () => {
                     <View style={{ flexDirection: 'row', marginLeft: 20 }}>
                         <CheckBox
                             color={colors.themeColor}
-                            // value={Driver}
-                            // onValueChange={setDriver}
+                             value={driver}
+                            onValueChange={() => driver1()}
                         /><Text style={{ fontSize: 20 }}>Driver Facility</Text>
                     </View>
 
                     <View style={{ flexDirection: 'row', marginLeft: 20 }}>
                         <CheckBox
                             color={colors.themeColor}
-                            // value={Negotiable}
-                            // onValueChange={setNegotiable}
+                            value={negotiation}
+                            onValueChange={()=>negotiation1()}
                         /><Text style={{ fontSize: 20 }}>Negotiable</Text>
                     </View>
                 </View>

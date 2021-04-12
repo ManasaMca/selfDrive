@@ -8,13 +8,12 @@ import {
     avail_car_fetch_sucess
 } from './actioncontants';
 
-export const avail_car_fetch_action = ({ date, seating, lati, longi }, pcode) => {
+export const avail_car_fetch_action = ({ pcode,lati, longi }) => {
     return function (dispatch) {
         dispatch(onfetching());
         const body = {
             pcode: pcode,
-            seating: seating,
-            bookingdate: date,
+            seating: 2,
             lat: lati,
             long: longi
         };

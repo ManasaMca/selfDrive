@@ -17,16 +17,16 @@ import AvailableCarRow from "./AvailableCarRow";
 
 
 const AvailableCars = ({ route }) => {
-    const { date, seating, lati, longi, city, location } = route.params;
+    const { pcode,lati, longi, city, location } = route.params;
     const cars_list = useSelector(carlist);
-    const p_code = useSelector(pcode)
+    // p_code = pcode;
     const navigation = useNavigation();
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log('pin code in avail', p_code)
+        console.log('pin code in avail')
         dispatch(
-            avail_car_fetch_action(route.params, p_code)
+            avail_car_fetch_action(route.params)
         );
     }, [])
     useEffect(() => {
@@ -67,12 +67,13 @@ const AvailableCars = ({ route }) => {
                                     style={styles.car} />
                             </View>
                             <View style={{ margin: 10, width: widthPercentageToDP(50), }}>
-                                <Text style={[styles.headtext2]}>Rs: {item.offerprice}/Day</Text>
+                                <Text style={[styles.headtext2]}>Rs: {item.rent}/Day</Text>
                                 <View style={styles.vieww}>
-                                    <Text style={styles.txt}>Driver Provision</Text>
                                     <Text style={styles.txt}>{item.carname}</Text>
-                                    <Text style={styles.txt}>{item.location}</Text>
-                                    <Text style={styles.txt}>{item.tdate}</Text>
+                                    <Text style={styles.txt}>Driver Provision:{item.driverfacility}</Text>
+                                   
+                                    <Text style={styles.txt}>{item.city}/{item.state}</Text>
+                                    <Text style={styles.txt}>Negotiation: {item.negotiation}</Text>
 
                                 </View>
 
