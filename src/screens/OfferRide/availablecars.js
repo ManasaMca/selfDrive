@@ -12,7 +12,7 @@ import { carlist } from '../../Redux/selector/availablecarselector';
 import { pcode } from '../../Redux/selector/userselector';
 import { useSelector, useDispatch } from 'react-redux';
 import { avail_car_fetch_action } from '../../Redux/action/availablecars';
-import { widthPercentageToDP } from "../../stylesheet/responsiveSize";
+import { heightPercentageToDP, widthPercentageToDP } from "../../stylesheet/responsiveSize";
 import AvailableCarRow from "./AvailableCarRow";
 
 
@@ -51,6 +51,7 @@ const AvailableCars = ({ route }) => {
                         </View>
                     </View>
                 </View>
+                <View style={{height:heightPercentageToDP('77%')}}> 
                 <ScrollView >
 
                 <FlatList
@@ -89,8 +90,9 @@ const AvailableCars = ({ route }) => {
                 >
 
                 </FlatList>
-                <View style={{ width: 150 }} />
+                <View style={{ width: 150,backgroundColor:'white' }} />
             </ScrollView>
+            </View>
 
         </>
     );
