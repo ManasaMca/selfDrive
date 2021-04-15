@@ -25,6 +25,7 @@ import AvailableCars from "./OfferRide/availablecars";
 import PostCarFinal from './OfferRide/PostCarFinal';
 import { heightPercentageToDP, responsiveHorizontalSize, responsiveVerticalSize, } from '../stylesheet/responsiveSize';
 import LocationSearch from './GetRide/LocationSearch';
+import MyCars from './GetRide/MyCars'
 
 
 
@@ -109,7 +110,7 @@ function CustomTabBar({ state, descriptors, navigation }) {
             iconName={iconName}
             onPress={onPress}
             onLongPress={onLongPress}
-            numberOfTabs={state.routes.length - 5}
+            numberOfTabs={state.routes.length - 6}
           >
           </BottomCenterView>)
         })}
@@ -187,6 +188,10 @@ export const TabsContainer = (props) => {
     <MainTab.Screen
       name={"AvailableCars"}
       component={AvailableCars}
+    />
+     <MainTab.Screen
+      name={"MyCars"}
+      component={MyCars}
     />
 
   </MainTab.Navigator>

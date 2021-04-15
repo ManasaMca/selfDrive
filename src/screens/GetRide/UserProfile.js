@@ -231,7 +231,7 @@ const UserProfile = ({ navigation }) => {
                                 />
                             </View>
                             <View>
-                                <Text style={[styles.carText]}> My Cars </Text>
+                                <Text style={[styles.carText]}  onPress={() => navigation.navigate('MyCars')}> My Cars </Text>
                                 <View style={[styles.container]}>
                                     <Picker
                                         mode="dropdown"
