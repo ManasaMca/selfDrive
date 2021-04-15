@@ -5,9 +5,9 @@ import { heightPercentageToDP, responsiveFontSize, widthPercentageToDP } from '.
 
 const styles = StyleSheet.create({
     container: {
-      
+
         height: heightPercentageToDP(10),
-      
+
         backgroundColor: colors.themeColor
     },
     view1: {
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
         marginLeft: 10
     },
     car: {
-        resizeMode:'cover',
-        borderRadius:50,
+        resizeMode: 'contain',
+        borderRadius: 50,
         height: 120,
         width: 120,
     },
@@ -45,11 +45,12 @@ const styles = StyleSheet.create({
         fontSize: responsiveFontSize(15),
         color: 'black',
         top: 10,
-        fontWeight:'bold',
-        marginVertical:10,
+        fontWeight: 'bold',
+        marginVertical: 10,
     },
     vieww: {
         top: 10,
+        bottom:10
     },
     txt: {
         fontSize: responsiveFontSize(15),

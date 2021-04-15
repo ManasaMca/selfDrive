@@ -24,7 +24,7 @@ const Registercar = () => {
     const route = useRoute();
     const cars_list = useSelector(carlist);
     const ppcode = route.params.ppcode
-   // const p_mobile = route.params.p_mobile
+    const p_mobile = route.params.p_mobile
     const p_location = route.params.p_location
     const p_city = route.params.p_city
     const p_state = route.params.p_state
