@@ -49,6 +49,12 @@ const styles = StyleSheet.create({
         height: 120,
         width: 150,
     },
+    car1: {
+        resizeMode: 'contain',
+        borderRadius:10,
+        height: 80,
+        width: 100,
+    },
     headtext2: {
         fontSize: responsiveFontSize(15),
         color: 'black',

@@ -69,10 +69,12 @@ const styles = StyleSheet.create({
     container: {
         marginHorizontal: 10,
         width: '70%',
-        borderColor: colors.dimGrey,
+        borderColor: colors.themeColor,
         borderRadius: 10,
         borderWidth: 1,
-        height: 50
+        height: 50,
+        alignItems:'center',
+        justifyContent:'center'
       },
     
     bt1: {

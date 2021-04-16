@@ -48,7 +48,7 @@ const MyCars = ({ route }) => {
 
                                     <Image
                                         source={car.capic == "" ? require('../../assets/image7.png') : { uri: "http://api.ryder.org.in/" + car.capic }}
-                                        style={styles.car} />
+                                        style={styles.car1} />
                                 </View>
                                 <View style={{ margin: 10, width: widthPercentageToDP(50), justifyContent:'center'}}>
 

@@ -230,9 +230,14 @@ const UserProfile = ({ navigation }) => {
                                     editable={editable}
                                 />
                             </View>
-                            <View>
-                                <Text style={[styles.carText]}  onPress={() => navigation.navigate('MyCars',{cars:cars_list})}> My Cars </Text>
-                                <View style={[styles.container]}>
+                            <View style={{ alignItems: 'center', justifyContent: 'center' }} >
+                                <TouchableOpacity 
+                                onPress={() => navigation.navigate('MyCars', { cars: cars_list })}
+                                style={[styles.container]}>
+                                    <Text style={[styles.carText]} > My Cars </Text>
+                                </TouchableOpacity>
+
+                                {/* <View >
                                     <Picker
                                         mode="dropdown"
                                         style={{ width: 200 }}
@@ -248,7 +253,7 @@ const UserProfile = ({ navigation }) => {
                                         ))}
 
                                     </Picker>
-                                </View>
+                                </View> */}
 
                             </View>
 
