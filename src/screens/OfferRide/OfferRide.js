@@ -140,4 +140,4 @@ const OfferRide = ({route}) => {
   );
 };
 
-export default memo(OfferRide);
+export default OfferRide;

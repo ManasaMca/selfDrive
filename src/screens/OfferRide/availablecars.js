@@ -61,7 +61,7 @@ const AvailableCars = ({ route }) => {
                             return <View style={styles.view1}>
                                 <View style={{ marginHorizontal: 5,marginTop:5,flexDirection:'row' }}>
                                     <Image style={[styles.img1]}
-                                        source={require('../../assets/DriverImg.png')}
+                                        source={item.profilepic=="NA"?require('../../assets/DriverImg.png'):{ uri: "http://api.ryder.org.in/" + item.profilepic }}
                                     />
                                     <Text style={[styles.headtext2,{marginHorizontal:10,top:0}]}>Jhon</Text>
                                         

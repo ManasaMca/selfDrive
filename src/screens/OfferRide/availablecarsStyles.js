@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     img1:{
         height: 40,
         width: 40,
-        top: 2
+        top: 2,
+        borderRadius:50
        // resizeMode:'contain'
     },
     heading: {
