@@ -65,7 +65,7 @@ const Cardetails = ({ route }) => {
                     </View>
 
                     <View style={styles.view6}><Text style={styles.text5}>Location</Text>
-                        <Text style={styles.text6}>{route.params.location!=""?route.params.location:route.params.city}</Text>
+                        <Text style={styles.text6}>{route.params.location != "" ? route.params.location : route.params.city}</Text>
                     </View>
 
                     <View style={styles.view6}><Text style={styles.text5}>City</Text>
@@ -75,11 +75,12 @@ const Cardetails = ({ route }) => {
                     <View style={styles.view6}><Text style={styles.text5}>State/Region</Text>
                         <Text style={styles.text6}>{route.params.state}</Text>
                     </View>
-                    <TouchableOpacity style={styles.button2}
-                        onPress={() => navigation.goBack()}
-                    >
-                        <Text style={styles.button}>Close</Text></TouchableOpacity>
-
+                    <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                        <TouchableOpacity style={styles.button2}
+                            onPress={() => navigation.goBack()}
+                        >
+                            <Text style={styles.button}>Close</Text></TouchableOpacity>
+                    </View>
                 </View>
             </ScrollView>
         </>
