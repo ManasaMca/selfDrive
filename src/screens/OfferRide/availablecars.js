@@ -63,7 +63,7 @@ const AvailableCars = ({ route }) => {
                             <View style={{ width: widthPercentageToDP(35), alignItems: 'center', justifyContent: 'center', margin: 10, }}>
 
                                 <Image
-                                    source={item.carpic == null ? require('../../assets/image7.png') : { uri: "http://api.ryder.org.in/" + item.carpic }}
+                                    source={item.carpics == null ? require('../../assets/image7.png') : { uri: "http://api.ryder.org.in/" + item.carpics }}
                                     style={styles.car} />
                             </View>
                             <View style={{ margin: 10, width: widthPercentageToDP(50), }}>

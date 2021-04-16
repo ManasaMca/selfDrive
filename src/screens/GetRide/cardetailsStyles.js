@@ -70,6 +70,20 @@ const styles = StyleSheet.create({
       marginTop: 15,
       paddingBottom: 10
    },
+   button2: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: 40,
+      marginVertical: 20,
+      width: 140,
+      backgroundColor: colors.themeColor,
+      borderRadius: 5
+  },
+  button: {
+   fontSize: 15,
+   fontWeight: '900',
+   color: 'white'
+},
 
 
 });

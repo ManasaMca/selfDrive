@@ -4,9 +4,10 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from "../../stylesheet/colors";
 import styles from './cardetailsStyles'
 import { Linking } from 'react-native'
+import { useRoute, useNavigation } from '@react-navigation/native';
 
 const Cardetails = ({ route }) => {
-
+    const navigation = useNavigation();
     const call = () => {
         const requestOptions = {
             method: 'POST',
@@ -63,17 +64,21 @@ const Cardetails = ({ route }) => {
                         </View>
                     </View>
 
-                    <View style={styles.view6}><Text style={styles.text5}>Street Address</Text>
-                        <Text style={styles.text6}>{route.params.location}</Text>
+                    <View style={styles.view6}><Text style={styles.text5}>Location</Text>
+                        <Text style={styles.text6}>{route.params.location!=""?route.params.location:route.params.city}</Text>
                     </View>
 
                     <View style={styles.view6}><Text style={styles.text5}>City</Text>
-                        <Text style={styles.text6}>Hyd</Text>
+                        <Text style={styles.text6}>{route.params.city}</Text>
                     </View>
 
                     <View style={styles.view6}><Text style={styles.text5}>State/Region</Text>
-                        <Text style={styles.text6}>Telangana/Hindhu</Text>
+                        <Text style={styles.text6}>{route.params.state}</Text>
                     </View>
+                    <TouchableOpacity style={styles.button2}
+                        onPress={() => navigation.goBack()}
+                    >
+                        <Text style={styles.button}>Close</Text></TouchableOpacity>
 
                 </View>
             </ScrollView>
