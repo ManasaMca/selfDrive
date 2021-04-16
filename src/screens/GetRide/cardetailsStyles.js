@@ -80,8 +80,8 @@ const styles = StyleSheet.create({
       borderRadius: 5
   },
   button: {
-   fontSize: 15,
-   fontWeight: '900',
+   fontSize: 18,
+   fontWeight: 'bold',
    color: 'white'
 },
 

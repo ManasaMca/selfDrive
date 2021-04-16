@@ -16,15 +16,15 @@ import { heightPercentageToDP, widthPercentageToDP } from "../../stylesheet/resp
 
 const MyCars = ({ route }) => {
     const navigation = useNavigation();
-    const cars_list=route.params.cars;
-    console.log("raj data"+cars_list)
-console.log(route.params.car)
+    const cars_list = route.params.cars;
+    console.log("raj data" + cars_list)
+    console.log(route.params.car)
     return (
         <>
             <StatusBar barStyle="light-content" backgroundColor={colors.themeColor} />
 
             <View style={styles.container}>
-           
+
                 <View >
                     <View style={{ flexDirection: 'row', marginLeft: 10 }}>
                         <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -37,28 +37,28 @@ console.log(route.params.car)
                             </Text>
                     </View>
                 </View>
-                
+
             </View>
             <View style={{ height: heightPercentageToDP('77%') }}>
                 <ScrollView >
-                {cars_list.map((car, index) => (
-                    <View style={styles.view1}>
+                    {cars_list.map((car, index) => (
+                        <View style={styles.view1}>
+                            <View style={{ flexDirection: 'row' }}>
+                                <View style={{ width: widthPercentageToDP(35), alignItems: 'center', justifyContent: 'center', margin: 10, }}>
 
-                        <View style={{ width: widthPercentageToDP(35), alignItems: 'center', justifyContent: 'center', margin: 10, }}>
+                                    <Image
+                                        source={car.capic == "" ? require('../../assets/image7.png') : { uri: "http://api.ryder.org.in/" + car.capic }}
+                                        style={styles.car} />
+                                </View>
+                                <View style={{ margin: 10, width: widthPercentageToDP(50), justifyContent:'center'}}>
 
-                            <Image
-                                source={car.capic==""?require('../../assets/image7.png'):{ uri: "http://api.ryder.org.in/" + car.capic }}
-                                style={styles.car} />
+                                    <Text style={styles.txt}>{car.carname}</Text>
+                                    <Text style={styles.txt}>{car.carregno}</Text>
+
+
+                                </View>
+                            </View>
                         </View>
-                        <View style={{ margin: 10, width: widthPercentageToDP(50), }}>
-                           
-                                <Text style={styles.txt}>{car.carname}</Text>
-                                <Text style={styles.txt}>{car.carregno}</Text>
-                              
-
-                        </View>
-
-                    </View>
                     ))}
 
                     <View style={{ width: 150, backgroundColor: 'white' }} />

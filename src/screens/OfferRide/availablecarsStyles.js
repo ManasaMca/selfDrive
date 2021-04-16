@@ -17,8 +17,9 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         borderRadius: 5,
         marginTop: 20,
-        flexDirection: 'row',
-        justifyContent: 'center'
+       // flexDirection: 'row',
+        justifyContent: 'center',
+        marginVertical:5
     },
     view3: {
         flexDirection: 'row',
@@ -28,6 +29,12 @@ const styles = StyleSheet.create({
         height: 20,
         width: 20,
         top: 2
+    },
+    img1:{
+        height: 40,
+        width: 40,
+        top: 2
+       // resizeMode:'contain'
     },
     heading: {
         fontWeight: 'bold',
