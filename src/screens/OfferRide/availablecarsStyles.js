@@ -45,9 +45,9 @@ const styles = StyleSheet.create({
     },
     car: {
         resizeMode: 'contain',
-        borderRadius: 50,
+        borderRadius:10,
         height: 120,
-        width: 120,
+        width: 150,
     },
     headtext2: {
         fontSize: responsiveFontSize(15),
