@@ -205,25 +205,25 @@ const Registercar = () => {
                     <Text style={[styles.text2]}>
                         Seating
                     </Text>
-                    <View style={[styles.container1]}>
-                        <Picker
-                            mode="dropdown"
-                            style={{ width: 200 }}
-                            selectedValue={seating}
-                            onValueChange={value => setseating(value)}
+                {/* <View style={[styles.container1]}>
+                    <Picker
+                        mode="dropdown"
+                        style={{ width: 200 }}
+                        selectedValue={seating}
+                        onValueChange={value => setseating(value)}
 
-                        >
-                            <Picker.Item label="Select Seats" value="Seat" />
-                            <Picker.Item label="4" value="4" />
-                            <Picker.Item label="6" value="6" />
-                            <Picker.Item label="7" value="7" />
-                            <Picker.Item label="8" value="8" />
-                            <Picker.Item label="9" value="9" />
-                            <Picker.Item label="10" value="10" />
-                            <Picker.Item label="10+" value="10+" />
+                    >
+                        <Picker.Item label="Select Seats" value="Seat" />
+                        <Picker.Item label="4" value="4" />
+                        <Picker.Item label="6" value="6" />
+                        <Picker.Item label="7" value="7" />
+                        <Picker.Item label="8" value="8" />
+                        <Picker.Item label="9" value="9" />
+                        <Picker.Item label="10" value="10" />
+                        <Picker.Item label="10+" value="10+" />
 
-                        </Picker>
-                    </View>
+                    </Picker>
+                </View> */}
                     {/* <View style={{ margin: 20, marginTop: 30, width: 150, borderBottomWidth: 1 }}>
                         <Text style={{ fontWeight: 'bold', fontSize: 15 }}>Seating</Text>
                         <TextInput style={{ fontWeight: 'bold', fontSize: 15, color: 'black', marginTop: 15, paddingBottom: 10 }}
