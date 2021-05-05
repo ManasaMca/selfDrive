@@ -7,9 +7,9 @@ const styles = StyleSheet.create({
 
     titleText: {
         color: colors.white,
-        fontSize:26,
+        fontSize: 26,
         fontWeight: 'bold',
-       // paddingLeft:responsiveHorizontalSize(2)
+        // paddingLeft:responsiveHorizontalSize(2)
     },
     TitleView: {
         paddingTop: 10,
@@ -21,27 +21,26 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         borderTopLeftRadius: 50,
         borderTopRightRadius: 50,
-        marginTop: 50,
+        marginTop: -50,
         paddingTop: 55,
         paddingLeft: 15,
         paddingRight: 15,
-        marginBottom: responsiveVerticalSize(10),
-        paddingBottom: 100
+        paddingBottom: 10
     },
     imgContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        top:-100,
+        top: -100,
     },
     img: {
-        
+
         width: 100,
         height: 100,
         borderRadius: 50,
     },
     fieldText: {
         fontSize: 20,
-        fontFamily: 'Geomanist'
+        fontFamily: 'Roboto-Regular'
     },
     textView: {
         padding: 10,
@@ -62,7 +61,7 @@ const styles = StyleSheet.create({
     carText: {
         fontSize: 20,
         padding: 10,
-        fontFamily: 'Geomanist',
+        fontFamily: 'Roboto-Regular',
         color: colors.black,
         fontWeight: 'bold'
     },
@@ -73,10 +72,10 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderWidth: 1,
         height: 50,
-        alignItems:'center',
-        justifyContent:'center'
-      },
-    
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
     bt1: {
         alignItems: 'flex-end',
         justifyContent: 'center',
@@ -100,12 +99,12 @@ const styles = StyleSheet.create({
     btnStyle: {
         backgroundColor: colors.themeColor,
         height: 50,
-        width:'90%',
+        width: '90%',
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
-      marginHorizontal:10,
-      marginVertical:10
+        marginHorizontal: 10,
+        marginVertical: 10
     },
     btnText: {
         color: colors.white,

@@ -115,7 +115,7 @@ const UserSignUp = ({ navigation }) => {
                "Email is incorrect",
                [
 
-                   { text: "OK", onPress: () => navigation.navigate('UserSignUp') }
+                   { text: "OK", onPress: () => navigation.navigate('SignUp') }
                ],
                { cancelable: false }
            );
@@ -134,7 +134,7 @@ const UserSignUp = ({ navigation }) => {
                "Name is incorrect",
                [
 
-                   { text: "OK", onPress: () => navigation.navigate('UserSignUp') }
+                   { text: "OK", onPress: () => navigation.navigate('SignUp') }
                ],
                { cancelable: false }
            );
@@ -217,10 +217,7 @@ const UserSignUp = ({ navigation }) => {
                     userDetails
                 }),
               );
-			navigation.navigate('OfferRideTab', {
-                                    
-                screen: 'SignUp'
-            });
+			navigation.navigate( 'Home');
 		 })
 		 .catch((error)=>{
 		 console.error(error);

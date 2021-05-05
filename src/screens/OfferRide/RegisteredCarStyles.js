@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     text1: {
-      fontFamily: 'Geomanist',
+      fontFamily: 'Roboto-Regular',
       fontStyle: 'normal',
       fontWeight: 'bold',
       fontSize: 20,
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
       color: colors.white,
       fontSize: 20,
       fontWeight: 'bold',
-      fontFamily: 'Geomanist',
+      fontFamily: 'Roboto-Regular',
     },
     pv2: {
       marginTop: 10,
@@ -55,21 +55,21 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     text3: {
-      fontFamily: 'Geomanist',
+      fontFamily: 'Roboto-Regular',
       fontStyle: 'normal',
       fontWeight: '500',
       fontSize: 18,
       color: colors.black,
     },
     text4: {
-      fontFamily: 'Geomanist',
+      fontFamily: 'Roboto-Regular',
       fontStyle: 'normal',
       fontWeight: '500',
       fontSize: 16,
       color: colors.black,
     },
     text5: {
-      fontFamily: 'Geomanist',
+      fontFamily: 'Roboto-Regular',
       fontStyle: 'normal',
       fontWeight: '500',
       fontSize: 15,

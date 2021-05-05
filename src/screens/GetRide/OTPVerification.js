@@ -45,7 +45,7 @@ const OTPVerification = ({ route, navigation }) => {
         const userJson = JSON.parse(userToken)
 
         if (userJson.otp == otp && userJson.isRegistered == false) {
-            navigation.navigate('UserSignUp');
+            navigation.navigate('SignUp');
         }
         else if (userJson.otp == otp && userJson.isRegistered == true) {
             const userDetails = userJson.data[0]
@@ -62,7 +62,7 @@ const OTPVerification = ({ route, navigation }) => {
 
             navigation.navigate('OfferRideTab', {
 
-                screen: 'SignUp'
+                screen: 'Home'
             });
         }
         else {

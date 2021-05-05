@@ -28,17 +28,13 @@ const Cardetails = ({ route }) => {
     return (
         <>
             <StatusBar barStyle="light-content" backgroundColor={colors.themeColor} />
-            <ScrollView style={{ flex: 1 }} >
+            <ScrollView  >
                 <View style={styles.container}>
-                    <View >
 
-                        <View style={styles.text1}>
-                            <Text style={styles.heatdtext}>
-                                Details
-                        </Text>
-                        </View>
+                    <Text style={styles.heatdtext}>
+                        Details
+                </Text>
 
-                    </View>
                 </View>
 
                 <View style={styles.view1}>
@@ -81,6 +77,7 @@ const Cardetails = ({ route }) => {
                         >
                             <Text style={styles.button}>Close</Text></TouchableOpacity>
                     </View>
+
                 </View>
             </ScrollView>
         </>

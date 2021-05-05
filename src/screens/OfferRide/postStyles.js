@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
   text1: {
     padding: 5,
-    fontFamily: 'Geomanist',
+    fontFamily: 'Roboto-Regular',
     fontStyle: 'normal',
     fontWeight: 'bold',
     fontSize: responsiveFontSize(20),
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     paddingBottom: responsiveVerticalSize(1),
   },
   priceText: {
-    fontFamily: 'Geomanist',
+    fontFamily: 'Roboto-Regular',
     fontStyle: 'normal',
     fontWeight: 'bold',
     fontSize: responsiveFontSize(20),
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
   text2: {
     padding: 10,
-    fontFamily: 'Geomanist',
+    fontFamily: 'Roboto-Regular',
     fontStyle: 'normal',
     fontWeight: 'bold',
     fontSize: responsiveFontSize(22),
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   text3: {
     paddingLeft: responsiveHorizontalSize(2),
     paddingTop: responsiveVerticalSize(2),
-    fontFamily: 'Geomanist',
+    fontFamily: 'Roboto-Regular',
     fontStyle: 'normal',
     fontWeight: 'bold',
     fontSize: responsiveFontSize(20),
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   addCarText: {
     fontSize: 20,
     fontWeight: '300',
-    fontFamily: 'Geomanist',
+    fontFamily: 'Roboto-Regular',
     color: colors.themeColor
   },
   submit: {

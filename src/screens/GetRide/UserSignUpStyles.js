@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     },
     fieldText: {
         fontSize: 18,
-        fontFamily: 'Geomanist',
+        fontFamily: 'Roboto-Regular'
     },
     text1: {
         paddingLeft: responsiveHorizontalSize(4),
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontStyle: 'normal',
         color: colors.black,
-        fontFamily: 'Geomanist'
+        fontFamily: 'Roboto-Regular'
     },
     mobileView: {
         paddingTop: responsiveVerticalSize(1),
