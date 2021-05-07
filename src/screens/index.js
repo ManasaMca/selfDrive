@@ -22,10 +22,12 @@ import UserSignUp from "./GetRide/UserSignUp";
 import Registercar from "./GetRide/RegisterCar";
 import UserProfile from "./GetRide/UserProfile";
 import Cardetails from "./GetRide/cardetails";
+import Support from './GetRide/Support';
 import AvailableCars from "./OfferRide/availablecars";
 import PostCarFinal from './OfferRide/PostCarFinal';
 import { heightPercentageToDP, responsiveHorizontalSize, responsiveVerticalSize, } from '../stylesheet/responsiveSize';
 import LocationSearch from './GetRide/LocationSearch';
+
 import MyCars from './GetRide/MyCars'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
@@ -70,7 +72,7 @@ const MoreStackScreen = ({ navigation }) => (
   >
 
     <MoreStack.Screen name={'More'} component={More} />
-    
+    <MoreStack.Screen name={'Support'} component={Support} />
 
   </MoreStack.Navigator>
 );
@@ -147,7 +149,7 @@ export const TabsContainer = (props) => {
     />
     <Tab.Screen
       name={'More'}
-      component={More}
+      component={MoreStackScreen}
       options={{
         tabBarIcon: ({ }) => (
           <MaterialIcons

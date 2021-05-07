@@ -10,6 +10,8 @@ import ImagePicker from 'react-native-image-picker';
 import { Picker } from 'native-base';
 import { useRoute, useNavigation } from '@react-navigation/native';
 
+import * as Animatable from 'react-native-animatable';
+
 import {
     pcode,
     fname,
@@ -131,113 +133,119 @@ const UserProfile = ({ navigation }) => {
 
                         </View>
                     </View>
-                    <View style={[styles.pv1]}>
+                    <Animatable.View
+                        animation='bounceInUp'
+                        duration={2000}
+                        useNativeDriver={true}
+                        direction="alternate"
+                    >
+                        <View style={[styles.pv1]}>
 
-                        <TouchableOpacity onPress={() => handelDocProfile()} style={[styles.imgContainer]}>
-                            {
-                                banner3 == '' ? <Image style={[styles.img]} source={pprofilepic == 'NA' ? AppConstants.DriverImg : { uri: "http://api.ryder.org.in/" + pprofilepic }} /> :
-                                    <Image style={[styles.img]} source={banner3} />
-                            }
+                            <TouchableOpacity onPress={() => handelDocProfile()} style={[styles.imgContainer]}>
+                                {
+                                    banner3 == '' ? <Image style={[styles.img]} source={pprofilepic == 'NA' ? AppConstants.DriverImg : { uri: "http://api.ryder.org.in/" + pprofilepic }} /> :
+                                        <Image style={[styles.img]} source={banner3} />
+                                }
 
-                            {/* <Image style={[styles.img]} source={banner3==''?(pprofilepic == 'NA' ? AppConstants.DriverImg : { uri: "http://api.ryder.org.in/" + pprofilepic }):banner3} /> */}
+                                {/* <Image style={[styles.img]} source={banner3==''?(pprofilepic == 'NA' ? AppConstants.DriverImg : { uri: "http://api.ryder.org.in/" + pprofilepic }):banner3} /> */}
 
 
-                        </TouchableOpacity>
+                            </TouchableOpacity>
 
-                        {/* <TouchableOpacity onPress={() => console.log('ashdasgjdh')} style={[styles.imgContainer]}>
+                            {/* <TouchableOpacity onPress={() => console.log('ashdasgjdh')} style={[styles.imgContainer]}>
 
                             <Image style={[styles.img]} source={AppConstants.DriverImg} />
 
                         </TouchableOpacity> */}
 
 
-                        <View style={{ top: -50 }} >
-                            <View style={{ flexDirection: 'row', margin: 10 }}>
-                                <View style={{ width: '47%', marginLeft: 10, borderBottomColor: colors.black, borderBottomWidth: 1 }}>
+                            <View style={{ top: -50 }} >
+                                <View style={{ flexDirection: 'row', margin: 10 }}>
+                                    <View style={{ width: '47%', marginLeft: 10, borderBottomColor: colors.black, borderBottomWidth: 1 }}>
 
-                                    <Text style={{ color: colors.dimGrey }}>{'First Name'}</Text>
+                                        <Text style={{ color: colors.dimGrey }}>{'First Name'}</Text>
+                                        <TextInput style={[styles.textinput]}
+                                            keyboardType="default"
+                                            value={p_fname}
+                                            onChangeText={(value) => setfname(value)}
+                                            placeholderTextColor={colors.black}
+                                            editable={editable}
+                                        />
+                                    </View>
+                                    <View style={{ width: '47%', marginLeft: 10, borderBottomColor: colors.black, borderBottomWidth: 1 }}>
+
+                                        <Text style={{ color: colors.dimGrey }}>{'Last Name'}</Text>
+                                        <TextInput style={[styles.textinput]}
+                                            keyboardType="default"
+                                            value={p_lname}
+                                            onChangeText={(value) => setlname(value)}
+                                            editable={editable}
+                                            placeholderTextColor={colors.black}
+
+                                        />
+                                    </View>
+                                </View>
+                                <View style={[styles.inputContainer]}>
+
                                     <TextInput style={[styles.textinput]}
-                                        keyboardType="default"
-                                        value={p_fname}
-                                        onChangeText={(value) => setfname(value)}
+                                        value={p_email}
+                                        onChangeText={(value) => setemail(value)}
+                                        keyboardType="email-address"
                                         placeholderTextColor={colors.black}
                                         editable={editable}
                                     />
                                 </View>
-                                <View style={{ width: '47%', marginLeft: 10, borderBottomColor: colors.black, borderBottomWidth: 1 }}>
+                                <View style={[styles.inputContainer]}>
 
-                                    <Text style={{ color: colors.dimGrey }}>{'Last Name'}</Text>
                                     <TextInput style={[styles.textinput]}
-                                        keyboardType="default"
-                                        value={p_lname}
-                                        onChangeText={(value) => setlname(value)}
-                                        editable={editable}
-                                        placeholderTextColor={colors.black}
-
-                                    />
-                                </View>
-                            </View>
-                            <View style={[styles.inputContainer]}>
-
-                                <TextInput style={[styles.textinput]}
-                                    value={p_email}
-                                    onChangeText={(value) => setemail(value)}
-                                    keyboardType="email-address"
-                                    placeholderTextColor={colors.black}
-                                    editable={editable}
-                                />
-                            </View>
-                            <View style={[styles.inputContainer]}>
-
-                                <TextInput style={[styles.textinput]}
-                                    keyboardType="number-pad"
-                                    value={p_mobile}
-                                    onChangeText={(value) => setmobile(value)}
-                                    placeholderTextColor={colors.black}
-                                    editable={editable}
-                                />
-                            </View>
-                            <View style={{ flexDirection: 'row', margin: 10 }}>
-                                <View style={{ width: '47%', marginLeft: 10, borderBottomColor: colors.black, borderBottomWidth: 1 }}>
-
-                                    <Text style={{ color: colors.dimGrey }}>{'City'}</Text>
-                                    <TextInput style={[styles.textinput]}
-                                        keyboardType="default"
-                                        value={p_city}
-                                        onChangeText={(value) => setcity(value)}
+                                        keyboardType="number-pad"
+                                        value={p_mobile}
+                                        onChangeText={(value) => setmobile(value)}
                                         placeholderTextColor={colors.black}
                                         editable={editable}
                                     />
                                 </View>
-                                <View style={{ width: '47%', marginLeft: 10, borderBottomColor: colors.black, borderBottomWidth: 1 }}>
+                                <View style={{ flexDirection: 'row', margin: 10 }}>
+                                    <View style={{ width: '47%', marginLeft: 10, borderBottomColor: colors.black, borderBottomWidth: 1 }}>
 
-                                    <Text style={{ color: colors.dimGrey }}>{'State'}</Text>
+                                        <Text style={{ color: colors.dimGrey }}>{'City'}</Text>
+                                        <TextInput style={[styles.textinput]}
+                                            keyboardType="default"
+                                            value={p_city}
+                                            onChangeText={(value) => setcity(value)}
+                                            placeholderTextColor={colors.black}
+                                            editable={editable}
+                                        />
+                                    </View>
+                                    <View style={{ width: '47%', marginLeft: 10, borderBottomColor: colors.black, borderBottomWidth: 1 }}>
+
+                                        <Text style={{ color: colors.dimGrey }}>{'State'}</Text>
+                                        <TextInput style={[styles.textinput]}
+                                            keyboardType="default"
+                                            value={p_state}
+                                            onChangeText={(value) => setstate(value)}
+                                            placeholderTextColor={colors.black}
+                                            editable={editable}
+                                        />
+                                    </View>
+                                </View>
+                                <View style={[styles.inputContainer]}>
+                                    <Text style={{ color: colors.dimGrey }}>{'Location'}</Text>
                                     <TextInput style={[styles.textinput]}
-                                        keyboardType="default"
-                                        value={p_state}
-                                        onChangeText={(value) => setstate(value)}
+                                        value={p_location}
+                                        onChangeText={(value) => setlocation(value)}
                                         placeholderTextColor={colors.black}
                                         editable={editable}
                                     />
                                 </View>
-                            </View>
-                            <View style={[styles.inputContainer]}>
-                                <Text style={{ color: colors.dimGrey }}>{'Location'}</Text>
-                                <TextInput style={[styles.textinput]}
-                                    value={p_location}
-                                    onChangeText={(value) => setlocation(value)}
-                                    placeholderTextColor={colors.black}
-                                    editable={editable}
-                                />
-                            </View>
-                            <View style={{ alignItems: 'center', justifyContent: 'center' }} >
-                                <TouchableOpacity
-                                    onPress={() => navigation.navigate('MyCars', { cars: cars_list })}
-                                    style={[styles.container]}>
-                                    <Text style={[styles.carText]} > My Cars </Text>
-                                </TouchableOpacity>
+                                <View style={{ alignItems: 'center', justifyContent: 'center' }} >
+                                    <TouchableOpacity
+                                        onPress={() => navigation.navigate('MyCars', { cars: cars_list })}
+                                        style={[styles.container]}>
+                                        <Text style={[styles.carText]} > My Cars </Text>
+                                    </TouchableOpacity>
 
-                                {/* <View >
+                                    {/* <View >
                                     <Picker
                                         mode="dropdown"
                                         style={{ width: 200 }}
@@ -255,54 +263,54 @@ const UserProfile = ({ navigation }) => {
                                     </Picker>
                                 </View> */}
 
-                            </View>
+                                </View>
 
 
-                            <View>
-                                <TouchableOpacity style={{ padding: 10, }} onPress={() => navigation.navigate('Registercar', { ppcode, p_mobile, p_location, p_city, p_state })}>
-                                    <Text style={[styles.addCarText]}>  Add New Car +</Text>
-                                </TouchableOpacity>
-                            </View>
-                            <View>
-                                <TouchableOpacity
-                                    onPress={() => {
-                                        saveMobileNumber('');
-                                        // navigation.reset({
-                                        //     index: 0,
-                                        //     routes: [{ name: 'Login' }]
-                                        // })
-                                        navigation.navigate('Login')
+                                <View>
+                                    <TouchableOpacity style={{ padding: 10, }} onPress={() => navigation.navigate('Registercar', { ppcode, p_mobile, p_location, p_city, p_state })}>
+                                        <Text style={[styles.addCarText]}>  Add New Car +</Text>
+                                    </TouchableOpacity>
+                                </View>
+                                <View>
+                                    <TouchableOpacity
+                                        onPress={() => {
+                                            saveMobileNumber('');
+                                            // navigation.reset({
+                                            //     index: 0,
+                                            //     routes: [{ name: 'Login' }]
+                                            // })
+                                            navigation.navigate('Login')
 
-                                    }}
-                                    style={[styles.btnStyle]} >
+                                        }}
+                                        style={[styles.btnStyle]} >
 
-                                    <Text style={[styles.btnText]}>
-                                        LogOut
+                                        <Text style={[styles.btnText]}>
+                                            LogOut
                                     </Text>
-                                </TouchableOpacity>
+                                    </TouchableOpacity>
 
 
-                            </View>
-                            <View>
-                                <TouchableOpacity
-                                    onPress={() => {
-                                        if (editable)
-                                            updateProfile()
-                                        else
-                                            seteditable(true)
-                                    }}
-                                    style={[styles.btnStyle]} >
+                                </View>
+                                <View>
+                                    <TouchableOpacity
+                                        onPress={() => {
+                                            if (editable)
+                                                updateProfile()
+                                            else
+                                                seteditable(true)
+                                        }}
+                                        style={[styles.btnStyle]} >
 
-                                    <Text style={[styles.btnText]}>
-                                        {editable ? 'Update' : 'Edit'}
-                                    </Text>
-                                </TouchableOpacity>
+                                        <Text style={[styles.btnText]}>
+                                            {editable ? 'Update' : 'Edit'}
+                                        </Text>
+                                    </TouchableOpacity>
 
 
+                                </View>
                             </View>
                         </View>
-                    </View>
-
+                    </Animatable.View>
                 </ScrollView>
             </SafeAreaView>
         </>

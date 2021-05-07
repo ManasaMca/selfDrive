@@ -13,6 +13,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { avail_car_fetch_action } from '../../Redux/action/availablecars';
 import { heightPercentageToDP, widthPercentageToDP } from "../../stylesheet/responsiveSize";
 
+import * as Animatable from 'react-native-animatable';
 
 const MyCars = ({ route }) => {
     const navigation = useNavigation();
@@ -23,47 +24,54 @@ const MyCars = ({ route }) => {
         <>
             <StatusBar barStyle="light-content" backgroundColor={colors.themeColor} />
             <SafeAreaView backgroundColor={colors.white}>
-                <View style={styles.container}>
+                <Animatable.View
+                    animation='bounceInUp'
+                    duration={2000}
+                    useNativeDriver={true}
+                    direction="alternate"
+                >
+                    <View style={styles.container}>
 
-                    <View >
-                        <View style={{ flexDirection: 'row', marginLeft: 10 }}>
-                            <TouchableOpacity onPress={() => navigation.goBack()}>
-                                <Image
-                                    source={require('../../assets/BackWhite.png')}
-                                    style={{ top: 15 }} />
-                            </TouchableOpacity>
-                            <Text style={styles.heading2}>
-                                My Cars
+                        <View >
+                            <View style={{ flexDirection: 'row', marginLeft: 10 }}>
+                                <TouchableOpacity onPress={() => navigation.goBack()}>
+                                    <Image
+                                        source={require('../../assets/BackWhite.png')}
+                                        style={{ top: 15 }} />
+                                </TouchableOpacity>
+                                <Text style={styles.heading2}>
+                                    My Cars
                             </Text>
+                            </View>
                         </View>
+
                     </View>
+                    <View style={{ height: heightPercentageToDP('77%') }}>
+                        <ScrollView >
+                            {cars_list.map((car, index) => (
+                                <View style={styles.view1}>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <View style={{ width: widthPercentageToDP(35), alignItems: 'center', justifyContent: 'center', margin: 10, }}>
 
-                </View>
-                <View style={{ height: heightPercentageToDP('77%') }}>
-                    <ScrollView >
-                        {cars_list.map((car, index) => (
-                            <View style={styles.view1}>
-                                <View style={{ flexDirection: 'row' }}>
-                                    <View style={{ width: widthPercentageToDP(35), alignItems: 'center', justifyContent: 'center', margin: 10, }}>
+                                            <Image
+                                                source={car.capic == "" ? require('../../assets/image7.png') : { uri: "http://api.ryder.org.in/" + car.capic }}
+                                                style={styles.car1} />
+                                        </View>
+                                        <View style={{ margin: 10, width: widthPercentageToDP(50), justifyContent: 'center' }}>
 
-                                        <Image
-                                            source={car.capic == "" ? require('../../assets/image7.png') : { uri: "http://api.ryder.org.in/" + car.capic }}
-                                            style={styles.car1} />
-                                    </View>
-                                    <View style={{ margin: 10, width: widthPercentageToDP(50), justifyContent: 'center' }}>
-
-                                        <Text style={styles.txt}>{car.carname}</Text>
-                                        <Text style={styles.txt}>{car.carregno}</Text>
+                                            <Text style={styles.txt}>{car.carname}</Text>
+                                            <Text style={styles.txt}>{car.carregno}</Text>
 
 
+                                        </View>
                                     </View>
                                 </View>
-                            </View>
-                        ))}
+                            ))}
 
-                        <View style={{ width: 150, backgroundColor: colors.white}} />
-                    </ScrollView>
-                </View>
+                            <View style={{ width: 150, backgroundColor: colors.white }} />
+                        </ScrollView>
+                    </View>
+                </Animatable.View>
             </SafeAreaView>
         </>
     );

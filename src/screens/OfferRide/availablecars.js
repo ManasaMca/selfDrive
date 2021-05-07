@@ -15,6 +15,7 @@ import { avail_car_fetch_action } from '../../Redux/action/availablecars';
 import { heightPercentageToDP, widthPercentageToDP } from "../../stylesheet/responsiveSize";
 import AvailableCarRow from "./AvailableCarRow";
 
+import * as Animatable from 'react-native-animatable';
 
 const AvailableCars = ({ route }) => {
     const { pcode, lati, longi, city, location } = route.params;
@@ -37,70 +38,77 @@ const AvailableCars = ({ route }) => {
         <>
             <StatusBar barStyle="light-content" backgroundColor={colors.themeColor} />
             <SafeAreaView backgroundColor={colors.white}>
-                <View style={styles.container}>
-                    <View >
-                        <View style={{ flexDirection: 'row', marginLeft: 10 }}>
-                            <TouchableOpacity onPress={() => navigation.goBack()}>
-                                <Image
-                                    source={require('../../assets/BackWhite.png')}
-                                    style={{ top: 15 }} />
-                            </TouchableOpacity>
-                            <Text style={styles.heading2}>
-                                Available Cars
+                <Animatable.View
+                    animation='bounceInUp'
+                    duration={2000}
+                    useNativeDriver={true}
+                    direction="alternate"
+                >
+                    <View style={styles.container}>
+                        <View >
+                            <View style={{ flexDirection: 'row', marginLeft: 10 }}>
+                                <TouchableOpacity onPress={() => navigation.goBack()}>
+                                    <Image
+                                        source={require('../../assets/BackWhite.png')}
+                                        style={{ top: 15 }} />
+                                </TouchableOpacity>
+                                <Text style={styles.heading2}>
+                                    Available Cars
                             </Text>
+                            </View>
                         </View>
                     </View>
-                </View>
-                <View style={{ height: heightPercentageToDP('77%') }}>
-                    <ScrollView >
+                    <View style={{ height: heightPercentageToDP('77%') }}>
+                        <ScrollView >
 
-                        <FlatList
-                            data={cars_list}
-                            renderItem={({ item }) => {
+                            <FlatList
+                                data={cars_list}
+                                renderItem={({ item }) => {
 
-                                return <View style={styles.view1}>
-                                    <View style={{ marginHorizontal: 5, marginTop: 5, flexDirection: 'row' }}>
-                                        <Image style={[styles.img1]}
-                                            source={item.profilepic == "NA" ? require('../../assets/DriverImg.png') : { uri: "http://api.ryder.org.in/" + item.profilepic }}
-                                        />
-                                        <Text style={[styles.headtext2, { marginHorizontal: 10, top: 0 }]}>{item.pname}</Text>
+                                    return <View style={styles.view1}>
+                                        <View style={{ marginHorizontal: 5, marginTop: 5, flexDirection: 'row' }}>
+                                            <Image style={[styles.img1]}
+                                                source={item.profilepic == "NA" ? require('../../assets/DriverImg.png') : { uri: "http://api.ryder.org.in/" + item.profilepic }}
+                                            />
+                                            <Text style={[styles.headtext2, { marginHorizontal: 10, top: 0 }]}>{item.pname}</Text>
 
-                                    </View>
-                                    <View style={{ flexDirection: 'row', top: -20 }}>
-                                        <View style={{ width: widthPercentageToDP(35), alignItems: 'center', justifyContent: 'center', marginHorizontal: 10, marginVertical: 5 }}>
-
-                                            <Image
-                                                source={item.carpics == null ? require('../../assets/image7.png') : { uri: "http://api.ryder.org.in/" + item.carpics }}
-                                                style={styles.car} />
                                         </View>
-                                        <View style={{ marginHorizontal: 10, marginVertical: 5, width: widthPercentageToDP(50), }}>
-                                            <Text style={[styles.headtext2]}>Rs: {item.rent}/Day</Text>
-                                            <View style={styles.vieww}>
-                                                <Text style={styles.txt}>{item.carname}</Text>
-                                                <Text style={styles.txt}>Driver Provision:{item.driverfacility}</Text>
+                                        <View style={{ flexDirection: 'row', top: -20 }}>
+                                            <View style={{ width: widthPercentageToDP(35), alignItems: 'center', justifyContent: 'center', marginHorizontal: 10, marginVertical: 5 }}>
 
-                                                <Text style={styles.txt}>{item.city}/{item.state}</Text>
-                                                <Text style={styles.txt}>Negotiation: {item.negotiation}</Text>
-
+                                                <Image
+                                                    source={item.carpics == null ? require('../../assets/image7.png') : { uri: "http://api.ryder.org.in/" + item.carpics }}
+                                                    style={styles.car} />
                                             </View>
+                                            <View style={{ marginHorizontal: 10, marginVertical: 5, width: widthPercentageToDP(50), }}>
+                                                <Text style={[styles.headtext2]}>Rs: {item.rent}/Day</Text>
+                                                <View style={styles.vieww}>
+                                                    <Text style={styles.txt}>{item.carname}</Text>
+                                                    <Text style={styles.txt}>Driver Provision:{item.driverfacility}</Text>
 
-                                            <TouchableOpacity style={styles.button2}
-                                                onPress={() => navigation.navigate('Cardetails', {
-                                                    ...item
-                                                })}
-                                            >
-                                                <Text style={styles.button}>View Details</Text></TouchableOpacity>
+                                                    <Text style={styles.txt}>{item.city}/{item.state}</Text>
+                                                    <Text style={styles.txt}>Negotiation: {item.negotiation}</Text>
+
+                                                </View>
+
+                                                <TouchableOpacity style={styles.button2}
+                                                    onPress={() => navigation.navigate('Cardetails', {
+                                                        ...item
+                                                    })}
+                                                >
+                                                    <Text style={styles.button}>View Details</Text></TouchableOpacity>
+                                            </View>
                                         </View>
                                     </View>
-                                </View>
 
-                            }}
-                        >
+                                }}
+                            >
 
-                        </FlatList>
-                        <View style={{ width: 150, backgroundColor: 'white' }} />
-                    </ScrollView>
-                </View>
+                            </FlatList>
+                            <View style={{ width: 150, backgroundColor: 'white' }} />
+                        </ScrollView>
+                    </View>
+                </Animatable.View>
             </SafeAreaView>
         </>
     );
