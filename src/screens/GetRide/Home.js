@@ -11,6 +11,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import { getUser } from '../../utils/AsyncStorageHelper'
 import { pcode } from '../../Redux/selector/userselector';
 
+import * as Animatable from 'react-native-animatable';
+
 const Home = ({ navigation }) => {
   
   const [pcode,setpcode]=useState();
@@ -55,7 +57,12 @@ const Home = ({ navigation }) => {
            </View>
        
         <View style={[styles.lineView]} />
-      
+        <Animatable.View
+        animation='bounceInUp'
+        duration={2000}
+        useNativeDriver={true}
+        direction="alternate"
+    >
         <View style={[styles.titleView]}>
           <Text style={[styles.text1]}>
             You're looking for...
@@ -100,6 +107,7 @@ const Home = ({ navigation }) => {
           </View>
           </TouchableOpacity>
         </View>  
+        </Animatable.View>
         </View>
       </ScrollView>
        
