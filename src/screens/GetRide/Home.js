@@ -12,6 +12,7 @@ import { getUser } from '../../utils/AsyncStorageHelper'
 import { pcode } from '../../Redux/selector/userselector';
 
 const Home = ({ navigation }) => {
+  
   const [pcode,setpcode]=useState();
   const dispatch = useDispatch();
   const fetchUserData = async () => {
@@ -43,17 +44,15 @@ const Home = ({ navigation }) => {
       <StatusBar barStyle="dark-content" backgroundColor={colors.white} />
       <SafeAreaView backgroundColor={colors.white} >
       <ScrollView>
-        <View style={{marginBottom:75}}>
+        <View style={{marginBottom:75,backgroundColor:'white'}}>
        
-         
          <View style={ [styles.logoView] }>
                       
-         <Image
-              source={require('../../assets/Ryder.png')}
-              style={{width:50,height:50,borderRadius:50}}
-           />
+          <Image
+                source={require('../../assets/Ryder.png')}
+                style={{width:50,height:50,borderRadius:50}}
+            />
            </View>
-       
        
         <View style={[styles.lineView]} />
       

@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     zIndex: 5,
   },
   text1: {
-    fontFamily: 'Geomanist',
+    fontFamily: 'Roboto-Regular',
     fontStyle: 'normal',
     fontWeight: 'bold',
     fontSize: 30,
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   text2: {
     color: colors.themeColor,
     fontSize: 20,
-    fontFamily: 'Geomanist',
+    fontFamily: 'Roboto-Regular',
     fontWeight: 'bold',
   },
   roundedBoxContainer: {
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     height: 38,
     color: '#5d5d5d',
     fontSize: 16,
+    fontFamily: 'Roboto-Regular'
   },
   btn: {
     width: '70%',
@@ -59,7 +60,8 @@ const styles = StyleSheet.create({
   btnText: {
     color: colors.white,
     fontSize: responsiveFontSize(18),
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: 'Roboto-Regular'
   }
 });
 export default styles;

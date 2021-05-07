@@ -19,7 +19,9 @@ const styles = StyleSheet.create({
         marginTop: 20,
        // flexDirection: 'row',
         justifyContent: 'center',
-        marginVertical:5
+        marginVertical:5,
+        borderColor:colors.themeColor,
+        borderWidth:1
     },
     view3: {
         flexDirection: 'row',
@@ -38,6 +40,7 @@ const styles = StyleSheet.create({
        // resizeMode:'contain'
     },
     heading: {
+        fontFamily: 'Roboto-Regular',
         fontWeight: 'bold',
         fontSize: 18,
         color: 'black',
@@ -56,6 +59,7 @@ const styles = StyleSheet.create({
         width: 100,
     },
     headtext2: {
+        fontFamily: 'Roboto-Regular',
         fontSize: responsiveFontSize(15),
         color: 'black',
         top: 10,
@@ -67,9 +71,11 @@ const styles = StyleSheet.create({
         bottom:10
     },
     txt: {
+        fontFamily: 'Roboto-Regular',
         fontSize: responsiveFontSize(15),
     },
     button: {
+        fontFamily: 'Roboto-Regular',
         fontSize: 15,
         fontWeight: '900',
         color: 'white'

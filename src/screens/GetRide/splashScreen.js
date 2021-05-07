@@ -33,7 +33,7 @@ const splashscreen = (props) => {
           params: {
           
           },
-          screen: 'SignUp'
+          screen: 'Home'
         });
   
       }, 2000);

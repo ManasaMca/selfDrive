@@ -53,4 +53,6 @@ export {
   normalize,
   responsiveVerticalSize,
   responsiveHorizontalSize,
+  SCREEN_HEIGHT,
+  SCREEN_WIDTH
 };

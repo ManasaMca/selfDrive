@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontStyle: 'normal',
         color: colors.black,
-        fontFamily: 'Geomanist'
+        fontFamily: "Roboto-Bold"
     },
     text2View: {
         paddingTop: responsiveVerticalSize(2),
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         fontSize: responsiveFontSize(16),
         fontStyle: 'normal',
         color: colors.dimGrey,
-        fontFamily: 'Geomanist'
+        fontFamily: 'Roboto-Regular'
     },
     btn: {
 
@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
     btnText: {
         color: colors.themeColor,
         fontWeight: 'bold',
-        fontSize: responsiveFontSize(22)
+        fontSize: responsiveFontSize(22),
+        fontFamily: 'Roboto-Regular'
     },
     logoutView: {
         width: '15%',
@@ -87,7 +88,8 @@ const styles = StyleSheet.create({
     logoutBtnText: {
         color: colors.themeColor,
         fontSize: responsiveFontSize(22),
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: 'Roboto-Regular'
     }
 });
 

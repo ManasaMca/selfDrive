@@ -16,6 +16,7 @@ import PostCar from './OfferRide/postCar'
 import OTPVerification from './GetRide/OTPVerification';
 import splashscreen from './GetRide/splashScreen';
 import Home from './GetRide/Home';
+import More from './OfferRide/More';
 import TermsConditions from './GetRide/Terms'
 import UserSignUp from "./GetRide/UserSignUp";
 import Registercar from "./GetRide/RegisterCar";
@@ -26,176 +27,146 @@ import PostCarFinal from './OfferRide/PostCarFinal';
 import { heightPercentageToDP, responsiveHorizontalSize, responsiveVerticalSize, } from '../stylesheet/responsiveSize';
 import LocationSearch from './GetRide/LocationSearch';
 import MyCars from './GetRide/MyCars'
+import Icon from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
+const Tab = createBottomTabNavigator();
 
+const HomeStack = createStackNavigator();
 
-const MainTab = createBottomTabNavigator();
+const MoreStack = createStackNavigator();
 
 const MainStack = createStackNavigator();
 
 const OnClick = () => BackHandler.exitApp();
 
-const tabBarIcons = [AppConstants.Home, AppConstants.profile, AppConstants.Exit];
 
-const BottomCenterView = (props) => {
-  const { color, size, title, imageName, iconName, containerStyle,
-    innerContainer, iconImageSize, numberOfTabs } = props;
-  return <TouchableOpacity
-    style={[{
-      //width:65,
-      height: 70,
-      justifyContent: 'flex-start',
-      borderWidth: 0,
-      borderTopLeftRadius: 10,
-      borderTopRightRadius: 10,
-      alignItems: 'center'
-    }, { ...innerContainer }, { width: wp('100%') / numberOfTabs }]}
-    onPress={props.onPress}
-    onLongPress={props.onLongPress}
+const HomeStackScreen = ({ navigation }) => (
+  <HomeStack.Navigator
+    screenOptions={{
+      headerShown: false,
+      keyboardHidesTabBar: true
+    }}
   >
-    <Image source={iconName} alt="" />
 
-  </TouchableOpacity>
-}
+    <HomeStack.Screen name={'Home'} component={Home} />
+    <HomeStack.Screen name={'Selection'} component={Selection} />
+    <HomeStack.Screen name={'PostCar'} component={PostCar} />
+    <HomeStack.Screen name={"PostCarFinal"} component={PostCarFinal} />
+    <HomeStack.Screen name={"OfferRide"} component={OfferRide} />
+    <HomeStack.Screen name={"AvailableCars"} component={AvailableCars} />
+    <HomeStack.Screen name={"MyCars"} component={MyCars} />
 
-function CustomTabBar({ state, descriptors, navigation }) {
+  </HomeStack.Navigator>
+);
 
-  return (
-    <View style={{
-      flexDirection: 'row',
-      borderTopEndRadius: 35,
-      borderTopStartRadius: 35,
-      width: '100%',
-      height: '9%',
-      position: 'absolute',
-      bottom: 0,
-      backgroundColor: 'white',
-      shadowColor: 'grey',
-    }}>
-      {
 
-        state.routes.map((route, index) => {
-          // console.log(route)
-          //  console.log(index)
+const MoreStackScreen = ({ navigation }) => (
+  <MoreStack.Navigator
+    screenOptions={{
+      headerShown: false,
+      keyboardHidesTabBar: true
+    }}
+  >
 
-          const { options } = descriptors[route.key];
-          const label =
-            options.tabBarLabel !== undefined
-              ? options.tabBarLabel
-              : options.title !== undefined
-                ? options.title
-                : route.name;
-          const iconName = tabBarIcons[index];
-          const isFocused = state.index === index;
+    <MoreStack.Screen name={'More'} component={More} />
+    
 
-          const onPress = async () => {
-            const event = navigation.emit({
-              type: 'tabPress',
-              target: route.key,
-            });
-            navigation.navigate(route.name, { inital: 0 });
-          };
-
-          const onLongPress = () => {
-            navigation.emit({
-              type: 'tabLongPress',
-              target: route.key,
-            });
-          };
-
-          return (<BottomCenterView
-            color={isFocused ? colors.white : colors.lightGrey}
-            iconImageSize={50}
-            title={""}
-            iconName={iconName}
-            onPress={onPress}
-            onLongPress={onLongPress}
-            numberOfTabs={state.routes.length - 6}
-          >
-          </BottomCenterView>)
-        })}
-    </View>
-  );
-}
+  </MoreStack.Navigator>
+);
 
 
 export const TabsContainer = (props) => {
-  return <MainTab.Navigator
-    tabBar={props => <CustomTabBar  {...props} />}
-    tabBarOptions={{
-      keyboardHidesTabBar: true,
-      activeTintColor: colors.themeColor,
-      inactiveTintColor: colors.white,
-      labelStyle: {
-        color: colors.white,
-        fontSize: 14,
-      },
-      style: {
-        backgroundColor: colors.themeColor,
-        shadowColor: "rgba(0, 0, 0, 0.19)",
-        shadowOffset: {
-          width: 0,
-          height: 6
-        },
-        shadowRadius: 30,
-        elevation: 5,
-        shadowOpacity: 1,
-        height: 60
-      },
-      tabStyle: {
-        alignItems: "center",
-        justifyContent: 'center',
-        paddingVertical: responsiveVerticalSize(0.5),
-        paddingHorizontal: responsiveHorizontalSize(0.5),
-        backgroundColor: colors.themeColor,
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
-      }
+
+  return <Tab.Navigator
+    screenOptions={{
+      headerShown: false,
+      keyboardHidesTabBar: true
     }}
-    initialRouteName={"Home"}>
-    <MainTab.Screen
-      name={'Home'}
-      component={Home}
+    tabBarOptions={{
+      //  activeBackgroundColor: colors.themeColor,
+      activeTintColor: colors.themeColor,
+      inactiveTintColor: 'black',
+      style: {
+        backgroundColor: '#FFFFFF',
+        borderTopWidth: 0,
+        shadowOffset: { width: 5, height: 3 },
+        shadowColor: '#000000',
+        shadowOpacity: 0.5,
+        elevation: 5,
+      },
+      labelStyle: {
+        fontSize: 15,
+        fontWeight: '500',
+        color: colors.themeColor,
+        fontFamily: 'Roboto-Regular'
+      }
+    }}>
+    <Tab.Screen
+      name="Home"
+      component={HomeStackScreen}
+      options={{
+        tabBarIcon: ({ }) => (
+          <Icon
+            name={'home'}
+            size={20}
+
+            style={{
+              color: colors.themeColor,
+              // width: 17,
+              // height: 17,
+              tintColor: '#000000',
+              opacity: 100,
+            }}
+          />
+        ),
+      }}
     />
 
-    <MainTab.Screen
-      name={'UserProfile'}
+
+    <Tab.Screen
+      name={'Profile'}
       component={UserProfile}
-    />
-    <MainTab.Screen
-      name={'OnClick'}
-      component={OnClick}
-    />
+      options={{
+        tabBarIcon: ({ }) => (
+          <Icon
+            name={'user'}
+            size={20}
 
-    <MainTab.Screen
-      name={'Selection'}
-      component={Selection}
-    />
-    <MainTab.Screen
-      name={'PostCar'}
-      component={PostCar}
-    />
-    <MainTab.Screen
-      name={"PostCarFinal"}
-      component={PostCarFinal}
+            style={{
 
+              color: colors.themeColor,
+              // width: 17,
+              // height: 17,
+              tintColor: '#000000',
+              opacity: 100,
+            }}
+          />
+        ),
+      }}
     />
-    <MainTab.Screen
-      name={"OfferRide"}
-      component={OfferRide}
+    <Tab.Screen
+      name={'More'}
+      component={More}
+      options={{
+        tabBarIcon: ({ }) => (
+          <MaterialIcons
+            name={'more-horiz'}
+            size={20}
 
-    />
-    <MainTab.Screen
-      name={"AvailableCars"}
-      component={AvailableCars}
-    />
-     <MainTab.Screen
-      name={"MyCars"}
-      component={MyCars}
-    />
+            style={{
 
-  </MainTab.Navigator>
-
+              color: colors.themeColor,
+              // width: 17,
+              // height: 17,
+              tintColor: '#000000',
+              opacity: 100,
+            }}
+          />
+        ),
+      }}
+    />
+  </Tab.Navigator>
 }
 
 
@@ -218,9 +189,9 @@ export default function RootStack() {
         component={Registercar} />
       <MainStack.Screen name={'Cardetails'}
         component={Cardetails} />
-      <MainStack.Screen name={'UserSignUp'}
+      <MainStack.Screen name={'SignUp'}
         component={UserSignUp} />
-         <MainStack.Screen name={'LocationSearch'}
+      <MainStack.Screen name={'LocationSearch'}
         component={LocationSearch} />
       <MainStack.Screen name={'TermsConditions'}
         component={TermsConditions} />

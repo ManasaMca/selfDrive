@@ -123,15 +123,15 @@ const UserProfile = ({ navigation }) => {
     return (
         <>
             <StatusBar barStyle="light-content" backgroundColor={colors.themeColor} />
-            <SafeAreaView >
-                <ScrollView style={{ backgroundColor: colors.themeColor }}>
-                    <View style={[styles.TitleView]} >
-                        <Text style={[styles.titleText]}>Profile</Text>
+            <SafeAreaView style={{ backgroundColor: colors.white }}>
+                <ScrollView >
+                    <View style={{ backgroundColor: colors.themeColor, height: 150 }}>
+                        <View style={[styles.TitleView]} >
+                            <Text style={[styles.titleText]}>Profile</Text>
 
+                        </View>
                     </View>
                     <View style={[styles.pv1]}>
-
-
 
                         <TouchableOpacity onPress={() => handelDocProfile()} style={[styles.imgContainer]}>
                             {
@@ -231,9 +231,9 @@ const UserProfile = ({ navigation }) => {
                                 />
                             </View>
                             <View style={{ alignItems: 'center', justifyContent: 'center' }} >
-                                <TouchableOpacity 
-                                onPress={() => navigation.navigate('MyCars', { cars: cars_list })}
-                                style={[styles.container]}>
+                                <TouchableOpacity
+                                    onPress={() => navigation.navigate('MyCars', { cars: cars_list })}
+                                    style={[styles.container]}>
                                     <Text style={[styles.carText]} > My Cars </Text>
                                 </TouchableOpacity>
 

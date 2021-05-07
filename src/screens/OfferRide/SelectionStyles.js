@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   text2: {
     padding: 10,
-    fontFamily: 'Geomanist',
+    fontFamily: 'Roboto-Regular',
     fontStyle: 'normal',
     fontWeight: 'bold',
     fontSize: responsiveFontSize(20),
@@ -68,7 +68,8 @@ const styles = StyleSheet.create({
   btnText:{
     color:colors.white,
     fontSize:responsiveFontSize(18),
-    fontWeight:'bold'
+    fontWeight:'bold',
+    fontFamily: 'Roboto-Regular'
   }
 });
 export default styles;

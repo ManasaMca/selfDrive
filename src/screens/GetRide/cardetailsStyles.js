@@ -4,13 +4,8 @@ import { heightPercentageToDP, responsiveFontSize } from '../../stylesheet/respo
 
 const styles = StyleSheet.create({
 
-   text1: {
-      marginTop: 20
-   },
    container: {
-      flex: 1,
-      height: 150,
-      paddingBottom: 80,
+      height: 100,
       alignItems: "center",
       backgroundColor: colors.themeColor,
    },
@@ -18,30 +13,16 @@ const styles = StyleSheet.create({
       fontSize: 30,
       fontWeight: 'bold',
       color: colors.white,
-      textAlign: 'center'
+      textAlign: 'center',
+      fontFamily: 'Roboto-Regular'
    },
    view1: {
       backgroundColor: 'white',
-      top: -50,
+      marginTop: -50,
       borderTopRightRadius: 50,
       borderTopLeftRadius: 50
    },
-   view2: {
-      margin: 20
-   },
-   text3: {
-      fontWeight: 'bold',
-      fontSize: 25,
-      color: 'black'
-   },
-   view4: {
-      justifyContent: 'center',
-      width: '40%'
-   },
-   image1: {
-      height: 50,
-      width: 100,
-   },
+
    view5: {
       justifyContent: 'center',
       width: '50%',
@@ -55,20 +36,18 @@ const styles = StyleSheet.create({
       marginLeft: 150,
       top: 10
    },
-   text4: {
-      fontSize: 20,
-      fontWeight: 'bold'
-   },
    text5: {
       fontWeight: 'bold',
       color: 'black',
-      fontSize: 20
+      fontSize: 20,
+      fontFamily: 'Roboto-Regular'
    },
    text6: {
       fontWeight: 'bold',
       fontSize: 15,
       marginTop: 15,
-      paddingBottom: 10
+      paddingBottom: 10,
+      fontFamily: 'Roboto-Regular'
    },
    button2: {
       justifyContent: 'center',
@@ -78,12 +57,13 @@ const styles = StyleSheet.create({
       width: 140,
       backgroundColor: colors.themeColor,
       borderRadius: 5
-  },
-  button: {
-   fontSize: 18,
-   fontWeight: 'bold',
-   color: 'white'
-},
+   },
+   button: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: 'white',
+      fontFamily: 'Roboto-Regular'
+   },
 
 
 });

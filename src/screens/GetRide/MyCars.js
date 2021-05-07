@@ -22,49 +22,49 @@ const MyCars = ({ route }) => {
     return (
         <>
             <StatusBar barStyle="light-content" backgroundColor={colors.themeColor} />
+            <SafeAreaView backgroundColor={colors.white}>
+                <View style={styles.container}>
 
-            <View style={styles.container}>
-
-                <View >
-                    <View style={{ flexDirection: 'row', marginLeft: 10 }}>
-                        <TouchableOpacity onPress={() => navigation.goBack()}>
-                            <Image
-                                source={require('../../assets/BackWhite.png')}
-                                style={{ top: 15 }} />
-                        </TouchableOpacity>
-                        <Text style={styles.heading2}>
-                            My Cars
+                    <View >
+                        <View style={{ flexDirection: 'row', marginLeft: 10 }}>
+                            <TouchableOpacity onPress={() => navigation.goBack()}>
+                                <Image
+                                    source={require('../../assets/BackWhite.png')}
+                                    style={{ top: 15 }} />
+                            </TouchableOpacity>
+                            <Text style={styles.heading2}>
+                                My Cars
                             </Text>
+                        </View>
                     </View>
+
                 </View>
+                <View style={{ height: heightPercentageToDP('77%') }}>
+                    <ScrollView >
+                        {cars_list.map((car, index) => (
+                            <View style={styles.view1}>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <View style={{ width: widthPercentageToDP(35), alignItems: 'center', justifyContent: 'center', margin: 10, }}>
 
-            </View>
-            <View style={{ height: heightPercentageToDP('77%') }}>
-                <ScrollView >
-                    {cars_list.map((car, index) => (
-                        <View style={styles.view1}>
-                            <View style={{ flexDirection: 'row' }}>
-                                <View style={{ width: widthPercentageToDP(35), alignItems: 'center', justifyContent: 'center', margin: 10, }}>
+                                        <Image
+                                            source={car.capic == "" ? require('../../assets/image7.png') : { uri: "http://api.ryder.org.in/" + car.capic }}
+                                            style={styles.car1} />
+                                    </View>
+                                    <View style={{ margin: 10, width: widthPercentageToDP(50), justifyContent: 'center' }}>
 
-                                    <Image
-                                        source={car.capic == "" ? require('../../assets/image7.png') : { uri: "http://api.ryder.org.in/" + car.capic }}
-                                        style={styles.car1} />
-                                </View>
-                                <View style={{ margin: 10, width: widthPercentageToDP(50), justifyContent:'center'}}>
-
-                                    <Text style={styles.txt}>{car.carname}</Text>
-                                    <Text style={styles.txt}>{car.carregno}</Text>
+                                        <Text style={styles.txt}>{car.carname}</Text>
+                                        <Text style={styles.txt}>{car.carregno}</Text>
 
 
+                                    </View>
                                 </View>
                             </View>
-                        </View>
-                    ))}
+                        ))}
 
-                    <View style={{ width: 150, backgroundColor: 'white' }} />
-                </ScrollView>
-            </View>
-
+                        <View style={{ width: 150, backgroundColor: colors.white}} />
+                    </ScrollView>
+                </View>
+            </SafeAreaView>
         </>
     );
 }

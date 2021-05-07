@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontFamily: 'Geomanist',
+        fontFamily: 'Roboto-Regular',
         fontSize: 20,
         fontWeight: '300',
         fontStyle: 'normal',
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
         
     },
     btnText: {
+        fontFamily: 'Roboto-Regular',
         color: colors.white,
         fontWeight: 'bold',
         fontSize: 15
@@ -77,6 +78,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     textView2: {
+        fontFamily: 'Roboto-Regular',
         alignItems: 'center',
         justifyContent: 'center',
     }

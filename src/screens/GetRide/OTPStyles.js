@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontStyle: 'normal',
         color: colors.black,
-        fontFamily: 'Geomanist'
+        fontFamily: 'Roboto-Regular'
     },
     text2: {
         paddingLeft: responsiveHorizontalSize(5),
@@ -65,22 +65,21 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontStyle: 'normal',
         color: colors.dimGrey,
-        fontFamily: 'Geomanist'
+        fontFamily: 'Roboto-Regular'
     },
     text3: {
         paddingLeft: responsiveHorizontalSize(5),
         fontSize: 15,
         fontStyle: 'normal',
         color: colors.themeColor,
-        fontFamily: 'Geomanist'
+        fontFamily: 'Roboto-Regular'
     },
     text4: {
         paddingLeft: responsiveHorizontalSize(5),
-
         fontSize: 15,
         fontStyle: 'normal',
         color: colors.themeColor,
-        fontFamily: 'Geomanist'
+        fontFamily: 'Roboto-Regular'
     },
     textView: {
         flexDirection: 'row',
