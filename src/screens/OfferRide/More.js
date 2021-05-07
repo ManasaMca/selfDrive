@@ -1,5 +1,5 @@
 import React, { memo, useState, useEffect } from 'react';
-import { SafeAreaView, View, Text, StatusBar, Image,Share,  TouchableOpacity, StyleSheet, BackHandler } from 'react-native';
+import { SafeAreaView, View, Text, StatusBar, Image, Share, TouchableOpacity, StyleSheet, BackHandler } from 'react-native';
 import colors from '../../stylesheet/colors';
 import {
     responsiveHorizontalSize,
@@ -26,23 +26,23 @@ const OnClick = () => {
     </View>
 };
 
-const OnShare =() => {
+const OnShare = () => {
     Share.share({
         message: 'https://play.google.com/store/apps/details?id=com.carpooling.inatrip',
         url: 'https://play.google.com/store/apps/details?id=com.carpooling.inatrip',
         title: 'Wow, did you see that?'
-      })
+    })
 
 };
 
 const More = ({ navigation }) => {
     return (
         <>
-             <StatusBar barStyle="dark-content" backgroundColor={colors.white} />
-            <SafeAreaView style={{ flex: 1,width:SCREEN_WIDTH,height:SCREEN_HEIGHT ,backgroundColor:'white'}}>
+            <StatusBar barStyle="dark-content" backgroundColor={colors.white} />
+            <SafeAreaView style={{ flex: 1, width: SCREEN_WIDTH, height: SCREEN_HEIGHT, backgroundColor: 'white' }}>
 
                 <View style={styles.pv1} >
-                    <Image  source={require('../../assets/Ryder.png')} style={{ width: 50, height: 50  ,resizeMode:'contain'}} />
+                    <Image source={require('../../assets/Ryder.png')} style={{ width: 50, height: 50, resizeMode: 'contain' }} />
                     <Text style={styles.title}>RYDER-SELF DRIVE</Text>
                 </View>
                 <Animatable.View
@@ -53,124 +53,124 @@ const More = ({ navigation }) => {
                 >
                     <View style={styles.container}>
                         <View style={styles.pv2} >
-                        <TouchableOpacity style={styles.btn}
-                         onPress={() => navigation.navigate('Profile')}>
-                                
-                            <View style={styles.pv3}>
+                            <TouchableOpacity style={styles.btn}
+                                onPress={() => navigation.navigate('Profile')}>
 
-                                <Icon
-                                    name={'user'}
-                                    size={28}
-                                    color={colors.themeColor}
-                                />
-                            </View>
-                            <View style={styles.pv4}>
-                                   <Text style={styles.text1} > Profile</Text>
-                               
-                            </View>
+                                <View style={styles.pv3}>
+
+                                    <Icon
+                                        name={'user'}
+                                        size={28}
+                                        color={colors.themeColor}
+                                    />
+                                </View>
+                                <View style={styles.pv4}>
+                                    <Text style={styles.text1} > Profile</Text>
+
+                                </View>
                             </TouchableOpacity>
                         </View>
-                       
-                        <View style={styles.pv2} >
-                        <TouchableOpacity style={styles.btn}
-                         onPress={() => navigation.navigate('Support')}>
-                            <View style={styles.pv3}>
 
-                                <Icon1
-                                    name={'contacts'}
-                                    size={28}
-                                    color={colors.themeColor}
-                                />
-                            </View>
-                            <View style={styles.pv4}>
-                               
+                        <View style={styles.pv2} >
+                            <TouchableOpacity style={styles.btn}
+                                onPress={() => navigation.navigate('Support')}>
+                                <View style={styles.pv3}>
+
+                                    <Icon1
+                                        name={'contacts'}
+                                        size={28}
+                                        color={colors.themeColor}
+                                    />
+                                </View>
+                                <View style={styles.pv4}>
+
                                     <Text style={styles.text1} > Support </Text>
-                               
-                            </View>
+
+                                </View>
                             </TouchableOpacity>
                         </View>
                         <View style={styles.pv2} >
-                        <TouchableOpacity style={styles.btn}
-                        // onPress={() => OnShare()}
-                         >
-                            <View style={styles.pv3}>
+                            <TouchableOpacity style={styles.btn}
+                            // onPress={() => OnShare()}
+                            >
+                                <View style={styles.pv3}>
 
-                                <Icon
-                                    name={'share-alt'}
-                                    size={28}
-                                    color={colors.themeColor}
-                                />
-                            </View>
-                            <View style={styles.pv4}>
-                               
+                                    <Icon
+                                        name={'share-alt'}
+                                        size={28}
+                                        color={colors.themeColor}
+                                    />
+                                </View>
+                                <View style={styles.pv4}>
+
                                     <Text style={styles.text1} > Share</Text>
-                               
-                            </View>
+
+                                </View>
                             </TouchableOpacity>
                         </View>
                         <View style={styles.pv2} >
-                        <TouchableOpacity style={styles.btn}
-                        // onPress={() => OnShare()}
-                         >
-                            <View style={styles.pv3}>
+                            <TouchableOpacity style={styles.btn}
+                            // onPress={() => OnShare()}
+                            >
+                                <View style={styles.pv3}>
 
-                                <Icon1
-                                    name={'star'}
-                                    size={28}
-                                    color={colors.themeColor}
-                                />
-                            </View>
-                            <View style={styles.pv4}>
-                               
+                                    <Icon1
+                                        name={'star'}
+                                        size={28}
+                                        color={colors.themeColor}
+                                    />
+                                </View>
+                                <View style={styles.pv4}>
+
                                     <Text style={styles.text1} > Review Us</Text>
-                               
-                            </View>
+
+                                </View>
                             </TouchableOpacity>
                         </View>
                         <View style={styles.pv2} >
-                        <TouchableOpacity style={styles.btn}
-                         onPress={() => OnClick()}>
-                            <View style={styles.pv3}>
+                            <TouchableOpacity style={styles.btn}
+                                onPress={() => OnClick()}>
+                                <View style={styles.pv3}>
 
-                                <Icon1
-                                    name={'exit-to-app'}
-                                    size={28}
-                                    color={colors.themeColor}
-                                />
-                            </View>
-                            <View style={styles.pv4}>
-                               
+                                    <Icon1
+                                        name={'exit-to-app'}
+                                        size={28}
+                                        color={colors.themeColor}
+                                    />
+                                </View>
+                                <View style={styles.pv4}>
+
                                     <Text style={styles.text1} > Exit</Text>
-                               
-                            </View>
+
+                                </View>
                             </TouchableOpacity>
                         </View>
 
                         <View style={styles.pv2} >
-                        <TouchableOpacity style={styles.btn}
-                        onPress={() => {
-                            saveMobileNumber('');
-                            navigation.reset({
-                                index: 0,
-                                routes: [{ name: 'Login' }]
-                            })
-                        }}>
-                            <View style={styles.pv3}>
+                            <TouchableOpacity style={styles.btn}
+                                onPress={() => {
+                                    saveMobileNumber('');
+                                    navigation.reset({
+                                        index: 0,
+                                        routes: [{ name: 'Login' }]
+                                    })
+                                }}>
+                                <View style={styles.pv3}>
 
-                                <Icon3
-                                    name={'logout'}
-                                    size={28}
-                                    color={colors.themeColor}
-                                />
-                            </View>
-                            <View style={styles.pv4}>
-                               
+                                    <Icon3
+                                        name={'logout'}
+                                        size={28}
+                                        color={colors.themeColor}
+                                    />
+                                </View>
+                                <View style={styles.pv4}>
+
                                     <Text style={styles.text1} > LogOut </Text>
-                               
-                            </View>
+
+                                </View>
                             </TouchableOpacity>
                         </View>
-                        
+
                     </View>
                 </Animatable.View>
             </SafeAreaView>
@@ -182,17 +182,17 @@ export default memo(More);
 
 const styles = StyleSheet.create({
     pv1: {
-        width:SCREEN_WIDTH,
+        width: SCREEN_WIDTH,
         flexDirection: 'row',
         alignItems: 'center',
-         justifyContent:'flex-start',
+        justifyContent: 'flex-start',
         marginVertical: responsiveVerticalSize(3),
         marginHorizontal: responsiveHorizontalSize(1)
     },
     pv2: {
         marginVertical: responsiveVerticalSize(0.8),
         marginHorizontal: responsiveHorizontalSize(5),
-      
+
     },
     title: {
         fontWeight: 'bold',
@@ -221,21 +221,21 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
-        height:SCREEN_HEIGHT-200
-       
+        height: SCREEN_HEIGHT - 200
+
     },
     btn: {
-      borderColor:colors.themeColor,
-      borderWidth:0.5,
+        borderColor: colors.themeColor,
+        borderWidth: 0.5,
         alignItems: 'center',
         justifyContent: 'center',
         height: 55,
-        width: SCREEN_WIDTH-95,
-        backgroundColor:colors.white,
+        width: SCREEN_WIDTH - 95,
+        backgroundColor: colors.white,
         flexDirection: 'row',
-        borderRadius:10,
-        
+        borderRadius: 10,
+
 
     },
-    
+
 });
