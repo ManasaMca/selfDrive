@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Picker, StyleSheet, Text, TextInput, TouchableOpacity, Image, ScrollView, StatusBar } from "react-native";
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import colors from "../../stylesheet/colors";
 import styles from './cardetailsStyles'
 import { Linking } from 'react-native'
@@ -33,7 +33,7 @@ const Cardetails = ({ route }) => {
 
                     <Text style={styles.heatdtext}>
                         Details
-                </Text>
+                    </Text>
 
                 </View>
 
